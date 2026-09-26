@@ -51,6 +51,7 @@ python scripts/check_keys.py             # tests the Claude key
 | `02_ingestion_and_translation.json` | Workflow 01 plus Claude translation of non-English reviews (batches of 8, retries, failures are recorded per review instead of stopping the run). |
 
 | `03_full_pipeline.json` | The full pipeline: 02 plus sentiment/topic, issue category, reply drafts, status and a summary with accuracy, cost and timing. Needs the Claude credential on 4 HTTP nodes (Claude translate / classify / issue category / draft reply). Default about $0.30; `perStar` in `Config` scales it (40 = about $3). |
+| `04_trend_detection_slack_alert.json` | Reads the dashboard sheet's Reviews tab (sheet shared as "anyone with the link can view"), finds negative-review spikes per issue category (z >= 3.5, >= 8 reviews, trailing 4 weeks) and posts a summary to Slack. Paste your Slack Incoming Webhook URL into the **Post to Slack** node. No Claude cost. |
 
 Import: n8n > Workflows > Create workflow > `...` menu > **Import from file**, then **Execute workflow**.
 

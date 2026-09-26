@@ -1,0 +1,250 @@
+{
+  "id": "trendAlert04",
+  "name": "04 - Trend detection and Slack alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d4000000-0000-4000-8000-000000000001",
+      "name": "Manual trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Trend detection settings. The sheet must be shared as \"Anyone with the link can view\" so its CSV export works.\nreturn [{ json: {\n  sheetId: '1OF-8A70aY5uX-vLbbayVuJ4Tn7AATgmiiSUedpBpMsQ',\n  gid: 0,                 // gid of the Reviews tab (the number after gid= in the sheet URL)\n  window: 4,              // trailing weeks used as the baseline\n  zThresh: 3.5,           // z-score needed to flag a week\n  minCount: 8,            // ...and at least this many negative reviews in that week\n  lookbackWeeks: 12,      // only alert on flags in the last N weeks of data\n  dashboardUrl: 'https://docs.google.com/spreadsheets/d/1OF-8A70aY5uX-vLbbayVuJ4Tn7AATgmiiSUedpBpMsQ/edit',\n} }];\n"
+      },
+      "id": "d4000000-0000-4000-8000-000000000002",
+      "name": "Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://docs.google.com/spreadsheets/d/{{ $json.sheetId }}/export?format=csv&gid={{ $json.gid }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "d4000000-0000-4000-8000-000000000003",
+      "name": "Fetch Reviews tab (CSV)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $('Config').first().json;\nconst text = String($input.first().json.data);\nconst lines = text.split(/\\r?\\n/).filter(l => l.trim());\nconst head = lines[0].split(',').map(h => h.trim());\nconst col = n => head.indexOf(n);\nconst iDate = col('review_date'), iSent = col('sentiment'), iIssue = col('issue_category');\nif (iDate < 0 || iSent < 0 || iIssue < 0) {\n  throw new Error('The Reviews tab needs review_date, sentiment and issue_category columns (got: ' + head.join(', ') + ')');\n}\n// Negative reviews that have an issue category, bucketed into weeks counted from the earliest review.\nconst DAY = 86400000;\nconst neg = [];\nfor (const l of lines.slice(1)) {\n  const c = l.split(',');\n  if (c[iSent] === 'negative' && c[iIssue]) neg.push({ t: Date.parse(c[iDate] + 'T00:00:00Z'), issue: c[iIssue] });\n}\nconst all = lines.slice(1).map(l => Date.parse(l.split(',')[iDate] + 'T00:00:00Z')).filter(t => !isNaN(t));\nconst t0 = Math.min(...all);\nconst nWeeks = Math.floor((Math.max(...all) - t0) / (7 * DAY)) + 1;\nconst counts = {};\nfor (const r of neg) {\n  const w = Math.floor((r.t - t0) / (7 * DAY));\n  (counts[r.issue] = counts[r.issue] || new Array(nWeeks).fill(0))[w] += 1;\n}\n// z-score against the trailing baseline; the spread is floored at sqrt(mean) (Poisson) so quiet issues do not spike on noise.\nconst alerts = [];\nfor (const [issue, x] of Object.entries(counts)) {\n  for (let t = cfg.window; t < nWeeks; t++) {\n    const base = x.slice(t - cfg.window, t);\n    const mu = base.reduce((a, b) => a + b, 0) / base.length;\n    const sample = Math.sqrt(base.reduce((a, b) => a + (b - mu) ** 2, 0) / (base.length - 1));\n    const sd = Math.max(sample, Math.sqrt(Math.max(mu, 1)));\n    const z = (x[t] - mu) / sd;\n    if (z >= cfg.zThresh && x[t] >= cfg.minCount && t >= nWeeks - cfg.lookbackWeeks) {\n      alerts.push({\n        issue_category: issue,\n        week_start: new Date(t0 + t * 7 * DAY).toISOString().slice(0, 10),\n        count: x[t], previous_week: x[t - 1], wow_delta: x[t] - x[t - 1],\n        baseline_mean: Number(mu.toFixed(2)), z: Number(z.toFixed(2)),\n      });\n    }\n  }\n}\nalerts.sort((a, b) => b.z - a.z);\nreturn [{ json: { reviews_read: lines.length - 1, negative_with_issue: neg.length, weeks: nWeeks, issues: Object.keys(counts).length, alerts } }];\n"
+      },
+      "id": "d4000000-0000-4000-8000-000000000004",
+      "name": "Detect spikes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d4100000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.alerts.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d4000000-0000-4000-8000-000000000005",
+      "name": "Any spikes?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const cfg = $('Config').first().json;\nconst d = $input.first().json;\nconst rows = d.alerts.map(a =>\n  `- *${a.issue_category}*: ${a.count} negative reviews in the week of ${a.week_start} ` +\n  `(baseline ${a.baseline_mean}, z ${a.z}, ${a.wow_delta >= 0 ? '+' : ''}${a.wow_delta} vs previous week)`);\nconst text = `*Negative review spike detected* (${d.alerts.length} issue${d.alerts.length === 1 ? '' : 's'})\\n` +\n  rows.join('\\n') + `\\n<${cfg.dashboardUrl}|Open the Review Insights Dashboard>`;\nreturn [{ json: { ...d, slack_body: { text } } }];\n"
+      },
+      "id": "d4000000-0000-4000-8000-000000000006",
+      "name": "Build Slack message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.slack.com/services/PASTE/YOUR/WEBHOOK-URL",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.slack_body) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "d4000000-0000-4000-8000-000000000007",
+      "name": "Post to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        200
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "Replace the URL with your Slack Incoming Webhook URL (Slack app > Incoming Webhooks)."
+    },
+    {
+      "parameters": {
+        "jsCode": "const msg = $('Build Slack message').first().json;\nconst r = $input.first().json;\nconst failed = r.error !== undefined && r.error !== null;\nreturn [{ json: {\n  alerts_found: msg.alerts.length,\n  slack_status: failed ? 'failed' : 'sent',\n  slack_error: failed ? JSON.stringify(r.error).slice(0, 200) : null,\n  alerts: msg.alerts,\n  message_preview: msg.slack_body.text,\n} }];\n"
+      },
+      "id": "d4000000-0000-4000-8000-000000000008",
+      "name": "Alert result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const d = $input.first().json;\nreturn [{ json: { alerts_found: 0, slack_status: 'not_needed', reviews_read: d.reviews_read, weeks: d.weeks } }];\n"
+      },
+      "id": "d4000000-0000-4000-8000-000000000009",
+      "name": "No spikes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Fetch Reviews tab (CSV)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Reviews tab (CSV)": {
+      "main": [
+        [
+          {
+            "node": "Detect spikes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Detect spikes": {
+      "main": [
+        [
+          {
+            "node": "Any spikes?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any spikes?": {
+      "main": [
+        [
+          {
+            "node": "Build Slack message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No spikes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Slack message": {
+      "main": [
+        [
+          {
+            "node": "Post to Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post to Slack": {
+      "main": [
+        [
+          {
+            "node": "Alert result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}
