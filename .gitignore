@@ -1,0 +1,26 @@
+# secrets
+.env
+*.json.key
+kaggle.json
+service-account*.json
+credentials*.json
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# data (large / regenerable)
+data/raw/
+data/processed/
+mlruns/
+
+# n8n local state
+.n8n/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,342 @@
+{
+  "id": "translateMarc02",
+  "name": "02 - Ingestion + Claude translation",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "b2000000-0000-4000-8000-000000000001",
+      "name": "Manual trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Cost control: perStar=4 -> 20 reviews per language (~100 translations, roughly $0.05).\n// Set perStar=40 for the full 1,200-review sample (roughly $0.55).\nconst langs = ['en', 'de', 'es', 'fr', 'ja', 'zh'];\nreturn langs.map(lang => ({\n  json: { lang, split: 'test', perStar: 4, seed: 42, batchSize: 8, model: 'claude-haiku-4-5' },\n}));\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000002",
+      "name": "Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://huggingface.co/datasets/mteb/amazon_reviews_multi/resolve/main/{{ $json.lang }}/{{ $json.split }}.jsonl",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      },
+      "id": "b2000000-0000-4000-8000-000000000003",
+      "name": "Fetch MARC file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// One HTTP response per language (same order as the Languages node).\nconst cfg = $('Config').all();\nconst stamp = new Date().toISOString();\nconst out = [];\n\n// Seeded PRNG (mulberry32) so the stratified sample is reproducible.\nfunction rng(seed) {\n  let a = seed >>> 0;\n  return () => {\n    a = (a + 0x6D2B79F5) >>> 0;\n    let t = a;\n    t = Math.imul(t ^ (t >>> 15), t | 1);\n    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);\n    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;\n  };\n}\n\n$input.all().forEach((item, i) => {\n  const { lang, perStar, seed } = cfg[i].json;\n  const rows = String(item.json.data).split('\\n').filter(l => l.trim()).map(l => JSON.parse(l));\n\n  // The source files are sorted by star rating, so sample each rating separately.\n  const byLabel = {};\n  for (const r of rows) (byLabel[r.label] = byLabel[r.label] || []).push(r);\n\n  const rand = rng(seed);\n  for (const label of Object.keys(byLabel).sort()) {\n    const g = byLabel[label];\n    for (let k = g.length - 1; k > 0; k--) {\n      const j = Math.floor(rand() * (k + 1));\n      [g[k], g[j]] = [g[j], g[k]];\n    }\n    for (const r of g.slice(0, perStar)) {\n      const text = String(r.text || '').trim();\n      if (!text) continue;\n      out.push({\n        json: {\n          review_id: `marc-${r.id}`,\n          source: 'marc',\n          product_category: null,\n          rating: Number(label) + 1,\n          review_text: text,\n          detected_language: lang,\n          translated_text: null,\n          review_date: null,\n          ingested_at: stamp,\n        },\n      });\n    }\n  }\n});\n\nreturn out;\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000004",
+      "name": "Normalize & sample",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1000000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.detected_language }}",
+              "rightValue": "en",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b2000000-0000-4000-8000-000000000005",
+      "name": "Is English?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(i => ({\n  json: {\n    ...i.json,\n    translated_text: i.json.review_text,\n    translation_language: 'en',\n    translation_status: 'not_needed',\n    translation_error: null,\n    translation_prompt: null,\n    translation_model: null,\n  },\n}));\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000006",
+      "name": "English passthrough",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const SYSTEM = \"You are a professional translator for customer product reviews.\\n\\nFor every review you receive, do two things:\\n1. Detect the language of the review and give its ISO 639-1 code (for example \\\"en\\\", \\\"de\\\", \\\"es\\\", \\\"fr\\\", \\\"ja\\\", \\\"zh\\\").\\n2. Translate the review into natural, fluent English.\\n\\nRules:\\n- Preserve the reviewer's sentiment, tone, and level of emphasis. Do not soften complaints or exaggerate praise.\\n- Keep product names, brand names, numbers, prices, and emoji exactly as written.\\n- Do not summarise, explain, or add anything that is not in the original.\\n- If a review is already in English, return it unchanged.\\n\\nInput is a JSON array of objects with \\\"id\\\" and \\\"text\\\". Respond with JSON only, in exactly this shape and with one entry per input review, using the same ids:\\n{\\\"translations\\\":[{\\\"id\\\":\\\"<id>\\\",\\\"language\\\":\\\"<iso code>\\\",\\\"english\\\":\\\"<translation>\\\"}]}\";\nconst cfg = $('Config').first().json;\nconst reviews = $input.all().map(i => i.json);\nconst out = [];\nfor (let i = 0; i < reviews.length; i += cfg.batchSize) {\n  const batch = reviews.slice(i, i + cfg.batchSize);\n  const payload = batch.map(r => ({ id: r.review_id, text: r.review_text }));\n  out.push({\n    json: {\n      batch_no: out.length + 1,\n      reviews: batch,\n      request: {\n        model: cfg.model,\n        max_tokens: 4000,\n        system: SYSTEM,\n        messages: [{ role: 'user', content: JSON.stringify(payload) }],\n      },\n    },\n  });\n}\nreturn out;\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000007",
+      "name": "Make batches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "b2000000-0000-4000-8000-000000000008",
+      "name": "Claude translate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        440
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Needs a Header Auth credential: Name = x-api-key, Value = your Anthropic API key."
+    },
+    {
+      "parameters": {
+        "jsCode": "const batches = $('Make batches').all();\nconst out = [];\n$input.all().forEach((item, i) => {\n  const b = batches[i].json;\n  const map = {};\n  let err = null;\n  try {\n    if (item.json.error) throw new Error(JSON.stringify(item.json.error).slice(0, 200));\n    const raw = item.json.content[0].text.trim().replace(/^```(?:json)?\\s*|\\s*```$/g, '');\n    for (const t of JSON.parse(raw).translations) map[t.id] = t;\n  } catch (e) {\n    err = String((e && e.message) || e).slice(0, 200);\n  }\n  for (const r of b.reviews) {\n    const t = map[r.review_id];\n    out.push({\n      json: {\n        ...r,\n        translated_text: t ? t.english : null,\n        translation_language: t ? t.language : null,\n        translation_status: t ? 'ok' : 'failed',\n        translation_error: t ? null : (err || 'missing from response'),\n        translation_prompt: 'translate_v1',\n        translation_model: b.request.model,\n      },\n    });\n  }\n});\nreturn out;\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000009",
+      "name": "Parse translations",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b2000000-0000-4000-8000-000000000010",
+      "name": "Combine",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1780,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all().map(i => i.json);\nconst by_status = {};\nconst by_language = {};\nfor (const r of rows) {\n  by_status[r.translation_status] = (by_status[r.translation_status] || 0) + 1;\n  by_language[r.detected_language] = (by_language[r.detected_language] || 0) + 1;\n}\nconst language_mismatches = rows.filter(\n  r => r.translation_status === 'ok' && r.translation_language !== r.detected_language\n).length;\n\nlet tin = 0, tout = 0;\ntry {\n  for (const it of $('Claude translate').all()) {\n    const u = it.json.usage || {};\n    tin += u.input_tokens || 0;\n    tout += u.output_tokens || 0;\n  }\n} catch (e) { /* no translation calls were made */ }\n// Claude Haiku 4.5 list price: $1 / $5 per million input / output tokens.\nconst est_cost_usd = Number((tin / 1e6 * 1 + tout / 1e6 * 5).toFixed(4));\n\nreturn [{ json: { total_reviews: rows.length, by_status, by_language, language_mismatches,\n                  llm_input_tokens: tin, llm_output_tokens: tout, est_cost_usd } }];\n"
+      },
+      "id": "b2000000-0000-4000-8000-000000000011",
+      "name": "Translation summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "b2000000-0000-4000-8000-000000000012",
+      "name": "Translated reviews (swap for Google Sheets later)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Fetch MARC file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch MARC file": {
+      "main": [
+        [
+          {
+            "node": "Normalize & sample",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize & sample": {
+      "main": [
+        [
+          {
+            "node": "Is English?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is English?": {
+      "main": [
+        [
+          {
+            "node": "English passthrough",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Make batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "English passthrough": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make batches": {
+      "main": [
+        [
+          {
+            "node": "Claude translate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude translate": {
+      "main": [
+        [
+          {
+            "node": "Parse translations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse translations": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Combine": {
+      "main": [
+        [
+          {
+            "node": "Translation summary",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Translated reviews (swap for Google Sheets later)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

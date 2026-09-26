@@ -1,0 +1,21 @@
+# Core (Stage 1 - ingestion, EDA, LLM calls)
+pandas
+python-dotenv
+datasets
+anthropic
+requests
+
+# Added in later stages (install when needed)
+# sentence-transformers
+# scikit-learn
+# hdbscan
+# bertopic
+# fasttext-wheel
+# transformers
+# torch
+# fastapi
+# uvicorn
+# gradio
+# streamlit
+# mlflow
+# langfuse

@@ -1,0 +1,144 @@
+{
+  "id": "ingestMarc01",
+  "name": "01 - Ingestion: MARC -> unified schema",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "Manual trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const langs = ['en', 'de', 'es', 'fr', 'ja', 'zh'];\nreturn langs.map(lang => ({ json: { lang, split: 'test', perStar: 40, seed: 42 } }));\n"
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Languages",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://huggingface.co/datasets/mteb/amazon_reviews_multi/resolve/main/{{ $json.lang }}/{{ $json.split }}.jsonl",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Fetch MARC file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// One HTTP response per language (same order as the Languages node).\nconst cfg = $('Languages').all();\nconst stamp = new Date().toISOString();\nconst out = [];\n\n// Seeded PRNG (mulberry32) so the stratified sample is reproducible.\nfunction rng(seed) {\n  let a = seed >>> 0;\n  return () => {\n    a = (a + 0x6D2B79F5) >>> 0;\n    let t = a;\n    t = Math.imul(t ^ (t >>> 15), t | 1);\n    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);\n    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;\n  };\n}\n\n$input.all().forEach((item, i) => {\n  const { lang, perStar, seed } = cfg[i].json;\n  const rows = String(item.json.data).split('\\n').filter(l => l.trim()).map(l => JSON.parse(l));\n\n  // The source files are sorted by star rating, so sample each rating separately.\n  const byLabel = {};\n  for (const r of rows) (byLabel[r.label] = byLabel[r.label] || []).push(r);\n\n  const rand = rng(seed);\n  for (const label of Object.keys(byLabel).sort()) {\n    const g = byLabel[label];\n    for (let k = g.length - 1; k > 0; k--) {\n      const j = Math.floor(rand() * (k + 1));\n      [g[k], g[j]] = [g[j], g[k]];\n    }\n    for (const r of g.slice(0, perStar)) {\n      const text = String(r.text || '').trim();\n      if (!text) continue;\n      out.push({\n        json: {\n          review_id: `marc-${r.id}`,\n          source: 'marc',\n          product_category: null,\n          rating: Number(label) + 1,\n          review_text: text,\n          detected_language: lang,\n          translated_text: null,\n          review_date: null,\n          ingested_at: stamp,\n        },\n      });\n    }\n  }\n});\n\nreturn out;\n"
+      },
+      "id": "a1000000-0000-4000-8000-000000000004",
+      "name": "Normalize & sample",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const reviews = $input.all().map(i => i.json);\nconst by_language = {};\nconst by_rating = {};\nfor (const r of reviews) {\n  by_language[r.detected_language] = (by_language[r.detected_language] || 0) + 1;\n  by_rating[r.rating] = (by_rating[r.rating] || 0) + 1;\n}\nreturn [{ json: { total_reviews: reviews.length, by_language, by_rating } }];\n"
+      },
+      "id": "a1000000-0000-4000-8000-000000000005",
+      "name": "Ingestion summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        100
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a1000000-0000-4000-8000-000000000006",
+      "name": "Unified reviews (swap for Google Sheets later)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        900,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Languages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Languages": {
+      "main": [
+        [
+          {
+            "node": "Fetch MARC file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch MARC file": {
+      "main": [
+        [
+          {
+            "node": "Normalize & sample",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize & sample": {
+      "main": [
+        [
+          {
+            "node": "Ingestion summary",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Unified reviews (swap for Google Sheets later)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}
