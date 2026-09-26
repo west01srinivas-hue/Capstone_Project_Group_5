@@ -131,7 +131,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const msg = $('Build Slack message').first().json;\nconst r = $input.first().json;\nconst failed = r.error !== undefined && r.error !== null;\nreturn [{ json: {\n  alerts_found: msg.alerts.length,\n  slack_status: failed ? 'failed' : 'sent',\n  slack_error: failed ? JSON.stringify(r.error).slice(0, 200) : null,\n  alerts: msg.alerts,\n  message_preview: msg.slack_body.text,\n} }];\n"
+        "jsCode": "const msg = $('Build Slack message').first().json;\nconst r = $input.first().json;\n// A real Slack Incoming Webhook answers with exactly \"ok\"; anything else (an error, or an HTML page from a wrong URL) is a failure.\nconst body = typeof r.data === 'string' ? r.data.trim() : '';\nconst ok = !r.error && body === 'ok';\nreturn [{ json: {\n  alerts_found: msg.alerts.length,\n  slack_status: ok ? 'sent' : 'failed',\n  slack_error: ok ? null : (r.error ? JSON.stringify(r.error).slice(0, 200)\n    : 'Slack did not answer \"ok\" (got: ' + body.slice(0, 60).replace(/\\s+/g, ' ') + '). Check the webhook URL in the Post to Slack node.'),\n  alerts: msg.alerts,\n  message_preview: msg.slack_body.text,\n} }];\n"
       },
       "id": "d4000000-0000-4000-8000-000000000008",
       "name": "Alert result",
