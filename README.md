@@ -20,6 +20,14 @@ LLM: Claude only (Haiku 4.5 by default; model name is set in `.env`).
 | `data/` | Local data (`raw/` and `processed/` are git-ignored) |
 | `notebooks/`, `tests/`, `docs/` | EDA, tests, report material |
 
+## Data source
+
+Kaggle: `mexwell/amazon-reviews-multi` (Multilingual Amazon Reviews Corpus, Keung et al. 2020): download it,
+keep `train.csv`, `validation.csv`, `test.csv` in one folder, and set `KAGGLE_MARC_DIR` in `.env` to that folder.
+The sample CSVs in `data/samples/` are checked against those files by `scripts/enrich_from_kaggle.py`.
+The n8n workflows download the same corpus from its Hugging Face copy (n8n Cloud cannot read local files);
+review ids, stars and text are identical.
+
 ## Unified review schema
 
 `review_id, source, product_category, rating, review_text, detected_language, translated_text, review_date`
@@ -49,6 +57,8 @@ Value = your Anthropic API key. Then open the **Claude translate** node and pick
 
 Cost control: the `Config` node sets `perStar` (default 4, about 100 translations, roughly $0.06).
 Set it to 40 for the full 1,200-review sample (roughly $0.55).
+
+Stage 4 (issue clustering and trend detection): `python scripts/run_stage4.py issues`, then `cluster issue`, `label issue`, `trends issue`.
 
 ## Running the application
 

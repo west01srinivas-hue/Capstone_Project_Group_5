@@ -73,13 +73,22 @@ def train_baseline() -> dict:
     from sklearn.linear_model import LogisticRegression
     from datasets import load_dataset
 
+    kaggle_dir = os.getenv("KAGGLE_MARC_DIR")  # preferred source: the Kaggle copy of MARC
+    if kaggle_dir:
+        k = pd.read_csv(Path(kaggle_dir) / "validation.csv", usecols=["stars", "review_title", "review_body", "language"])
+        k["text"] = (k.review_title.fillna("").str.strip() + "\n\n" + k.review_body.fillna("").str.strip()).str.strip()
+        frames = {lang: (k[k.language == lang].text, k[k.language == lang].stars.map(stars_to_label)) for lang in LANGS}
+    else:  # fallback: same corpus from the Hugging Face copy
+        frames = {}
+        for lang in LANGS:
+            d = load_dataset("json", data_files=f"hf://datasets/mteb/amazon_reviews_multi/{lang}/validation.jsonl",
+                             split="train").to_pandas()
+            frames[lang] = (d["text"], (d["label"].astype(int) + 1).map(stars_to_label))
+
     models = {}
-    for lang in LANGS:
-        d = load_dataset("json", data_files=f"hf://datasets/mteb/amazon_reviews_multi/{lang}/validation.jsonl",
-                         split="train").to_pandas()
-        y = (d["label"].astype(int) + 1).map(stars_to_label)
+    for lang, (text, y) in frames.items():
         vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(1, 3), min_df=2, sublinear_tf=True, max_features=200000)
-        models[lang] = (vec, LogisticRegression(max_iter=1000, C=3.0).fit(vec.fit_transform(d["text"]), y))
+        models[lang] = (vec, LogisticRegression(max_iter=1000, C=3.0).fit(vec.fit_transform(text), y))
     return models
 
 
@@ -100,7 +109,7 @@ def baseline_predict(models: dict, df: pd.DataFrame):
 def run_baseline(args) -> None:
     test = load_sample(args.split)
     test["pred"], _ = baseline_predict(train_baseline(), test)
-    print(f"baseline trained on the MARC validation split; evaluating on '{args.split}' ({len(test)})")
+    print(f"baseline trained on the MARC validation split (Kaggle copy if KAGGLE_MARC_DIR is set); evaluating on '{args.split}' ({len(test)})")
     report(test, "pred", f"TF-IDF + logistic regression baseline ({args.split})")
 
 

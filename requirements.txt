@@ -6,7 +6,7 @@ anthropic
 requests
 
 # Added in later stages (install when needed)
-# sentence-transformers
+sentence-transformers
 scikit-learn
 # hdbscan
 # bertopic

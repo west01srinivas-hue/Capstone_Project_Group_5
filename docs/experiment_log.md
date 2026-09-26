@@ -9,6 +9,8 @@ Model: Claude Haiku 4.5 (list price $1 / $5 per million input / output tokens). 
 - The mirror has no product category or review date, so those schema fields are empty for MARC.
 - Verified: no encoding damage in any language (the odd apostrophe seen earlier was only the Windows console).
 
+**Switched to the Kaggle copy as the source of record (2026-09-26).** The team's downloaded Kaggle dataset `mexwell/amazon-reviews-multi` (train 330 MB, validation, test; 30,000 rows per test/validation file, 5,000 per language, 6,000 per star) was compared with the Hugging Face copy: all 1,200 sample reviews are in Kaggle's `test.csv` with identical review ids, star ratings and text (title + body), so every Claude result already paid for stays valid. Kaggle adds `product_category` (31 categories), `product_id` and `reviewer_id`, and still has no review date. `scripts/enrich_from_kaggle.py` joined the categories into both samples after verifying every row; the baseline now trains on Kaggle's `validation.csv` (72.9% 3-way, 0.655 macro-F1, 83.7% binary vs 72.9% / 0.654 / 83.9% on the Hugging Face copy, so the copies are equivalent). The n8n Cloud workflows still download from the Hugging Face copy, because n8n Cloud cannot read local files; it is the same corpus.
+
 ## E2. Ingestion workflow in n8n (2026-09-26)
 - Workflow 01 verified by a headless local run: 1,200 items, 200 per language, 240 per star, unique ids.
 
@@ -84,9 +86,39 @@ Findings:
 - Star labels are a noisy proxy for text sentiment (E5), so the ceiling for any text-only model is well below 85% on 3-way.
 - One stray topic label appeared ("compatibility", 1 review, outside the taxonomy); ignore or map to "features".
 
+## E7. Issue clustering (2026-09-26)
+Input: the 765 reviews Claude (prompt v3) classified negative, out of the 1,560 test and train-sample reviews. Embeddings: `paraphrase-multilingual-MiniLM-L12-v2` (runs locally, free). Clustering is unsupervised, so reusing the stacker's training reviews leaks nothing.
+
+| Text that is embedded | k-means silhouette (k = 6..14) | HDBSCAN | Typical share of one Claude topic in a cluster |
+|---|---|---|---|
+| Native review text (6 languages) | 0.037 - 0.044 | 0 clusters, 100% noise | 42-86%, mostly 52-72% |
+| Claude's short English "issue phrase" (`prompts/issue_v1.txt`) | 0.056 - 0.071 (best k = 13: 0.0706) | 3 clusters, 86% noise | 42-96%, mostly 65-85% |
+
+- Embedding what went wrong (a short English issue phrase) instead of the raw review lifts silhouette by about 1.6x and makes clusters mix languages evenly, which is the goal of cross-language grouping. This is the proposal's "translate-then-analyze vs native" comparison; translate-then-analyze wins for clustering.
+- Absolute silhouette is still low (0.07), as expected for short-phrase embeddings of very diverse product reviews. Treat it as a coarse measure; the more useful evidence is that the clusters read clearly (below). HDBSCAN is not usable on this data (mostly noise), so k-means with k = 13 is the choice.
+- Cost: issue phrases $0.219 for 765 reviews (my estimate was $0.13; input was larger than assumed), cluster labels $0.008.
+
+Cluster labels written by Claude (k = 13; size, dominant topic share):
+delayed or missing shipments and poor support (65, shipping 85%); damaged packaging and product during shipping (56, shipping 70%); wrong item received or non-functional (69); missing parts and assembly defects (57); product fails or breaks shortly after purchase (45, quality 96%); defective or malfunctioning components (49); poor overall quality and durability (79); connectivity and performance issues (72); design flaws and uncomfortable fit (88); wrong size sent or undersized (42); poor content quality and printing errors (56); product does not work as advertised (39); overpriced and rapid price drops (48, price only 42%).
+Still to do: a human spot-check of about 100 reviews for cluster and topic precision (proposal metric).
+
+## E8. Trend detection with planted spikes (2026-09-26)
+MARC has no review dates, so `src/analysis/trends.py` gives each review a simulated week (uniform over 12 weeks) and plants three spikes by moving extra reviews of a cluster into one week: delayed shipments 5x normal in week 7, damaged packaging 4x in week 9, price complaints 3x in week 10. Detection compares each cluster-week with the trailing 4 weeks (z-score with a Poisson floor on the spread, plus an EWMA control chart). Results are averaged over 200 random timelines.
+
+Chosen setting (z >= 3.5 and at least 8 reviews in the week), measured on the same simulation it was tuned on, so treat as optimistic:
+
+| Rule | Precision | Recall | Precision@3 | False alarms per 12 weeks (13 clusters) |
+|---|---|---|---|---|
+| z-score | 88.6% | 94.3% | 91.3% | 0.47 (0.53 on timelines with no spike) |
+| EWMA | 90.6% | 86.0% | 91.3% | 0.34 |
+
+Threshold sweep for the z-score rule (min 5 reviews): z 3.0 gives recall 97%, precision 77%, 1.07 false alarms; z 4.0 gives recall 90.7%, precision 91.6%, 0.32 false alarms; z 5.0 gives recall 75%, precision 97%. With z 3 the 5x and 4x spikes were always caught and the 3x spike 91% of the time.
+Precision@5 (the proposal metric) cannot exceed 0.6 with 3 planted spikes, so Precision@3 is reported. Alerts are weekly here; real alert latency depends on the schedule of the Slack workflow.
+Week-over-week deltas are in the detector output (e.g. delayed shipments: 3 reviews the week before, 27 in the spike week).
+
 ## Spend so far (approx.)
-Translation tests $0.02 + $0.06 (local) + $0.06 (n8n Cloud); sentiment E5 $0.53; E6 $0.25 (train sample) + $0.40 (test, v3) = $0.65. Total about $1.33 of $5.
+Translation tests $0.02 + $0.06 (local) + $0.06 (n8n Cloud); sentiment E5 $0.53; E6 $0.65; issue phrases and cluster labels $0.23. Total about $1.56 of $5.
 
 ## Next
-- Manual spot-check of topics on about 100 reviews (proposal metric: extraction precision).
-- Clustering and trend detection (Stage 4).
+- Human spot-check of clusters and topics (about 100 reviews).
+- Stage 5: response generation (templates by sentiment and issue, guardrails, LLM-judge). Stage 6: dashboard (Google Sheets, Looker Studio), Slack alerts, FastAPI + deployment. Clustering needs a Python service (n8n Cloud cannot run embeddings), so it goes behind the planned FastAPI endpoints.
