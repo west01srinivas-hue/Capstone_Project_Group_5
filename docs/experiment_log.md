@@ -137,8 +137,29 @@ Findings:
 - Bugs met: Sonnet 5 returns a thinking block first (parser now reads the first text block) and its thinking can exhaust a small `max_tokens` (raised to 2000).
 - Cost: drafting about $0.06 and judging about $0.14 per 48 replies; whole stage about $0.61 including both versions and re-runs.
 
+## E10. FastAPI service and LLMOps logging (2026-09-26)
+`src/api/main.py` exposes the proposal's three endpoints plus `/health`:
+- `POST /analyze` (up to 20 reviews): sentiment taken from Claude's estimated star rating, topic, confidence (prompt classify_v3).
+- `POST /draft-response`: classifies the review if sentiment or topic is not supplied, writes an issue phrase for negatives, drafts the reply (response_v2), optionally scores it with the judge, and returns a status: negatives are always `pending_human_review`; neutral/positive are `auto_approved` only if the judge accepts them.
+- `POST /trends`: takes (cluster, date) events, builds weekly counts, and returns spikes plus the latest week's week-over-week table (z-score rule, default z 3.5 and 8 reviews; needs at least 5 weeks).
+LLMOps built in (`src/llmops/tracking.py`): every Claude call is logged (prompt version, model, tokens, cost, latency) to `data/processed/llm_calls.jsonl`; a hard spend cap (`MAX_SPEND_USD`, default $1) makes the service answer 429 instead of spending more; `SERVICE_API_KEY` makes callers send `X-API-Key` (needed when the service is public).
+Tests: 11 pytest tests (`tests/`), none call Claude: spike detection, auth, validation, cap, `/trends` week arithmetic.
+Live check with real Claude calls: 4 multilingual reviews classified correctly (EN shipping complaint, JA and DE neutral, ES positive); a negative EN reply was drafted with the issue phrase "arrived late and box was crushed", judged 4/5/5/5 and queued for a human; a positive ES reply was judged 5/5/5/5 and auto-approved. Per call costs: classify about $0.001, draft $0.0012, judge $0.0026; the whole live test cost $0.0115.
+Known small issue: the reply signature ("The Acme Store Customer Care Team") stays in English even in Spanish, Japanese, etc. replies.
+Not built yet: nothing here embeds or clusters new reviews (that needs the sentence-transformers model, too heavy for a free Space), so `/trends` takes cluster labels as input; Langfuse tracing needs an account.
+
+## E11. Full pipeline in n8n: workflow 03 (2026-09-26)
+`n8n/03_full_pipeline.json` (25 nodes) covers the main brief's first deliverable inside n8n: ingest (MARC from Hugging Face) -> simulated posting dates -> translate non-English (Claude) -> sentiment + topic + estimated stars (classify_v3) -> for negatives, issue phrase + issue category (`prompts/issue_cluster_v1.txt`) -> reply drafting with the 21 playbooks (response_v2, synthetic first names) -> per-review status -> a summary node reporting counts, accuracy, tokens, cost and timing. Each Claude stage retries 3 times and continues on error, so a failed call is recorded per review instead of stopping the run.
+Design choices and limits:
+- n8n Cloud cannot run the embedding model, so issue grouping in n8n is a Claude classifier over the 13 named categories found by the embedding + k-means analysis (E7), stored in `prompts/issue_taxonomy_v1.json`. On 100 negatives Claude's category matched the k-means cluster 43% of the time (`scripts/eval_issue_assignment.py`, $0.03); the disagreements were mostly reasonable re-assignments (for example "misleading description" going to "does not work as advertised" rather than an unrelated price cluster), and k-means is not ground truth, so this is not an accuracy figure. Only 2% of reviews got "none fits".
+- Dates are simulated (MARC has none); the trend and alert stage is not in this workflow yet.
+- The judge is not in n8n (kept in Python and the API): negatives get `pending_human_review`, everything else `draft_ready`.
+Local headless run, real key, 120 reviews (20 per language): translation 100 ok / 20 not needed / 0 failed; classification 120 ok; issue category 62 ok (all negatives); replies 58 `draft_ready` + 62 `pending_human_review`; 0 failures. Sentiment accuracy in that run: 76.7% 3-way, 87.5% positive vs negative (matches E5/E6). Failure test with an invalid key: all 25 nodes finish, every stage marks its reviews failed, nothing crashes.
+Verified on the team's n8n Cloud (2026-09-26, full run from the trigger): 120 reviews, translation 100 ok / 20 not needed, classification 120 ok, issue category 60 ok / 59 not needed / 1 failed (one review missing from the model's answer; its reply was still drafted without an issue), replies 59 `draft_ready` + 61 `pending_human_review`; sentiment accuracy 75.8% 3-way and 87.5% positive vs negative; cost $0.2987; 81.3 s wall time (0.68 s per review). Same figures as the local run. Note: n8n's execution view can show 'Succeeded' with empty output for the last nodes; read the Pipeline summary node in the editor after a run.
+Cost and speed (measured): $0.30 for 120 reviews = about $2.50 per 1,000 reviews (translation $0.060, classification $0.050, issue category $0.022, replies $0.168). Wall time 80 s for 120 reviews, so about 11 minutes for 1,000 reviews; this beats the 1,000 reviews/day target on speed but not on cost: 1,000 reviews per day would cost about $2.50 per day with Haiku, more than the remaining credit allows for a long run. Automated time to a draft is about a minute per batch versus the 3-hour target; human approval time for negatives is not included.
+
 ## Spend so far (approx.)
-Translation tests $0.14; sentiment E5 $0.53; E6 $0.65; issue phrases and cluster labels $0.23; response generation and judging $0.61. Total about $2.17 of $5.
+Translation tests $0.14; sentiment E5 $0.53; E6 $0.65; issue phrases and cluster labels $0.23; response generation and judging $0.61. API service test $0.01; issue-category check $0.03; workflow 03 local test $0.30. Total about $2.51 of $5.
 
 ## Next
 - Human spot-check of clusters and topics (about 100 reviews).

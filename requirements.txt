@@ -13,9 +13,11 @@ scikit-learn
 # fasttext-wheel
 # transformers
 # torch
-# fastapi
-# uvicorn
+fastapi
+uvicorn
 # gradio
 # streamlit
 # mlflow
 # langfuse
+httpx
+pytest

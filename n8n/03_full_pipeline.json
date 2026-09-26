@@ -1,0 +1,766 @@
+{
+  "id": "fullPipeline03",
+  "name": "03 - Full pipeline: ingest, translate, analyse, draft replies",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c3000000-0000-4000-8000-000000000001",
+      "name": "Manual trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Cost control: perStar=4 gives about 120 reviews through the whole pipeline (roughly $0.30 of Claude credit).\n// perStar=40 gives 1,200 reviews (roughly $3). Check your credit before raising it.\nconst langs = ['en', 'de', 'es', 'fr', 'ja', 'zh'];\nconst startedAt = Date.now();\nreturn langs.map(lang => ({\n  json: { lang, split: 'test', perStar: 4, seed: 42, batchSize: 8, model: 'claude-haiku-4-5',\n          startDate: '2026-07-06', startedAt },\n}));\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000002",
+      "name": "Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://huggingface.co/datasets/mteb/amazon_reviews_multi/resolve/main/{{ $json.lang }}/{{ $json.split }}.jsonl",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      },
+      "id": "c3000000-0000-4000-8000-000000000003",
+      "name": "Fetch MARC file",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// One HTTP response per language (same order as the Languages node).\nconst cfg = $('Config').all();\nconst stamp = new Date().toISOString();\nconst out = [];\n\n// Seeded PRNG (mulberry32) so the stratified sample is reproducible.\nfunction rng(seed) {\n  let a = seed >>> 0;\n  return () => {\n    a = (a + 0x6D2B79F5) >>> 0;\n    let t = a;\n    t = Math.imul(t ^ (t >>> 15), t | 1);\n    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);\n    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;\n  };\n}\n\n$input.all().forEach((item, i) => {\n  const { lang, perStar, seed } = cfg[i].json;\n  const rows = String(item.json.data).split('\\n').filter(l => l.trim()).map(l => JSON.parse(l));\n\n  // The source files are sorted by star rating, so sample each rating separately.\n  const byLabel = {};\n  for (const r of rows) (byLabel[r.label] = byLabel[r.label] || []).push(r);\n\n  const rand = rng(seed);\n  for (const label of Object.keys(byLabel).sort()) {\n    const g = byLabel[label];\n    for (let k = g.length - 1; k > 0; k--) {\n      const j = Math.floor(rand() * (k + 1));\n      [g[k], g[j]] = [g[j], g[k]];\n    }\n    for (const r of g.slice(0, perStar)) {\n      const text = String(r.text || '').trim();\n      if (!text) continue;\n      out.push({\n        json: {\n          review_id: `marc-${r.id}`,\n          source: 'marc',\n          product_category: null,\n          rating: Number(label) + 1,\n          review_text: text,\n          detected_language: lang,\n          translated_text: null,\n          review_date: null,\n          ingested_at: stamp,\n        },\n      });\n    }\n  }\n});\n\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000004",
+      "name": "Normalize & sample",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// MARC has no review dates, so give each review a simulated posting date in a 12-week window\n// (reproducible: same seed, same dates). Real platforms would supply the true date here.\nconst cfg = $('Config').first().json;\nlet a = (cfg.seed + 7) >>> 0;\nconst rand = () => {\n  a = (a + 0x6D2B79F5) >>> 0;\n  let t = a;\n  t = Math.imul(t ^ (t >>> 15), t | 1);\n  t ^= t + Math.imul(t ^ (t >>> 7), t | 61);\n  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;\n};\nconst start = new Date(cfg.startDate + 'T00:00:00Z').getTime();\nreturn $input.all().map(i => {\n  const week = Math.floor(rand() * 12);\n  const day = Math.floor(rand() * 7);\n  return { json: { ...i.json, review_date: new Date(start + (week * 7 + day) * 86400000).toISOString().slice(0, 10), sim_week: week } };\n});\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000005",
+      "name": "Simulate dates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1000000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.detected_language }}",
+              "rightValue": "en",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3000000-0000-4000-8000-000000000006",
+      "name": "Is English?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(i => ({\n  json: {\n    ...i.json,\n    translated_text: i.json.review_text,\n    translation_language: 'en',\n    translation_status: 'not_needed',\n    translation_error: null,\n    translation_prompt: null,\n    translation_model: null,\n  },\n}));\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000007",
+      "name": "English passthrough",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const SYSTEM = \"You are a professional translator for customer product reviews.\\n\\nFor every review you receive, do two things:\\n1. Detect the language of the review and give its ISO 639-1 code (for example \\\"en\\\", \\\"de\\\", \\\"es\\\", \\\"fr\\\", \\\"ja\\\", \\\"zh\\\").\\n2. Translate the review into natural, fluent English.\\n\\nRules:\\n- Preserve the reviewer's sentiment, tone, and level of emphasis. Do not soften complaints or exaggerate praise.\\n- Keep product names, brand names, numbers, prices, and emoji exactly as written.\\n- Do not summarise, explain, or add anything that is not in the original.\\n- If a review is already in English, return it unchanged.\\n\\nInput is a JSON array of objects with \\\"id\\\" and \\\"text\\\". Respond with JSON only, in exactly this shape and with one entry per input review, using the same ids:\\n{\\\"translations\\\":[{\\\"id\\\":\\\"<id>\\\",\\\"language\\\":\\\"<iso code>\\\",\\\"english\\\":\\\"<translation>\\\"}]}\";\nconst cfg = $('Config').first().json;\nconst reviews = $input.all().map(i => i.json);\nconst out = [];\nfor (let i = 0; i < reviews.length; i += cfg.batchSize) {\n  const batch = reviews.slice(i, i + cfg.batchSize);\n  const payload = batch.map(r => ({ id: r.review_id, text: r.review_text }));\n  out.push({\n    json: {\n      batch_no: out.length + 1,\n      reviews: batch,\n      request: {\n        model: cfg.model,\n        max_tokens: 4000,\n        system: SYSTEM,\n        messages: [{ role: 'user', content: JSON.stringify(payload) }],\n      },\n    },\n  });\n}\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000008",
+      "name": "Make batches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "c3000000-0000-4000-8000-000000000009",
+      "name": "Claude translate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        440
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Needs a Header Auth credential: Name = x-api-key, Value = your Anthropic API key."
+    },
+    {
+      "parameters": {
+        "jsCode": "const batches = $('Make batches').all();\nconst out = [];\n$input.all().forEach((item, i) => {\n  const b = batches[i].json;\n  const map = {};\n  let err = null;\n  try {\n    if (item.json.error) throw new Error(JSON.stringify(item.json.error).slice(0, 200));\n    const raw = item.json.content[0].text.trim().replace(/^```(?:json)?\\s*|\\s*```$/g, '');\n    for (const t of JSON.parse(raw).translations) map[t.id] = t;\n  } catch (e) {\n    err = String((e && e.message) || e).slice(0, 200);\n  }\n  for (const r of b.reviews) {\n    const t = map[r.review_id];\n    out.push({\n      json: {\n        ...r,\n        translated_text: t ? t.english : null,\n        translation_language: t ? t.language : null,\n        translation_status: t ? 'ok' : 'failed',\n        translation_error: t ? null : (err || 'missing from response'),\n        translation_prompt: 'translate_v1',\n        translation_model: b.request.model,\n      },\n    });\n  }\n});\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000010",
+      "name": "Parse translations",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c3000000-0000-4000-8000-000000000011",
+      "name": "Combine",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const SYSTEM = \"You are a customer-experience analyst who classifies product and service reviews written in any language.\\n\\nFor every review you receive, return:\\n1. \\\"sentiment\\\": the reviewer's overall verdict on the product or service, one of:\\n   - \\\"positive\\\": overall satisfied. Minor caveats do not change this: \\\"good but not perfect\\\", \\\"works well, a bit pricey\\\", \\\"does what I need, wish it were stronger\\\" are all positive.\\n   - \\\"neutral\\\": genuinely torn or lukewarm. Significant good points and significant bad points of similar weight, or \\\"okay\\\", \\\"average\\\", \\\"does the job, nothing special\\\", with no clear lean toward recommending or regretting.\\n   - \\\"negative\\\": the main message is disappointment or a real problem (defect, not as described, does not work, would not buy again or recommend). Praise for looks or side points does not outweigh it.\\n2. \\\"topic\\\": the single main subject of the review, one of:\\n   - \\\"shipping\\\": delivery speed, packaging, damaged or missing items, wrong item sent\\n   - \\\"quality\\\": build quality, durability, defects, how well it works\\n   - \\\"support\\\": customer service, returns, refunds, seller communication\\n   - \\\"features\\\": missing or unwanted functionality, fit, compatibility, size, design\\n   - \\\"price\\\": value for money, price changes, cost\\n   - \\\"ux\\\": ease of use, setup, instructions, interface, software or app experience\\n   - \\\"other\\\": anything that does not fit above\\n3. \\\"confidence\\\": a number from 0 to 1 for how sure you are of the sentiment.\\n4. \\\"stars\\\": the star rating (integer 1 to 5) you estimate this reviewer gave. 1 = terrible, 2 = poor, 3 = mixed or average, 4 = good, 5 = excellent.\\n\\nJudge the text itself, not any rating. Sarcasm counts as its true meaning. Do not translate; classify in the original language.\\n\\nInput is a JSON array of objects with \\\"id\\\" and \\\"text\\\". Respond with JSON only, in exactly this shape and with one entry per input review, using the same ids:\\n{\\\"classifications\\\":[{\\\"id\\\":\\\"<id>\\\",\\\"sentiment\\\":\\\"positive|neutral|negative\\\",\\\"topic\\\":\\\"<topic>\\\",\\\"confidence\\\":<number>,\\\"stars\\\":<1-5>}]}\";\nconst cfg = $('Config').first().json;\nconst reviews = $input.all().map(i => i.json);\nconst out = [];\nfor (let i = 0; i < reviews.length; i += 10) {\n  const batch = reviews.slice(i, i + 10);\n  const payload = batch.map(r => ({ id: r.review_id, text: r.review_text.slice(0, 1500) }));\n  out.push({\n    json: {\n      batch_no: out.length + 1,\n      reviews: batch,\n      request: {\n        model: cfg.model,\n        max_tokens: 2000,\n        system: SYSTEM,\n        messages: [{ role: 'user', content: JSON.stringify(payload) }],\n      },\n    },\n  });\n}\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000012",
+      "name": "Make classify batches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "c3000000-0000-4000-8000-000000000013",
+      "name": "Claude classify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Uses the Header Auth credential (Name x-api-key, Value = your Anthropic API key)."
+    },
+    {
+      "parameters": {
+        "jsCode": "const TOPICS = ['shipping', 'quality', 'support', 'features', 'price', 'ux', 'other'];\nconst batches = $('Make classify batches').all();\nconst label = s => {\n  const n = Math.round(Math.min(Math.max(Number(s), 1), 5));\n  return n <= 2 ? 'negative' : n === 3 ? 'neutral' : 'positive';\n};\nconst out = [];\n$input.all().forEach((item, i) => {\n  const b = batches[i].json;\n  const map = {};\n  let err = null;\n  try {\n    if (item.json.error) throw new Error(JSON.stringify(item.json.error).slice(0, 200));\n    const raw = item.json.content[0].text.trim().replace(/^```(?:json)?\\s*|\\s*```$/g, '');\n    for (const c of JSON.parse(raw).classifications) map[c.id] = c;\n  } catch (e) {\n    err = String((e && e.message) || e).slice(0, 200);\n  }\n  for (const r of b.reviews) {\n    const c = map[r.review_id];\n    out.push({\n      json: {\n        ...r,\n        sentiment: c ? label(c.stars) : null,\n        stars_estimate: c ? Number(c.stars) : null,\n        model_label: c ? c.sentiment : null,\n        topic: c ? (TOPICS.includes(c.topic) ? c.topic : 'other') : null,\n        confidence: c ? c.confidence : null,\n        classify_status: c ? 'ok' : 'failed',\n        classify_error: c ? null : (err || 'missing from response'),\n      },\n    });\n  }\n});\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000014",
+      "name": "Parse classifications",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c3100000-0000-4000-8000-000000000001",
+              "leftValue": "={{ $json.sentiment }}",
+              "rightValue": "negative",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c3000000-0000-4000-8000-000000000030",
+      "name": "Is negative?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().map(i => ({\n  json: { ...i.json, issue: null, cluster_id: null, cluster_label: null, cluster_status: 'not_needed', cluster_error: null },\n}));\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000031",
+      "name": "No issue category",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const SYSTEM = \"You sort negative customer reviews, written in any language, into a fixed list of issue categories.\\n\\nCategories (id: name):\\n0: Damaged packaging and product during shipping\\n1: Poor overall quality and durability\\n2: Product fails or breaks shortly after purchase\\n3: Product does not work as advertised\\n4: Poor content quality and printing errors\\n5: Defective or malfunctioning components\\n6: Delayed or missing shipments and poor support\\n7: Wrong item received or non-functional product\\n8: Design flaws and uncomfortable fit\\n9: Connectivity and performance issues\\n10: Overpriced and rapid price drops\\n11: Missing parts and assembly defects\\n12: Wrong size sent or undersized product\\n\\nFor every review return:\\n- \\\"issue\\\": a short English phrase (at most 8 words) naming the main problem the reviewer reports. Name the problem, not the product.\\n- \\\"category\\\": the id of the best matching category, or -1 if none of them fits.\\n\\nIf a review names several problems, use the one the reviewer stresses most.\\n\\nInput is a JSON array of objects with \\\"id\\\" and \\\"text\\\". Respond with JSON only, in exactly this shape and with one entry per input review, using the same ids:\\n{\\\"assignments\\\":[{\\\"id\\\":\\\"<id>\\\",\\\"issue\\\":\\\"<short English phrase>\\\",\\\"category\\\":<id or -1>}]}\";\nconst cfg = $('Config').first().json;\nconst reviews = $input.all().map(i => i.json);\nconst out = [];\nfor (let i = 0; i < reviews.length; i += 10) {\n  const batch = reviews.slice(i, i + 10);\n  const payload = batch.map(r => ({ id: r.review_id, text: r.review_text.slice(0, 700) }));\n  out.push({\n    json: {\n      batch_no: out.length + 1,\n      reviews: batch,\n      request: {\n        model: cfg.model,\n        max_tokens: 2000,\n        system: SYSTEM,\n        messages: [{ role: 'user', content: JSON.stringify(payload) }],\n      },\n    },\n  });\n}\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000015",
+      "name": "Make cluster batches",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2800,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "c3000000-0000-4000-8000-000000000016",
+      "name": "Claude issue category",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3000,
+        440
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Uses the Header Auth credential (Name x-api-key, Value = your Anthropic API key)."
+    },
+    {
+      "parameters": {
+        "jsCode": "const TAXONOMY = {\"0\": \"Damaged packaging and product during shipping\", \"1\": \"Poor overall quality and durability\", \"2\": \"Product fails or breaks shortly after purchase\", \"3\": \"Product does not work as advertised\", \"4\": \"Poor content quality and printing errors\", \"5\": \"Defective or malfunctioning components\", \"6\": \"Delayed or missing shipments and poor support\", \"7\": \"Wrong item received or non-functional product\", \"8\": \"Design flaws and uncomfortable fit\", \"9\": \"Connectivity and performance issues\", \"10\": \"Overpriced and rapid price drops\", \"11\": \"Missing parts and assembly defects\", \"12\": \"Wrong size sent or undersized product\"};\nconst batches = $('Make cluster batches').all();\nconst out = [];\n$input.all().forEach((item, i) => {\n  const b = batches[i].json;\n  const map = {};\n  let err = null;\n  try {\n    if (item.json.error) throw new Error(JSON.stringify(item.json.error).slice(0, 200));\n    const raw = item.json.content[0].text.trim().replace(/^```(?:json)?\\s*|\\s*```$/g, '');\n    for (const a of JSON.parse(raw).assignments) map[a.id] = a;\n  } catch (e) {\n    err = String((e && e.message) || e).slice(0, 200);\n  }\n  for (const r of b.reviews) {\n    const a = map[r.review_id];\n    const id = a && a.category !== undefined && a.category !== null ? Number(a.category) : -1;\n    out.push({\n      json: {\n        ...r,\n        issue: a ? a.issue : null,\n        cluster_id: a ? id : null,\n        cluster_label: a ? (TAXONOMY[String(id)] || 'Other / new issue') : null,\n        cluster_status: a ? 'ok' : 'failed',\n        cluster_error: a ? null : (err || 'missing from response'),\n      },\n    });\n  }\n});\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000017",
+      "name": "Parse categories",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3200,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c3000000-0000-4000-8000-000000000018",
+      "name": "Combine analysis",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        3400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Synthetic first names stand in for real customer names (MARC has none) so personalisation can be shown.\nconst SYSTEM = \"You write public replies to customer reviews on behalf of Acme Store. A customer-care agent will read each draft before anything is sent.\\n\\nVoice: warm, respectful, plain language, human. No corporate filler, no exclamation marks in complaints, no emojis. Sign off as \\\"The Acme Store Customer Care Team\\\".\\n\\nHard rules (a draft that breaks any of these is unusable):\\n1. Reply in the same language as the review. A Japanese review gets a Japanese reply, and so on.\\n2. Use only facts that are in the review or in this brief. Never invent order details, dates, policies, causes, or what the company did or will do. If you do not know, do not say it.\\n3. Never promise or imply a refund, replacement, discount, credit, compensation, delivery date, or any specific outcome. You may say the team would like to look into it and invite the customer to reach out via our customer care team at support@acme-store.example.\\n4. Do not admit legal fault, blame the customer, argue, or get defensive. Do not mention competitors.\\n5. Do not ask for personal data (address, payment details, order numbers) in a public reply.\\n6. Length: 40 to 90 words (for Japanese and Chinese, 60 to 160 characters).\\n\\nPersonalise and be specific, not stock:\\n- Greet the customer by name when a name is given, otherwise use a natural neutral greeting.\\n- Mention at least two concrete details the customer actually wrote (the part that broke, what happened, what they liked or missed), using their own words where natural. If the review is very short, use every detail it has.\\n- Do not use stock phrases such as \\\"thank you for your feedback\\\", \\\"we value your feedback\\\", \\\"this is not the experience we want you to have\\\", or \\\"we take this seriously\\\". For a complaint, open with the problem itself, then the regret.\\n- Match the emotional weight of the review: brief and light for a light comment, more serious for a real problem.\\n- Do not assume anything the review does not say (for example, do not say you are glad the product works unless they said so).\\n\\nYou will receive a JSON object with: \\\"review\\\", \\\"customer_name\\\" (may be null), \\\"sentiment\\\", \\\"topic\\\", \\\"issue\\\" (short description of the main problem, may be null), and \\\"playbook\\\" (guidance for this sentiment and issue type). Follow the playbook.\\n\\nRespond with JSON only: {\\\"reply\\\":\\\"<the reply text>\\\"}\";\nconst PLAYBOOKS = {\"positive/shipping\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Delivery: thank them for noting quick, careful, or well-packed delivery. Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/quality\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Product quality: pick up the specific quality they liked (build, durability, how well it works). Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/support\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Customer care: thank them for noting good service and pass on that it was noticed by the team (do not claim any action). Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/features\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Features, fit, or design: pick up the specific feature, fit, or design point they liked. Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/price\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Value: thank them for noting good value for money. Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/ux\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Ease of use: pick up the specific point (setup, instructions, interface) that worked well. Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"positive/other\": \"Thank the customer sincerely and reinforce the specific thing they liked. Keep it short and genuine. Focus: Refer to whatever specific thing they praised. Do: Mention one concrete detail they praised. Invite them to shop again in one natural sentence. Avoid: Upselling, promotions, and stock phrases such as 'valued customer'.\", \"neutral/shipping\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Delivery: acknowledge what arrived fine and what was off (timing, packaging, or condition) without saying where the parcel was or why. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/quality\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Product quality: acknowledge the specific quality aspect that was only okay. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/support\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Customer care: acknowledge mixed experience with service or returns, without describing what actually happened. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/features\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Features, fit, or design: acknowledge what suited them and what missed the mark (size, compatibility, functions). Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/price\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Value: acknowledge that they found it fair but not a bargain, or vice versa, without discussing pricing decisions. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/ux\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Ease of use: acknowledge what was easy and what was confusing. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"neutral/other\": \"Thank the customer for balanced feedback, acknowledge both what worked and what fell short, and show that you listened. Focus: Refer to the specific mix of points they raised. Do: Name the good point and the shortfall in their own terms. Say that feedback like this is appreciated and that they are welcome to contact support if they want help. Avoid: Defensiveness, promises of improvements, and pretending it was all positive or all negative.\", \"negative/shipping\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Delivery problem (late, missing, damaged, or wrong item): acknowledge that specific problem. Do not state where the parcel is, why it was late, or what will be sent. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/quality\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Quality or defect problem: acknowledge the specific defect or failure. Do not guess the cause or promise a replacement. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/support\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Service or returns problem: acknowledge their frustration with the service. Do not say what the policy is or promise a refund. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/features\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Feature, fit, size, or compatibility problem: acknowledge that it did not match their needs. Do not make claims about compatibility or specifications. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/price\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Price or value complaint: acknowledge that it did not feel worth the cost. Do not justify the price or offer discounts. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/ux\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Usability problem (setup, instructions, interface): acknowledge the difficulty they had. Do not give technical instructions you cannot verify. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\", \"negative/other\": \"Apologise sincerely for the specific problem, without excuses or blame, and offer a route to get help. Focus: Acknowledge the specific problem they raised in their own words. Do: Name the exact problem they described. Express regret that their experience fell short. Invite them to contact support so the team can look into it. Avoid: Promising any remedy, explaining causes, defending the company, or asking for private details in public.\"};\nconst NAMES = {\"en\": [\"Emma\", \"Daniel\", \"Priya\", \"Marcus\"], \"de\": [\"Anna\", \"Lukas\", \"Sabine\", \"Jonas\"], \"es\": [\"Lucia\", \"Carlos\", \"Marta\", \"Diego\"], \"fr\": [\"Camille\", \"Louis\", \"Claire\", \"Hugo\"], \"ja\": [\"田中\", \"佐藤\", \"鈴木\", \"伊藤\"], \"zh\": [\"王女士\", \"李先生\", \"张女士\", \"陈先生\"]};\nconst cfg = $('Config').first().json;\nconst out = [];\n$input.all().forEach((it, idx) => {\n  const r = it.json;\n  if (!r.sentiment) {\n    out.push({ json: { ...r, request: null } });\n    return;\n  }\n  const name = NAMES[r.detected_language][idx % 4];\n  const payload = {\n    review: r.review_text.slice(0, 1500), customer_name: name, sentiment: r.sentiment, topic: r.topic,\n    issue: r.issue, playbook: PLAYBOOKS[r.sentiment + '/' + r.topic],\n  };\n  out.push({\n    json: {\n      ...r, customer_name: name,\n      request: { model: cfg.model, max_tokens: 600, system: SYSTEM, messages: [{ role: 'user', content: JSON.stringify(payload) }] },\n    },\n  });\n});\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000019",
+      "name": "Make reply requests",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3600,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "options": {
+          "timeout": 120000,
+          "batching": {
+            "batch": {
+              "batchSize": 4,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "c3000000-0000-4000-8000-000000000020",
+      "name": "Claude draft reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3800,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "notes": "Uses the Header Auth credential (Name x-api-key, Value = your Anthropic API key)."
+    },
+    {
+      "parameters": {
+        "jsCode": "const reqs = $('Make reply requests').all();\nconst model = $('Config').first().json.model;\nconst out = [];\n$input.all().forEach((item, i) => {\n  const r = reqs[i].json;\n  let reply = null, err = null;\n  try {\n    if (item.json.error) throw new Error(JSON.stringify(item.json.error).slice(0, 200));\n    const raw = item.json.content[0].text.trim().replace(/^```(?:json)?\\s*|\\s*```$/g, '');\n    reply = JSON.parse(raw).reply.trim();\n  } catch (e) {\n    err = String((e && e.message) || e).slice(0, 200);\n  }\n  const { request, ...rest } = r;\n  out.push({\n    json: {\n      ...rest, reply,\n      reply_status: reply ? (r.sentiment === 'negative' ? 'pending_human_review' : 'draft_ready') : 'draft_failed',\n      reply_error: reply ? null : err,\n      reply_prompt: 'response_v2', reply_model: model,\n    },\n  });\n});\nreturn out;\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000021",
+      "name": "Parse replies",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all().map(i => i.json);\nconst cnt = k => {\n  const o = {};\n  for (const r of rows) { const v = r[k] === null || r[k] === undefined ? 'none' : r[k]; o[v] = (o[v] || 0) + 1; }\n  return o;\n};\nconst lab = s => (s <= 2 ? 'negative' : s === 3 ? 'neutral' : 'positive');\nconst scored = rows.filter(r => r.sentiment && r.rating);\nconst acc3 = scored.filter(r => lab(r.rating) === r.sentiment).length / Math.max(scored.length, 1);\nconst polar = scored.filter(r => r.rating !== 3);\nconst accBin = polar.filter(r => lab(r.rating) === r.sentiment).length / Math.max(polar.length, 1);\n\nconst usage = {};\nlet cost = 0;\nfor (const [stage, node] of [['translate', 'Claude translate'], ['classify', 'Claude classify'],\n                             ['issue_category', 'Claude issue category'], ['draft_reply', 'Claude draft reply']]) {\n  let tin = 0, tout = 0;\n  try { for (const it of $(node).all()) { const u = it.json.usage || {}; tin += u.input_tokens || 0; tout += u.output_tokens || 0; } } catch (e) {}\n  // Claude Haiku 4.5 list price: $1 / $5 per million input / output tokens.\n  const c = tin / 1e6 * 1 + tout / 1e6 * 5;\n  usage[stage] = { tokens_in: tin, tokens_out: tout, cost_usd: Number(c.toFixed(4)) };\n  cost += c;\n}\nconst secs = (Date.now() - $('Config').first().json.startedAt) / 1000;\nconst per = secs / Math.max(rows.length, 1);\nreturn [{ json: {\n  total_reviews: rows.length,\n  by_language: cnt('detected_language'), by_sentiment: cnt('sentiment'), by_topic: cnt('topic'),\n  by_issue_category: cnt('cluster_label'),\n  translation_status: cnt('translation_status'), classify_status: cnt('classify_status'),\n  cluster_status: cnt('cluster_status'), reply_status: cnt('reply_status'),\n  sentiment_acc_3way: Number(acc3.toFixed(3)), sentiment_acc_positive_vs_negative: Number(accBin.toFixed(3)),\n  llm_usage: usage, est_cost_usd: Number(cost.toFixed(4)),\n  pipeline_seconds: Number(secs.toFixed(1)), seconds_per_review: Number(per.toFixed(2)),\n  projected_reviews_per_day: Math.round(86400 / per),\n} }];\n"
+      },
+      "id": "c3000000-0000-4000-8000-000000000022",
+      "name": "Pipeline summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4200,
+        200
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c3000000-0000-4000-8000-000000000023",
+      "name": "Reviews + insights + drafts (swap for Google Sheets later)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        4200,
+        400
+      ]
+    }
+  ],
+  "connections": {
+    "Manual trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Fetch MARC file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch MARC file": {
+      "main": [
+        [
+          {
+            "node": "Normalize & sample",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize & sample": {
+      "main": [
+        [
+          {
+            "node": "Simulate dates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simulate dates": {
+      "main": [
+        [
+          {
+            "node": "Is English?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is English?": {
+      "main": [
+        [
+          {
+            "node": "English passthrough",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Make batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "English passthrough": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make batches": {
+      "main": [
+        [
+          {
+            "node": "Claude translate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude translate": {
+      "main": [
+        [
+          {
+            "node": "Parse translations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse translations": {
+      "main": [
+        [
+          {
+            "node": "Combine",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Combine": {
+      "main": [
+        [
+          {
+            "node": "Make classify batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make classify batches": {
+      "main": [
+        [
+          {
+            "node": "Claude classify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude classify": {
+      "main": [
+        [
+          {
+            "node": "Parse classifications",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse classifications": {
+      "main": [
+        [
+          {
+            "node": "Is negative?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is negative?": {
+      "main": [
+        [
+          {
+            "node": "Make cluster batches",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No issue category",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No issue category": {
+      "main": [
+        [
+          {
+            "node": "Combine analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make cluster batches": {
+      "main": [
+        [
+          {
+            "node": "Claude issue category",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude issue category": {
+      "main": [
+        [
+          {
+            "node": "Parse categories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse categories": {
+      "main": [
+        [
+          {
+            "node": "Combine analysis",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Combine analysis": {
+      "main": [
+        [
+          {
+            "node": "Make reply requests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make reply requests": {
+      "main": [
+        [
+          {
+            "node": "Claude draft reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude draft reply": {
+      "main": [
+        [
+          {
+            "node": "Parse replies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse replies": {
+      "main": [
+        [
+          {
+            "node": "Pipeline summary",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reviews + insights + drafts (swap for Google Sheets later)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

@@ -50,6 +50,8 @@ python scripts/check_keys.py             # tests the Claude key
 | `01_ingestion_marc_to_unified_schema.json` | Fetches the MARC review files from Hugging Face, samples evenly per star rating, outputs the unified schema. No credentials needed. |
 | `02_ingestion_and_translation.json` | Workflow 01 plus Claude translation of non-English reviews (batches of 8, retries, failures are recorded per review instead of stopping the run). |
 
+| `03_full_pipeline.json` | The full pipeline: 02 plus sentiment/topic, issue category, reply drafts, status and a summary with accuracy, cost and timing. Needs the Claude credential on 4 HTTP nodes (Claude translate / classify / issue category / draft reply). Default about $0.30; `perStar` in `Config` scales it (40 = about $3). |
+
 Import: n8n > Workflows > Create workflow > `...` menu > **Import from file**, then **Execute workflow**.
 
 Claude credential (workflow 02 only): n8n > Credentials > Create > **Header Auth**, Name `x-api-key`,
@@ -64,4 +66,16 @@ Stage 5 (response generation): `python scripts/eval_responses.py` (env `RESPONSE
 
 ## Running the application
 
-_To be completed as the pipeline is built (FastAPI/Streamlit launch commands)._
+API service (needs `ANTHROPIC_API_KEY` in `.env`):
+
+```bash
+set SERVICE_API_KEY=choose-a-key   # optional; callers then send it as X-API-Key
+set MAX_SPEND_USD=1.0              # hard cap on Claude spend for this service
+uvicorn src.api.main:app --port 8000
+# interactive docs: http://localhost:8000/docs
+pytest tests -q                    # 11 tests, no Claude calls
+```
+
+Endpoints: `GET /health`, `POST /analyze`, `POST /draft-response`, `POST /trends`. Every Claude call is logged to `data/processed/llm_calls.jsonl`.
+
+_Demo app and deployment steps to be added._
