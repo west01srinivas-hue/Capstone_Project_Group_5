@@ -45,6 +45,7 @@ def main() -> None:
     ap.add_argument("--per-lang", type=int, default=200, help="rows per language (split evenly over 5 stars)")
     ap.add_argument("--split", default="test")
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--out", default="marc_sample.csv")
     args = ap.parse_args()
 
     per_star = max(1, args.per_lang // 5)
@@ -59,7 +60,7 @@ def main() -> None:
         print(f"{lang}: sampled {len(sample)} of {len(raw)}")
 
     df = pd.concat(frames, ignore_index=True)
-    path = OUT / "marc_sample.csv"
+    path = OUT / args.out
     df.to_csv(path, index=False, encoding="utf-8")
     print(f"\nSaved {len(df)} rows -> {path}")
     print(df.pivot_table(index="detected_language", columns="rating", values="review_id", aggfunc="count"))
