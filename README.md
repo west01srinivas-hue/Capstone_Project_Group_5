@@ -79,4 +79,8 @@ pytest tests -q                    # 11 tests, no Claude calls
 
 Endpoints: `GET /health`, `POST /analyze`, `POST /draft-response`, `POST /trends`. Every Claude call is logged to `data/processed/llm_calls.jsonl`.
 
+## Final report and presentation
+
+`docs/final/` holds the Final Project Report (`.docx` and `.pdf`) and the final presentation (`.pptx`). The experiment log behind every number is `docs/experiment_log.md`.
+
 _Demo app and deployment steps to be added._
