@@ -60,6 +60,8 @@ Set it to 40 for the full 1,200-review sample (roughly $0.55).
 
 Stage 4 (issue clustering and trend detection): `python scripts/run_stage4.py issues`, then `cluster issue`, `label issue`, `trends issue`.
 
+Stage 5 (response generation): `python scripts/eval_responses.py` (env `RESPONSE_VERSION=v1|v2`, default v1; v2 is the better prompt), the human review step (`data/samples/human_review_sheet_v2.csv`, `scripts/score_human_review.py`) is optional and was skipped; acceptance is reported from the LLM judge.
+
 ## Running the application
 
 _To be completed as the pipeline is built (FastAPI/Streamlit launch commands)._

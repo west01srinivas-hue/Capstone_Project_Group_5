@@ -116,9 +116,30 @@ Threshold sweep for the z-score rule (min 5 reviews): z 3.0 gives recall 97%, pr
 Precision@5 (the proposal metric) cannot exceed 0.6 with 3 planted spikes, so Precision@3 is reported. Alerts are weekly here; real alert latency depends on the schedule of the Slack workflow.
 Week-over-week deltas are in the detector output (e.g. delayed shipments: 3 reviews the week before, 27 in the spike week).
 
+## E9. Response generation and quality checks (2026-09-26)
+Design: a library of 21 playbooks keyed by sentiment x issue type (`prompts/response/playbooks_v1.json`: 3 sentiments x 7 topics), a system prompt with the brand voice and hard guardrails (reply in the reviewer's language; only facts from the review; never promise a refund, replacement, discount, compensation or date; no legal admissions; no personal data requests; 40-90 words), and one Claude Haiku 4.5 call per review (`src/response/generate.py`). The brand ("Acme Store") and its support address are placeholders in `prompts/response/brand.json`. MARC has no reviewer names, so 4 synthetic first names per language (native script for Japanese and Chinese) test personalisation.
+Quality check: Claude Sonnet 5 as an independent judge (`prompts/judge_v1.txt`) scores empathy, specificity, correctness and tone from 1 to 5, and flags promised outcomes, invented facts, wrong language, and reviews a human must handle. A draft counts as "judge-acceptable" when all four scores are at least 4 and no promise / invented-fact / wrong-language flag is raised. This replaces the proposal's 80% human-acceptance measurement (skipped by team decision); it is a model's opinion, not human review.
+Evaluation set: 48 reviews from the held-out test split, 8 per language (4 negative, 2 neutral, 2 positive), sentiment and topic taken from the pipeline's own predictions; negatives carry the issue phrase from E7.
+
+| Prompt | Empathy | Specificity | Correctness | Tone | Promised outcome | Invented facts | Wrong language | Judge-acceptable |
+|---|---|---|---|---|---|---|---|---|
+| response_v1 | 3.73 | 3.81 | 4.54 | 4.54 | 1 | 4 | 0 | 68.8% (33/48) |
+| response_v2 | 3.83 | 4.04 | 4.58 | 4.56 | 0 | 4 | 0 | 79.2% (38/48) |
+
+v2 adds "be specific, not stock" rules: mention at least two concrete details the customer wrote, avoid stock phrases, match the emotional weight, make no assumptions.
+v2 by sentiment (judge-acceptable): negative 88%, positive 83%, neutral 58%. By language: de, en, es 88%; fr, zh 75%; ja 62%.
+Findings:
+- Guardrails held: no wrong-language replies, and no promised outcomes with v2 (v1 had one). Replies stay in the reviewer's language for all six languages.
+- Weakest spots are neutral (mixed) reviews and Japanese. Typical failures: the reply assumes something the review never said (for example "glad the product works"), or an empathy line that could be pasted anywhere. Stock phrases still slip through occasionally despite the ban.
+- The judge is itself a model: it once flagged the supplied customer name as an "invented fact" until told the name is system-provided (fixed, all runs re-judged). Human review is the real test.
+- Approval queue: negatives always go to `pending_human_review` (proposal guardrail); neutral/positive drafts are auto-approved only if the judge accepts them. v2: 24 negative + 7 other pending, 17 auto-approved.
+- Human acceptance test skipped by team decision (2026-09-26). The reported figure is LLM-judge acceptance (79.2%); human acceptance was not measured. The updated proposal (`Customer_Review_Insights_Response_Generator_Proposal_updated.pdf`) states this. The sheet `data/samples/human_review_sheet_v2.csv` and `scripts/score_human_review.py` stay available if the team wants to run it later.
+- Bugs met: Sonnet 5 returns a thinking block first (parser now reads the first text block) and its thinking can exhaust a small `max_tokens` (raised to 2000).
+- Cost: drafting about $0.06 and judging about $0.14 per 48 replies; whole stage about $0.61 including both versions and re-runs.
+
 ## Spend so far (approx.)
-Translation tests $0.02 + $0.06 (local) + $0.06 (n8n Cloud); sentiment E5 $0.53; E6 $0.65; issue phrases and cluster labels $0.23. Total about $1.56 of $5.
+Translation tests $0.14; sentiment E5 $0.53; E6 $0.65; issue phrases and cluster labels $0.23; response generation and judging $0.61. Total about $2.17 of $5.
 
 ## Next
 - Human spot-check of clusters and topics (about 100 reviews).
-- Stage 5: response generation (templates by sentiment and issue, guardrails, LLM-judge). Stage 6: dashboard (Google Sheets, Looker Studio), Slack alerts, FastAPI + deployment. Clustering needs a Python service (n8n Cloud cannot run embeddings), so it goes behind the planned FastAPI endpoints.
+- Stage 6: dashboard (Google Sheets, Looker Studio), Slack alerts, n8n workflow for response drafting, FastAPI endpoints (/analyze, /draft-response, /trends), deployment to Hugging Face Spaces, logging (Langfuse / MLflow).

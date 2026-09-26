@@ -1,0 +1,248 @@
+﻿review_id,detected_language,sentiment,topic,review_text,reply,status,empathy,specificity,correctness,tone,promises_outcome,invents_facts,wrong_language,needs_human_attention,acceptable,human_accept,human_comment
+marc-en_0411240,en,negative,quality,"More design/quality work needed to make this an awesome product
+
+I was sooo excited to order these for my children. I also ordered a set for myself. After using one I found it was hard to slide the closer but chalked it up to the fact it was new. My husband used it and cracked the slide the first time he tried to open it. It is also very hard to keep open when you are trying to pour into it. Great idea but it needs some more work on the quality of the slide and shape of the bag.","Hi Emma, I'm sorry to hear the slide cracked when your husband used it, and that it's difficult to keep open while pouring. That's frustrating when you were excited to use these with your family. We'd like to look into what happened. Please reach out to our customer care team at support@acme-store.example so they can help.",pending_human_review,4,5,5,5,False,False,False,False,True,,
+marc-en_0830385,en,negative,quality,"Not worth the money.
+
+The white is the only one that doesn’t break off so easily . They’re all trash though.","Hi Daniel, we're sorry to hear that the products broke off easily for you—that's not what we want you to experience. We'd like to look into what happened. Our customer care team can help if you reach out to us at support@acme-store.example.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,4,False,False,False,False,True,,
+marc-en_0778402,en,negative,quality,"I'd Rate it 0 Stars if I could
+
+Absolutely no protection on the phone, flimsy plastic material, terrible quality. This is the bulkiest case I have ever held and it only fits two cards at maximum - no squeezing a third at all. Very expensive and obviously cost very little to produce. Stay away~!","Hi Priya, we're sorry to hear the case didn't protect your phone as it should, and that the plastic felt flimsy and the design too bulky for your needs. That's not what we aim for. We'd like to look into this with you—please reach out to our customer care team at support@acme-store.example so they can help.",pending_human_review,4,4,5,4,False,False,False,False,True,,
+marc-en_0361327,en,negative,shipping,"Leaky honey
+
+I love this item, however the cap was loose on arrival and honey leaked out inside the bubble wrap. Very disappointed since this is an expensive item.","Hi Marcus, I'm sorry the cap arrived loose and the honey leaked during shipping. That's frustrating, especially for an item you were looking forward to using. Our customer care team would like to look into what happened. Please reach out to us at support@acme-store.example and we'll take it from there.",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-en_0624491,en,neutral,features,"Three Stars
+
+ok don't care for cover on rod","Hi Emma, thanks for letting us know. We're glad the rod itself is working out for you, but we hear that the cover isn't quite what you were hoping for. Feedback like yours helps us understand what matters to our customers. If you'd like to explore other options, our team at support@acme-store.example would be happy to help.
+
+The Acme Store Customer Care Team",pending_human_review,3,3,3,4,False,True,False,False,False,,
+marc-en_0322199,en,neutral,quality,"Not bad
+
+Make sure you have two pairs of pliers, those balls are wedged on TIGHT. They work just fine though.","Thanks for the balanced feedback, Daniel. We're glad the balls work well for you, and we appreciate you flagging that they're wedged on tight—that's useful to know for anyone setting them up. If you run into any trouble down the line, our support team is here to help at support@acme-store.example.",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-en_0678784,en,positive,quality,"Stays where you put it
+
+I love the length of this hose and the fact that it doesn't kink or curl in upon itself.","Hi Priya, thanks for taking the time to share this. We're glad the hose length works well for you and that it stays put without kinking—that's exactly what we're after. We'd love to have you shop with us again.",auto_approved,4,5,5,5,False,False,False,False,True,,
+marc-en_0410841,en,positive,features,"Just what i needed
+
+Great shirt fit as expected love the saying.","Thanks, Marcus. We're glad the fit came through as expected and that the saying resonates with you. We hope to see you back at Acme Store soon.",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-de_0058118,de,negative,quality,"Schnelle Abnutzung der Farbe
+
+Schon nach sehr kurzer Zeit hat auch eine starke Abnutzung der Farbe gezeigt. Jetzt sieht es nicht mehr so schön aus. Bin etwas enttäuscht. Aber an sich ist die Hülle sonst sehr stabil.","Liebe Anna, es tut uns leid zu lesen, dass die Farbe deiner Hülle schon nach kurzer Zeit abgenutzt hat und nicht mehr so schön aussieht. Das ist frustrierend, zumal die Hülle sonst sehr stabil ist. Gerne möchte unser Team dies mit dir klären. Bitte kontaktiere uns über support@acme-store.example, damit wir uns das genauer ansehen können.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-de_0773296,de,negative,quality,"Geht lieber zum Fachhandel
+
+Kam gleich mit gerissener Saite an","Hallo Lukas, es tut uns leid, dass dein Produkt bereits mit einer gerissenen Saite angekommen ist. Das ist nicht das, was du erwarten solltest. Unser Team möchte sich das gerne genauer ansehen und dir helfen. Bitte wende dich an support@acme-store.example, damit wir gemeinsam eine Lösung finden können.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,4,False,False,False,False,True,,
+marc-de_0926105,de,negative,quality,"Nicht zu empfehlen.
+
+Schlechte Qualität, nach einmal trage bereits defekt.","Liebe Sabine, es tut uns leid, dass das Produkt bereits nach einmaligem Tragen defekt geworden ist. Das ist nicht das Qualitätsniveau, das wir anstreben. Wir würden gerne mehr über das Problem erfahren und schauen, wie wir dir helfen können. Bitte kontaktiere unser Kundenserviceteam unter support@acme-store.example.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-de_0192440,de,negative,shipping,"Fehler beim Sortieren
+
+Da die Verpackung schon geöffnet war, habe ich mir den Inhalt doch etwas näher angesehen: leider war ein Paar in der kleineren, mir zu kleinen Größe zwischen den anderen Socken. Daher leider ein Fall für die Retoure.","Hallo Jonas,
+
+vielen Dank, dass du uns das mitgeteilt hast. Es tut uns leid, dass ein Paar in der falschen Größe in deiner Bestellung war. Das hätte nicht passieren dürfen.
+
+Unser Kundenservice-Team möchte sich das gerne ansehen und dir helfen. Bitte wende dich an support@acme-store.example – wir kümmern uns darum.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,4,5,False,False,False,False,True,,
+marc-de_0621632,de,neutral,features,"Nicht ganz überzeugt
+
+Prinzipiell ist das Hundegeschirr Top. Leider reibt der Verschluss meinem Hund am Vorderbein. Stelle ich es größer, rutscht es auf deinem Rücken herum","Hallo Anna, danke, dass du dir Zeit für dein Feedback nimmst. Es freut uns, dass das Hundegeschirr grundsätzlich überzeugt – aber das Reiben am Vorderbein und das Verrutschen auf dem Rücken sind natürlich ärgerlich, wenn die Größe nicht passt. Rückmeldungen wie diese helfen uns sehr. Falls du gerne mit unserem Team über Lösungsmöglichkeiten sprechen möchtest, erreichst du sie unter support@acme-store.example.
+
+The Acme Store Customer Care Team",auto_approved,4,4,5,4,False,False,False,False,True,,
+marc-de_0277529,de,neutral,quality,"Ganz Okay
+
+Ich hatte die Jahre zuvor die in Wachs getränkten Anzünder, die brannten besser. Diese hier sind etwas schwieriger zu entzünden. Wenn sie allerdings mal brennen, erfüllen sie ihren Zweck.","Hallo Lukas, danke für dein ausführliches Feedback. Wir verstehen, dass die neuen Anzünder schwieriger zu entzünden sind als die wachsgetränkten Modelle, die du vorher hattest – aber dass sie dann zuverlässig brennen, freut uns zu hören. Rückmeldungen wie deine helfen uns weiter. Falls du Fragen hast oder uns mehr erzählen möchtest, erreichst du unser Team unter support@acme-store.example.
+
+Die Acme Store Customer Care Team",auto_approved,4,5,5,4,False,False,False,False,True,,
+marc-de_0543915,de,positive,shipping,"Kunststoffbox
+
+Gute Größe und Verarbeitung. Möchte mich aber auch für die schnellen Lieferungen bei Ihnen bedanken. Klappt vorzüglich.","Liebe Sabine, vielen Dank, dass du dir Zeit für deine Bewertung genommen hast. Es freut uns, dass die Kunststoffbox dir gefällt und dass unsere schnellen Lieferungen bei dir angekommen sind. Wir freuen uns auf deinen nächsten Einkauf bei uns.
+
+The Acme Store Customer Care Team",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-de_0054002,de,positive,quality,"👍🏻
+
+Ein Stern Abzug weil der Touchscreen nicht ganz so gut funktioniert aber sonst 👍🏻","Hallo Jonas, vielen Dank für deine Bewertung. Schön, dass dir das Gerät insgesamt gefällt. Wir nehmen dein Feedback zum Touchscreen gerne mit und würden uns freuen, wenn du wieder bei uns einkaufst.
+
+The Acme Store Customer Care Team",pending_human_review,3,3,5,4,False,False,False,False,False,,
+marc-es_0111801,es,negative,shipping,"Buena pieza-incorrecta oferta
+
+Dicen claramente en la oferta que son dos unidades. A mi me han traído una. Si sólo se envía una deberían rectificar la oferta.","Hola Lucia, lamentamos que hayas recibido una sola unidad cuando la oferta indicaba claramente dos. No es la experiencia que queremos para ti. Nuestro equipo de atención al cliente te ayudará a resolver esto. Te invitamos a contactarnos en support@acme-store.example para que podamos investigar lo que pasó.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,4,False,False,False,False,True,,
+marc-es_0103867,es,negative,features,"Rosca diferentes
+
+No es compatible con la botella de gas que compre, aunque en Amazon te ofrecen la compra conjunta","Hola Carlos, lamentamos que la rosca no sea compatible con la botella de gas que compraste, a pesar de que se ofrecían juntas. Es frustrante cuando las piezas no encajan como deberían. Nos gustaría investigar esto con más detalle. Por favor, ponte en contacto con nuestro equipo de atención al cliente en support@acme-store.example para que podamos ayudarte.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-es_0174841,es,negative,quality,"Cómodas pero no dan buen resultado
+
+Es un zapato muy cómodo, pero no son de buena calidad.","Hola Marta, lamentamos que el zapato no haya tenido la durabilidad que esperabas, a pesar de ser cómodo. Nos gustaría entender mejor qué problemas de calidad has notado. Te invitamos a contactar a nuestro equipo de atención al cliente en support@acme-store.example para que podamos investigar. The Acme Store Customer Care Team",pending_human_review,4,3,4,5,False,True,False,False,False,,
+marc-es_0451074,es,negative,quality,"Un poco decepcionada
+
+La verdad es que esperaba más de esta base; había leído críticas muy buenas pero me ha decepcionado un poco, la cobertura no es la que esperaba y me saca brillos. Me gusta muchísimo más la bbcream de esta gama.","Hola Diego, lamento que la base no haya cumplido con tus expectativas. Es decepcionante que la cobertura no sea la que esperabas y que te saque brillos, sobre todo cuando habías leído críticas tan positivas. Nos gustaría entender mejor lo que pasó. Te invitamos a que te pongas en contacto con nuestro equipo de atención al cliente en support@acme-store.example para que podamos investigar.",pending_human_review,4,4,4,4,False,False,False,False,True,,
+marc-es_0272104,es,neutral,shipping,"Tardaron mucho en enviar
+
+Bien esta para el previo que me costó","Hola Lucia, gracias por tu comentario. Nos alegra que el producto te haya parecido bueno por el precio que pagaste. Entendemos que la demora en el envío no fue lo ideal, y ese es un punto que nos importa mejorar. Si en el futuro quieres contarnos más sobre tu experiencia o necesitas ayuda, nuestro equipo de atención está aquí: support@acme-store.example
+
+The Acme Store Customer Care Team",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-es_0597037,es,neutral,features,"sin estuche
+
+el producto está bien y llegó a tiempo pero esperaba que viniera con el estuche para poder entregar como regalo","Hola Carlos, gracias por tu comentario. Nos alegra que el producto te haya llegado a tiempo y en buen estado. Entendemos que esperabas que viniera con estuche para poder entregarlo como regalo, y lamentamos que no fuera así. Valoramos mucho este tipo de feedback. Si tienes dudas sobre lo que incluye nuestros productos, nuestro equipo de atención al cliente estará encantado de ayudarte en support@acme-store.example.
+
+The Acme Store Customer Care Team",auto_approved,4,5,5,5,False,False,False,False,True,,
+marc-es_0320614,es,positive,quality,"Perfecto, lo que esperaba.
+
+Después de haber probado modelos anteriores es exactamente lo que esperaba. Limpieza mucho mejor que con un cepillo convencional.","Hola Marta, nos alegra saber que el producto es exactamente lo que esperabas. Es genial que la limpieza sea mucho mejor que con un cepillo convencional, eso es lo que buscamos. Gracias por confiar en Acme Store.
+
+The Acme Store Customer Care Team",auto_approved,5,5,5,5,False,False,False,False,True,,
+marc-es_0561311,es,positive,quality,"Adecuado
+
+lo usa mi niño de 5 años para pintar cuadros y lo considero muy util","Hola Diego, nos alegra que tu hijo disfrute pintando con este producto. Es genial saber que le resulta útil para sus cuadros. Gracias por confiar en Acme Store y esperamos verte de nuevo pronto.",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-fr_0028512,fr,negative,quality,"Comment aire
+
+Ce produit est fake ce n'est pas l'huile vierge de barbarie ses bien une huile ses tout vraiment dommage je n'ai plus rien à dire","Bonjour Camille,
+
+Nous regrettons sincèrement que l'huile que vous avez reçue ne soit pas de l'huile vierge de barbarie authentique comme prévu. C'est décevant, et nous comprenons votre frustration.
+
+Notre équipe d'assistance aimerait approfondir cette question. Nous vous invitons à nous contacter à support@acme-store.example pour que nous puissions enquêter.
+
+The Acme Store Customer Care Team",pending_human_review,4,4,4,4,False,False,False,False,True,,
+marc-fr_0612590,fr,negative,quality,"Déçu
+
+On ne l'entend pas sonné quand on est dans les machines ou dans un environnement un peu bruyant (malgré le volume a fond) et on ne m'entend vraiment pas bien au téléphone c'est chiant !, déçu de cet achat au bout de seulement 2 mois…..","Bonjour Louis,
+
+C'est vraiment dommage que la sonnerie soit inaudible dans les environnements bruyants et que la qualité du microphone rend les appels difficiles. Après seulement 2 mois, ce n'est pas l'expérience que vous méritez.
+
+Notre équipe aimerait bien comprendre ce qui se passe. N'hésitez pas à nous contacter via support@acme-store.example pour que nous puissions vous aider.
+
+Cordialement,
+L'équipe Customer Care d'Acme Store",pending_human_review,4,5,5,5,False,False,False,False,True,,
+marc-fr_0698555,fr,negative,features,"Coque solide
+
+Coque qui paraît solide néanmoins ne vous attendez pas à recevoir une protection écran! C'est une feuille 😣 qui est partie à la poubelle.","Bonjour Claire, nous regrettons que la protection écran ne corresponde pas à vos attentes. C'est décevant qu'elle se soit avérée être une simple feuille plutôt qu'une véritable protection. Notre équipe d'assistance aimerait bien comprendre ce qui s'est passé. N'hésitez pas à nous contacter via support@acme-store.example pour que nous puissions approfondir cette question.",pending_human_review,4,4,5,4,False,False,False,False,True,,
+marc-fr_0439869,fr,negative,features,"DU GRAND N'IMPORTE QUOI !
+
+Je ne sais pas qui a conçu ce produit, mais on ne peut pas dire qu'il brille par son intelligence : si on utilise ce type de produit c'est que la voiture ne démarre pas car la batterie n'est pas suffisamment forte pour cela. Le Genius doit être chargé pour sa première utilisation. On peut s'attendre normalement à pouvoir le brancher sur une prise de courant, et bien NON, il est livré avec un adaptateur pour prise allume-cigare que vous devez brancher sur la prise de la voiture dont la batterie ne fonctionne plus !!! Je retourne donc ce produit que je n'ai malheureusement pas pu tester car non chargé !","Hugo, nous comprenons votre frustration. Vous aviez besoin d'un produit prêt à l'emploi, et recevoir un chargeur allume-cigare alors que votre batterie ne fonctionne pas rend le produit inutilisable à la livraison. C'est un problème réel. Notre équipe d'assistance serait intéressée d'examiner votre situation. Contactez-nous à support@acme-store.example pour que nous puissions vous aider.
+
+The Acme Store Customer Care Team",pending_human_review,4,5,5,4,False,False,False,False,True,,
+marc-fr_0935439,fr,neutral,shipping,"Telephone impeccable service de livraison médiocre
+
+L'appareil est un plaisir a utiliser. En revanche le service de livraison en point relais d'Amazon est épouvantable","Bonjour Camille,
+
+Merci d'avoir partagé votre avis. Nous sommes heureux que l'appareil vous plaît à l'usage. Concernant la livraison en point relais, nous regrettons que cette expérience n'ait pas été à la hauteur. Vos remarques nous aident à mieux comprendre. Si vous souhaitez que nous examinions les détails de cette livraison, notre équipe d'assistance est disponible à support@acme-store.example.
+
+The Acme Store Customer Care Team",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-fr_0786375,fr,neutral,other,"Nettoyage
+
+Comment cuisiner toi la machine ça existe un produit qui pouvait tout la cire doit pareil?","Bonjour Louis,
+
+Merci pour votre retour. Nous avons du mal à bien comprendre votre message sur le nettoyage de la machine et le produit de cirage. Pourriez-vous nous contacter via notre équipe d'assistance à support@acme-store.example pour nous expliquer plus clairement ce qui vous préoccupe ? Nous serons heureux de vous aider.
+
+Cordialement,
+L'équipe du service client Acme Store",pending_human_review,3,2,4,4,False,False,False,False,False,,
+marc-fr_0496884,fr,positive,features,"Très satisfaite de cet achat
+
+Le harnais bouge un peu lors de la marche. J'ai pas envie non plus de trop serrer mon chien . G un golden retriver de 45 kg . La taille xl est parfaite.",Merci Claire. Nous sommes contents que la taille XL soit parfaite pour votre golden retriever de 45 kg et que vous trouviez le harnais adapté à vos besoins. C'est un plaisir de vous avoir chez Acme Store.,pending_human_review,3,3,4,4,False,False,False,False,False,,
+marc-fr_0589385,fr,positive,features,"Chaussures Homme
+
+Mon mari a acheté cette paire de chaussure pour un mariage La taille est parfaite L’article correspond bien à la photo","Hugo, merci d'avoir partagé votre avis. Nous sommes heureux que la taille soit parfaite et que les chaussures correspondent bien à la photo. C'est exactement ce que nous cherchons à offrir. N'hésitez pas à revenir nous voir pour vos prochains achats.
+
+The Acme Store Customer Care Team",auto_approved,4,4,5,5,False,False,False,False,True,,
+marc-ja_0679944,ja,negative,other,"胸糞
+
+私の見解では復讐は親父の行動をなぞらえていたので 「爆発しない地雷＝弾の出ない銃」のはずだったのではないかな 展開が読めないので最後まで見てしまったが相当胸糞悪い映画でした","田中さん、ご指摘ありがとうございます。映画の展開が予想と異なり、不快な印象を受けられたとのこと、申し訳ございません。そのようなご体験をおかけしてしまい、残念です。ご不安な点やご質問がございましたら、お気軽にカスタマーサービスチーム（support@acme-store.example）までお問い合わせください。
+
+Acme Store カスタマーケアチーム",pending_human_review,3,2,4,4,False,False,False,False,False,,
+marc-ja_0607770,ja,negative,quality,"超低スペックタブレット
+
+基盤をはめただけの簡単の構造で、 バージョンも低いので、ポケモンGOや 荒野行動、PUBGもろくにできません。 YouTubeも720p再生すらできません。 超低スペックの商品です。 私は1000円でももうこの商品は買わないです。","佐藤さんへ
+
+ポケモンGOや荒野行動、PUBGが満足に動作せず、YouTubeも720p再生ができないとのこと、申し訳ございません。期待していた性能に達していなかったのだと思います。
+
+この件についてさらに詳しくお聞きしたいので、support@acme-store.exampleのカスタマーサポートチームまでお気軽にご連絡ください。
+
+Acme Store カスタマーサポートチーム",pending_human_review,3,4,5,4,False,False,False,False,False,,
+marc-ja_0609464,ja,negative,quality,"自転車用
+
+オートバイ用に購入。 肘と膝部分のプロテクターが弱い気がする、値段を考えると仕方ないかもしれませんが、オートバイや原付に乗る人には勧めません。 自転車やスケボーで転けたくらいなら問題ないと思います。","鈴木さま、ご指摘ありがとうございます。肘と膝部分のプロテクターの強度が十分でなかったとのこと、申し訳ございません。オートバイや原付での使用を想定されていたのに、ご期待に沿えず残念です。詳しくお聞きしたいので、よろしければサポートチーム（support@acme-store.example）までお気軽にお問い合わせください。
+
+Acme Store カスタマーケアチーム",pending_human_review,4,5,5,5,False,False,False,False,True,,
+marc-ja_0197008,ja,negative,quality,"臭いが合いませんでした
+
+プラスチック特有の臭いがひどくて飾るのは諦めました。","伊藤さまへ
+
+プラスチック特有の臭いが強く、飾るのを諦められたとのこと。大変申し訳ございません。お客さまのご期待に応えられず、残念です。
+
+詳しくお話しいただきたく、カスタマーケアチーム（support@acme-store.example）までお気軽にお問い合わせください。
+
+Acme Store カスタマーケアチーム",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-ja_0407650,ja,neutral,features,"丈夫で良いです
+
+良い点 ・ワンタッチで開閉できる ・大きいので腕、肩など濡れない ・生地が丈夫 イマイチ ・一度閉じたらワンタッチでは開けない ・けっこう長いので、標準的なビジネスバッグからはみ出る","田中さん、ご購用とご意見ありがとうございます。ワンタッチの開閉と丈夫な生地がお役に立てて嬉しいです。一方で、閉じた後の開けにくさと長さがビジネスバッグに合わせにくい点は、ご不便をおかけしてしまい申し訳ございません。このようなご指摘は非常に参考になります。ご不明な点やご相談がございましたら、カスタマーケアチーム（support@acme-store.example）までお気軽にお問い合わせください。
+
+Acme Store カスタマーケアチーム",auto_approved,4,5,5,4,False,False,False,False,True,,
+marc-ja_0323659,ja,neutral,quality,"やっぱり緩い
+
+皆さんのレビューの通り、緩すぎてそのままでは使えません。代わりの商品が無いので選ぶ余地無し。他の商品もOEMみたいな感じだし...。仕方ないのでテフロンテープを巻き付けた所、良い具合で収まるようになりました。","佐藤さんへ
+
+ご指摘ありがとうございます。商品がきつすぎて使えないという問題を承知しました。テフロンテープで調整いただき、うまく機能するようになったとのこと。このようなご意見は大変参考になります。ご不便をおかけして申し訳ございません。今後ご質問やご相談があれば、support@acme-store.example までお気軽にお問い合わせください。
+
+Acme Store カスタマーケアチーム",pending_human_review,3,3,1,4,False,True,False,False,False,,
+marc-ja_0175833,ja,positive,features,"気に入っています。
+
+以前、使用していた物が沸騰時に音が鳴るタイプだったので あると便利かなと思います。","鈴木さん、ご利用いただきありがとうございます。前に使われていた沸騰時に音が鳴るタイプと比べて、今回のご購入品が気に入ってくださったことをお聞きして嬉しいです。またのご利用をお待ちしています。
+
+Acme Store カスタマーケアチーム",auto_approved,4,4,4,5,False,False,False,False,True,,
+marc-ja_0777269,ja,positive,quality,"素晴らしい！
+
+軽量でコンパクトでどこでも持ち歩ける 飛んでる鳥さんもピントぴったりですよ （この写真は付属のパワーズームレンズで撮ったものです）","伊藤さん、ご感想をありがとうございます。軽量でコンパクトなのに、飛んでる鳥もピントぴったりに撮れるというのは、付属のパワーズームレンズの性能をうまく引き出していただいてますね。また何かお役に立つ商品がありましたら、ぜひお気軽にお立ち寄りください。
+
+The Acme Store Customer Care Team",auto_approved,4,5,5,5,False,False,False,False,True,,
+marc-zh_0629909,zh,negative,quality,"失望
+
+很一般 作者列举事例都比较极端 不具说明性～～","王女士，感谢您的反馈。我们听到了您对内容中的例子过于极端、缺乏说明性的顾虑，这让您感到失望。我们很遗憾您的体验不如预期。如果您愿意，我们的客服团队很想深入了解您的具体看法，欢迎您通过 support@acme-store.example 与我们联系。
+
+阿克米商店客服团队敬上",pending_human_review,4,4,4,4,False,False,False,False,True,,
+marc-zh_0182523,zh,negative,shipping,"差评！
+
+我赶着买来明天送人的，今天刚到货发现是这样，怎么办？？换货已经来不及了！为什么偏偏给我发个烂盒子！","李先生，您的包裹到货时外盒破损，这确实很令人遗憾，尤其是您急着送人。我们为这样的体验道歉。我们的客服团队很想了解具体情况并看看能如何帮助。请通过 support@acme-store.example 与我们联系。
+
+— Acme Store 客服团队",pending_human_review,4,4,4,5,False,False,False,False,True,,
+marc-zh_0276394,zh,negative,shipping,"失望
+
+物流超级慢，打电话过去说已到目的地，但人手不够，又过了2天才派送。包装很差. 薄薄一层袋子已破破烂烂，书已成旧书，非常失望！","张女士，您好。我们为物流延迟和包装不周导致您收到的书籍受损而感到遗憾。这确实不是我们希望提供给您的体验。我们的客服团队很想了解更多情况并提供帮助，欢迎您通过 support@acme-store.example 与我们联系。
+
+祝安康。
+Acme Store 客服团队",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-zh_0651665,zh,negative,shipping,"口感还行，包装有损
+
+口感还行，但是送到手中时，袋子外面的包装破了一个口。希望以后能完好无损。","陈先生，感谢您的反馈。很遗憾，您收到的商品外包装出现了破损，这确实不符合我们的标准。我们为此感到抱歉。如果您愿意，欢迎通过 support@acme-store.example 联系我们的客服团队，他们可以进一步了解情况并为您提供帮助。
+
+Acme Store 客服团队",pending_human_review,4,4,5,5,False,False,False,False,True,,
+marc-zh_0885474,zh,neutral,quality,"书
+
+此书需要后续详解，和作者其他相关内容一起读。","王女士，感谢您的反馈。我们听到了您的建议——这本书需要与作者的其他相关内容一起阅读才能充分理解。您这样的具体意见对我们很有帮助。如果您对这本书有任何疑问或需要进一步的协助，欢迎联系我们的客服团队 support@acme-store.example。
+
+祝您阅读愉快。
+
+Acme Store 客服团队",pending_human_review,3,4,4,4,False,False,False,False,False,,
+marc-zh_0257768,zh,neutral,features,"看喜好
+
+可能是宝宝不喜欢，买了后一直没放澡盆里，作用一般","李先生，感谢您的反馈。我们听到了您提到宝宝不太喜欢这款澡盆，所以一直没有用上。我们很感激您这样坦诚的意见——既说到了产品的局限，也给了我们改进的方向。如果您后续有任何问题或想探讨其他选择，欢迎随时联系我们的客服团队 support@acme-store.example。
+
+Acme Store 客服团队",pending_human_review,3,3,2,4,False,True,False,False,False,,
+marc-zh_0452248,zh,positive,quality,"竹炭墨雪皂好评
+
+淡淡的奶香味，细腻的泡沫，洗完脸滑滑嫩嫩的，好舒服！大爱哦😚",张女士，感谢您的反馈。听到您喜欢竹炭墨雪皂淡淡的奶香味和细腻泡沫，洗完后皮肤滑嫩舒服，我们很开心。期待您下次光临。,auto_approved,4,5,5,5,False,False,False,False,True,,
+marc-zh_0275018,zh,positive,features,"精致便携
+
+优点： 1、喷漆图案细致、精美。 2、300ml大小适中，对于手掌较小的女性尤为合适。 缺点： 1、保温太好，不易冷却。建议温水灌入，以方便随时饮用。 2、考虑到硅胶圈的老化，建议有配件零售。","陈先生，感谢您的详细反馈。很高兴听到您喜欢喷漆图案的精细设计，以及300ml的大小对手掌较小的使用者很合适。您提出的保温性能和硅胶圈配件的建议很有价值，我们的团队会认真考虑。欢迎继续关注我们。
+
+Acme Store 顾客关怀团队",auto_approved,4,5,5,5,False,False,False,False,True,,
