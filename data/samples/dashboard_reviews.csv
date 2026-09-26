@@ -1,0 +1,1561 @@
+review_id,review_date,language,rating,sentiment,topic,issue_category,reply_status
+marc-en_0813543,2026-07-06,en,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-en_0204948,2026-07-06,en,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0554819,2026-07-06,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0556434,2026-07-06,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0973839,2026-07-06,de,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0911832,2026-07-06,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0490813,2026-07-06,es,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-es_0269065,2026-07-06,es,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0874224,2026-07-06,es,3,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-fr_0283576,2026-07-06,fr,2,neutral,quality,,draft_ready
+marc-fr_0313433,2026-07-06,fr,1,neutral,support,,draft_ready
+marc-fr_0055581,2026-07-06,fr,5,positive,features,,draft_ready
+marc-fr_0347305,2026-07-06,fr,5,positive,quality,,draft_ready
+marc-zh_0342867,2026-07-06,zh,5,positive,quality,,draft_ready
+marc-zh_0836477,2026-07-06,zh,1,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-zh_0005908,2026-07-06,zh,4,positive,other,,draft_ready
+marc-zh_0875692,2026-07-06,zh,4,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-en_0534557,2026-07-06,en,5,positive,quality,,draft_ready
+marc-en_0935780,2026-07-06,en,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0658318,2026-07-06,en,3,neutral,price,,draft_ready
+marc-de_0721461,2026-07-06,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0865180,2026-07-06,ja,3,neutral,support,,draft_ready
+marc-zh_0075253,2026-07-06,zh,5,positive,quality,,draft_ready
+marc-en_0047628,2026-07-07,en,5,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-en_0795357,2026-07-07,en,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0234139,2026-07-07,en,4,positive,quality,,draft_ready
+marc-de_0094824,2026-07-07,de,4,positive,quality,,draft_ready
+marc-de_0237074,2026-07-07,de,5,positive,quality,,draft_ready
+marc-de_0360162,2026-07-07,de,4,positive,quality,,draft_ready
+marc-de_0336740,2026-07-07,de,4,positive,quality,,draft_ready
+marc-de_0300377,2026-07-07,de,5,positive,quality,,draft_ready
+marc-de_0621632,2026-07-07,de,3,neutral,features,,draft_ready
+marc-es_0252106,2026-07-07,es,4,positive,quality,,draft_ready
+marc-es_0014362,2026-07-07,es,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0930076,2026-07-07,es,2,negative,support,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0266637,2026-07-07,fr,5,positive,features,,draft_ready
+marc-fr_0496983,2026-07-07,fr,3,neutral,quality,,draft_ready
+marc-fr_0670308,2026-07-07,fr,1,negative,ux,Poor overall quality and durability,pending_human_review
+marc-fr_0849260,2026-07-07,fr,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-fr_0105861,2026-07-07,fr,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0790623,2026-07-07,ja,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0564620,2026-07-07,ja,4,positive,quality,,draft_ready
+marc-zh_0275018,2026-07-07,zh,5,positive,features,,draft_ready
+marc-en_0048409,2026-07-07,en,1,negative,other,Connectivity and performance issues,pending_human_review
+marc-en_0821209,2026-07-07,en,4,positive,quality,,draft_ready
+marc-de_0306851,2026-07-07,de,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0952774,2026-07-07,de,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0497562,2026-07-07,es,5,positive,features,,draft_ready
+marc-es_0014355,2026-07-07,es,1,positive,ux,,draft_ready
+marc-es_0872634,2026-07-07,es,3,positive,features,,draft_ready
+marc-fr_0926570,2026-07-07,fr,4,positive,price,,draft_ready
+marc-ja_0474653,2026-07-07,ja,3,neutral,features,,draft_ready
+marc-ja_0315774,2026-07-07,ja,4,positive,features,,draft_ready
+marc-zh_0294614,2026-07-07,zh,5,positive,quality,,draft_ready
+marc-zh_0296995,2026-07-07,zh,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-de_0085659,2026-07-08,de,3,neutral,quality,,draft_ready
+marc-de_0113033,2026-07-08,de,4,positive,quality,,draft_ready
+marc-de_0543915,2026-07-08,de,3,positive,shipping,,draft_ready
+marc-es_0699380,2026-07-08,es,3,neutral,features,,draft_ready
+marc-es_0273015,2026-07-08,es,1,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-es_0395660,2026-07-08,es,5,positive,features,,draft_ready
+marc-zh_0749724,2026-07-08,zh,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-en_0330643,2026-07-08,en,5,positive,quality,,draft_ready
+marc-de_0118401,2026-07-08,de,4,positive,quality,,draft_ready
+marc-es_0877674,2026-07-08,es,1,negative,ux,Overpriced and rapid price drops,pending_human_review
+marc-ja_0107142,2026-07-08,ja,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0922365,2026-07-09,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0894906,2026-07-09,de,3,neutral,support,,draft_ready
+marc-de_0489440,2026-07-09,de,4,neutral,quality,,draft_ready
+marc-de_0399356,2026-07-09,de,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0027404,2026-07-09,de,5,positive,quality,,draft_ready
+marc-es_0497167,2026-07-09,es,3,neutral,features,,draft_ready
+marc-es_0921881,2026-07-09,es,4,neutral,features,,draft_ready
+marc-fr_0842392,2026-07-09,fr,2,negative,shipping,Wrong size sent or undersized product,pending_human_review
+marc-ja_0552824,2026-07-09,ja,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0053311,2026-07-09,ja,4,positive,features,,draft_ready
+marc-zh_0617293,2026-07-09,zh,4,neutral,shipping,,draft_ready
+marc-zh_0039822,2026-07-09,zh,5,positive,quality,,draft_ready
+marc-zh_0072464,2026-07-09,zh,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0470628,2026-07-09,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0083533,2026-07-09,en,5,positive,other,,draft_ready
+marc-es_0376323,2026-07-09,es,3,positive,ux,,draft_ready
+marc-es_0039791,2026-07-09,es,3,positive,features,,draft_ready
+marc-es_0945438,2026-07-09,es,5,positive,quality,,draft_ready
+marc-fr_0727953,2026-07-09,fr,5,positive,ux,,draft_ready
+marc-ja_0821964,2026-07-09,ja,5,positive,quality,,draft_ready
+marc-zh_0868726,2026-07-09,zh,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0340272,2026-07-10,en,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0828910,2026-07-10,en,3,neutral,quality,,draft_ready
+marc-en_0824094,2026-07-10,en,4,positive,quality,,draft_ready
+marc-en_0626638,2026-07-10,en,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0612408,2026-07-10,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0476275,2026-07-10,de,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0612862,2026-07-10,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0888695,2026-07-10,es,5,positive,quality,,draft_ready
+marc-fr_0963884,2026-07-10,fr,2,neutral,features,,draft_ready
+marc-fr_0117450,2026-07-10,fr,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0372005,2026-07-10,ja,1,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-ja_0632349,2026-07-10,ja,2,negative,features,Missing parts and assembly defects,pending_human_review
+marc-zh_0523810,2026-07-10,zh,4,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0148352,2026-07-10,zh,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0710691,2026-07-10,zh,3,neutral,quality,,draft_ready
+marc-en_0636387,2026-07-10,en,5,positive,features,,draft_ready
+marc-en_0380624,2026-07-10,en,5,positive,quality,,draft_ready
+marc-de_0028614,2026-07-10,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0287484,2026-07-10,de,4,positive,shipping,,draft_ready
+marc-es_0681251,2026-07-10,es,3,neutral,quality,,draft_ready
+marc-ja_0952830,2026-07-10,ja,2,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0512733,2026-07-10,ja,3,positive,quality,,draft_ready
+marc-ja_0247384,2026-07-10,ja,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0127740,2026-07-10,ja,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0795328,2026-07-10,ja,3,neutral,quality,,draft_ready
+marc-zh_0374307,2026-07-10,zh,5,positive,shipping,,draft_ready
+marc-en_0211123,2026-07-11,en,4,positive,features,,draft_ready
+marc-de_0305418,2026-07-11,de,5,positive,other,,draft_ready
+marc-de_0277529,2026-07-11,de,3,neutral,quality,,draft_ready
+marc-es_0396959,2026-07-11,es,2,neutral,shipping,,draft_ready
+marc-fr_0124643,2026-07-11,fr,4,positive,quality,,draft_ready
+marc-fr_0028512,2026-07-11,fr,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-fr_0901791,2026-07-11,fr,5,positive,quality,,draft_ready
+marc-ja_0799477,2026-07-11,ja,5,positive,quality,,draft_ready
+marc-zh_0243818,2026-07-11,zh,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0188026,2026-07-11,de,3,neutral,quality,,draft_ready
+marc-es_0723178,2026-07-11,es,3,neutral,features,,draft_ready
+marc-es_0667488,2026-07-11,es,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0525833,2026-07-11,es,2,neutral,features,,draft_ready
+marc-es_0643390,2026-07-11,es,3,positive,price,,draft_ready
+marc-fr_0112870,2026-07-11,fr,4,positive,quality,,draft_ready
+marc-ja_0358448,2026-07-11,ja,5,positive,quality,,draft_ready
+marc-ja_0050314,2026-07-11,ja,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0821298,2026-07-12,en,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-en_0361327,2026-07-12,en,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0165719,2026-07-12,es,3,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0368033,2026-07-12,es,5,positive,shipping,,draft_ready
+marc-es_0506284,2026-07-12,es,1,negative,features,Missing parts and assembly defects,pending_human_review
+marc-fr_0801545,2026-07-12,fr,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-zh_0090495,2026-07-12,zh,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0006562,2026-07-12,zh,5,positive,shipping,,draft_ready
+marc-zh_0626570,2026-07-12,zh,4,neutral,features,,draft_ready
+marc-en_0763208,2026-07-12,en,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0171705,2026-07-12,fr,3,positive,quality,,draft_ready
+marc-ja_0551410,2026-07-12,ja,5,positive,quality,,draft_ready
+marc-zh_0358774,2026-07-12,zh,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-en_0742221,2026-07-13,en,4,neutral,quality,,draft_ready
+marc-en_0591001,2026-07-13,en,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0468820,2026-07-13,de,2,negative,features,Overpriced and rapid price drops,pending_human_review
+marc-es_0029097,2026-07-13,es,5,positive,quality,,draft_ready
+marc-es_0448259,2026-07-13,es,4,positive,quality,,draft_ready
+marc-fr_0144447,2026-07-13,fr,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-fr_0863630,2026-07-13,fr,3,positive,price,,draft_ready
+marc-ja_0407650,2026-07-13,ja,3,neutral,features,,draft_ready
+marc-ja_0644172,2026-07-13,ja,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0729844,2026-07-13,zh,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0200740,2026-07-13,zh,5,positive,quality,,draft_ready
+marc-zh_0857446,2026-07-13,zh,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0387213,2026-07-13,en,4,positive,ux,,draft_ready
+marc-es_0030751,2026-07-13,es,4,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-ja_0326612,2026-07-13,ja,4,positive,quality,,draft_ready
+marc-zh_0756538,2026-07-13,zh,4,positive,features,,draft_ready
+marc-zh_0135833,2026-07-13,zh,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0463290,2026-07-13,zh,4,neutral,features,,draft_ready
+marc-en_0637104,2026-07-14,en,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0004501,2026-07-14,en,5,positive,other,,draft_ready
+marc-es_0707123,2026-07-14,es,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0043599,2026-07-14,es,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0787741,2026-07-14,es,5,positive,quality,,draft_ready
+marc-fr_0466610,2026-07-14,fr,3,neutral,quality,,draft_ready
+marc-fr_0650153,2026-07-14,fr,5,positive,other,,draft_ready
+marc-ja_0742302,2026-07-14,ja,2,negative,shipping,Overpriced and rapid price drops,pending_human_review
+marc-zh_0861304,2026-07-14,zh,5,positive,quality,,draft_ready
+marc-zh_0240357,2026-07-14,zh,4,neutral,features,,draft_ready
+marc-zh_0009937,2026-07-14,zh,4,positive,price,,draft_ready
+marc-zh_0935469,2026-07-14,zh,3,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0222590,2026-07-14,ja,2,negative,other,Poor content quality and printing errors,pending_human_review
+marc-en_0295731,2026-07-15,en,4,positive,quality,,draft_ready
+marc-en_0325745,2026-07-15,en,5,positive,quality,,draft_ready
+marc-de_0899335,2026-07-15,de,4,neutral,quality,,draft_ready
+marc-es_0460787,2026-07-15,es,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0165736,2026-07-15,es,2,negative,features,Missing parts and assembly defects,pending_human_review
+marc-es_0325633,2026-07-15,es,4,positive,features,,draft_ready
+marc-fr_0614190,2026-07-15,fr,3,positive,shipping,,draft_ready
+marc-fr_0259874,2026-07-15,fr,3,positive,quality,,draft_ready
+marc-fr_0100517,2026-07-15,fr,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0490621,2026-07-15,fr,5,positive,features,,draft_ready
+marc-fr_0244855,2026-07-15,fr,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0929748,2026-07-15,fr,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-zh_0595508,2026-07-15,zh,2,positive,support,,draft_ready
+marc-zh_0184465,2026-07-15,zh,5,positive,features,,draft_ready
+marc-en_0887057,2026-07-15,en,1,negative,shipping,Wrong size sent or undersized product,pending_human_review
+marc-de_0655662,2026-07-15,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0669425,2026-07-15,de,3,neutral,price,,draft_ready
+marc-de_0460098,2026-07-15,de,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0512211,2026-07-15,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0439236,2026-07-15,ja,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0299194,2026-07-16,en,3,neutral,quality,,draft_ready
+marc-de_0463996,2026-07-16,de,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0526594,2026-07-16,de,5,positive,quality,,draft_ready
+marc-de_0267693,2026-07-16,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0607770,2026-07-16,ja,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0281173,2026-07-16,ja,4,positive,quality,,draft_ready
+marc-ja_0291227,2026-07-16,ja,3,neutral,features,,draft_ready
+marc-ja_0856470,2026-07-16,ja,5,positive,quality,,draft_ready
+marc-ja_0436371,2026-07-16,ja,5,positive,shipping,,draft_ready
+marc-zh_0251178,2026-07-16,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0541829,2026-07-16,zh,3,negative,features,Missing parts and assembly defects,pending_human_review
+marc-en_0786789,2026-07-16,en,4,positive,quality,,draft_ready
+marc-en_0100792,2026-07-16,en,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0677513,2026-07-16,es,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0680425,2026-07-16,es,2,neutral,quality,,draft_ready
+marc-ja_0999591,2026-07-16,ja,3,neutral,other,,draft_ready
+marc-en_0761379,2026-07-17,en,4,positive,quality,,draft_ready
+marc-en_0658732,2026-07-17,en,4,positive,features,,draft_ready
+marc-en_0401592,2026-07-17,en,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0410841,2026-07-17,en,4,positive,features,,draft_ready
+marc-de_0249099,2026-07-17,de,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0647580,2026-07-17,de,5,positive,quality,,draft_ready
+marc-de_0169289,2026-07-17,de,5,positive,quality,,draft_ready
+marc-es_0934610,2026-07-17,es,5,positive,price,,draft_ready
+marc-es_0770386,2026-07-17,es,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0341118,2026-07-17,es,1,negative,features,Poor content quality and printing errors,pending_human_review
+marc-fr_0850694,2026-07-17,fr,4,positive,shipping,,draft_ready
+marc-fr_0673854,2026-07-17,fr,3,neutral,quality,,draft_ready
+marc-fr_0125516,2026-07-17,fr,1,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-ja_0330132,2026-07-17,ja,3,neutral,features,,draft_ready
+marc-ja_0914055,2026-07-17,ja,4,positive,quality,,draft_ready
+marc-ja_0436014,2026-07-17,ja,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0676547,2026-07-17,ja,4,positive,quality,,draft_ready
+marc-zh_0885474,2026-07-17,zh,1,neutral,quality,,draft_ready
+marc-de_0919875,2026-07-17,de,4,neutral,features,,draft_ready
+marc-de_0512127,2026-07-17,de,4,positive,features,,draft_ready
+marc-fr_0398149,2026-07-17,fr,5,positive,other,,draft_ready
+marc-ja_0529879,2026-07-17,ja,5,positive,quality,,draft_ready
+marc-ja_0942071,2026-07-17,ja,5,positive,other,,draft_ready
+marc-zh_0123490,2026-07-17,zh,5,neutral,other,,draft_ready
+marc-es_0374660,2026-07-18,es,5,positive,quality,,draft_ready
+marc-fr_0677482,2026-07-18,fr,5,positive,quality,,draft_ready
+marc-fr_0759798,2026-07-18,fr,5,positive,features,,draft_ready
+marc-fr_0486723,2026-07-18,fr,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0531545,2026-07-18,ja,4,positive,features,,draft_ready
+marc-zh_0692562,2026-07-18,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0656613,2026-07-18,zh,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0579497,2026-07-18,en,5,positive,other,,draft_ready
+marc-en_0616085,2026-07-18,en,3,negative,features,Poor overall quality and durability,pending_human_review
+marc-es_0528044,2026-07-18,es,5,positive,features,,draft_ready
+marc-es_0718258,2026-07-18,es,4,positive,features,,draft_ready
+marc-ja_0185968,2026-07-18,ja,5,positive,quality,,draft_ready
+marc-zh_0971056,2026-07-18,zh,5,positive,quality,,draft_ready
+marc-en_0661644,2026-07-19,en,5,positive,quality,,draft_ready
+marc-de_0118403,2026-07-19,de,4,positive,features,,draft_ready
+marc-de_0005409,2026-07-19,de,3,neutral,features,,draft_ready
+marc-es_0340227,2026-07-19,es,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0810152,2026-07-19,es,4,neutral,features,,draft_ready
+marc-es_0518321,2026-07-19,es,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0485953,2026-07-19,fr,3,neutral,quality,,draft_ready
+marc-ja_0368497,2026-07-19,ja,4,positive,features,,draft_ready
+marc-zh_0888314,2026-07-19,zh,5,positive,quality,,draft_ready
+marc-zh_0212046,2026-07-19,zh,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-zh_0202648,2026-07-19,zh,4,neutral,quality,,draft_ready
+marc-zh_0122782,2026-07-19,zh,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0913276,2026-07-19,en,5,positive,other,,draft_ready
+marc-de_0261554,2026-07-19,de,5,positive,price,,draft_ready
+marc-es_0349453,2026-07-19,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0958296,2026-07-19,es,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0710172,2026-07-19,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0882751,2026-07-19,fr,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0128537,2026-07-19,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0231214,2026-07-19,ja,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0800927,2026-07-19,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0211858,2026-07-20,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0494600,2026-07-20,de,4,neutral,features,,draft_ready
+marc-es_0722624,2026-07-20,es,3,neutral,features,,draft_ready
+marc-es_0410888,2026-07-20,es,3,neutral,features,,draft_ready
+marc-fr_0313747,2026-07-20,fr,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0689664,2026-07-20,ja,5,positive,quality,,draft_ready
+marc-ja_0763539,2026-07-20,ja,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-ja_0592491,2026-07-20,ja,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0604711,2026-07-20,ja,5,positive,quality,,draft_ready
+marc-zh_0835660,2026-07-20,zh,2,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-de_0355871,2026-07-20,de,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-fr_0638480,2026-07-20,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0176608,2026-07-20,ja,5,positive,quality,,draft_ready
+marc-zh_0196718,2026-07-20,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-de_0157628,2026-07-21,de,2,neutral,features,,draft_ready
+marc-es_0989900,2026-07-21,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0504380,2026-07-21,es,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0320614,2026-07-21,es,5,positive,quality,,draft_ready
+marc-fr_0794449,2026-07-21,fr,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0339468,2026-07-21,fr,3,negative,features,Poor content quality and printing errors,pending_human_review
+marc-ja_0750550,2026-07-21,ja,5,positive,quality,,draft_ready
+marc-zh_0480518,2026-07-21,zh,5,positive,other,,draft_ready
+marc-de_0950377,2026-07-21,de,4,neutral,quality,,draft_ready
+marc-de_0722117,2026-07-21,de,5,positive,quality,,draft_ready
+marc-es_0110878,2026-07-21,es,5,positive,features,,draft_ready
+marc-fr_0529553,2026-07-21,fr,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0934684,2026-07-21,ja,5,positive,quality,,draft_ready
+marc-ja_0394717,2026-07-21,ja,2,negative,features,Product does not work as advertised,pending_human_review
+marc-en_0006668,2026-07-22,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0638693,2026-07-22,de,4,positive,quality,,draft_ready
+marc-de_0529102,2026-07-22,de,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0516872,2026-07-22,de,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0950659,2026-07-22,fr,2,neutral,quality,,draft_ready
+marc-fr_0687551,2026-07-22,fr,5,positive,price,,draft_ready
+marc-ja_0262198,2026-07-22,ja,5,positive,price,,draft_ready
+marc-zh_0810352,2026-07-22,zh,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0830983,2026-07-22,zh,5,positive,features,,draft_ready
+marc-zh_0574423,2026-07-22,zh,3,negative,ux,Poor content quality and printing errors,pending_human_review
+marc-en_0238322,2026-07-22,en,4,neutral,quality,,draft_ready
+marc-de_0575204,2026-07-22,de,1,negative,quality,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0538931,2026-07-22,de,5,positive,quality,,draft_ready
+marc-es_0784150,2026-07-22,es,4,positive,ux,,draft_ready
+marc-fr_0306779,2026-07-22,fr,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0310547,2026-07-22,zh,4,positive,quality,,draft_ready
+marc-en_0982802,2026-07-23,en,5,positive,quality,,draft_ready
+marc-en_0370560,2026-07-23,en,4,positive,features,,draft_ready
+marc-en_0451398,2026-07-23,en,5,positive,quality,,draft_ready
+marc-de_0093946,2026-07-23,de,3,positive,features,,draft_ready
+marc-de_0486377,2026-07-23,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0823755,2026-07-23,de,5,positive,quality,,draft_ready
+marc-de_0199963,2026-07-23,de,1,positive,quality,,draft_ready
+marc-es_0860028,2026-07-23,es,5,positive,quality,,draft_ready
+marc-es_0312917,2026-07-23,es,4,positive,quality,,draft_ready
+marc-zh_0322290,2026-07-23,zh,5,positive,features,,draft_ready
+marc-zh_0460857,2026-07-23,zh,4,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0596921,2026-07-23,fr,4,positive,price,,draft_ready
+marc-ja_0729805,2026-07-23,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0186164,2026-07-23,ja,4,positive,quality,,draft_ready
+marc-ja_0701175,2026-07-23,ja,4,positive,quality,,draft_ready
+marc-zh_0910983,2026-07-23,zh,3,negative,ux,Poor overall quality and durability,pending_human_review
+marc-zh_0356302,2026-07-23,zh,5,positive,price,,draft_ready
+marc-zh_0433682,2026-07-23,zh,5,positive,quality,,draft_ready
+marc-zh_0802148,2026-07-23,zh,5,positive,other,,draft_ready
+marc-de_0761981,2026-07-24,de,5,positive,quality,,draft_ready
+marc-de_0041212,2026-07-24,de,2,negative,features,Missing parts and assembly defects,pending_human_review
+marc-de_0926105,2026-07-24,de,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0997989,2026-07-24,es,5,positive,quality,,draft_ready
+marc-es_0308951,2026-07-24,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0103867,2026-07-24,es,2,negative,features,Connectivity and performance issues,pending_human_review
+marc-es_0152596,2026-07-24,es,5,positive,price,,draft_ready
+marc-fr_0683092,2026-07-24,fr,2,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-fr_0140363,2026-07-24,fr,3,neutral,features,,draft_ready
+marc-ja_0570359,2026-07-24,ja,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0139096,2026-07-24,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-zh_0557637,2026-07-24,zh,3,neutral,other,,draft_ready
+marc-zh_0027331,2026-07-24,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0907747,2026-07-24,zh,4,positive,quality,,draft_ready
+marc-de_0009405,2026-07-24,de,5,positive,quality,,draft_ready
+marc-de_0832993,2026-07-24,de,1,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-es_0347680,2026-07-24,es,5,positive,quality,,draft_ready
+marc-fr_0136930,2026-07-24,fr,5,positive,price,,draft_ready
+marc-fr_0974036,2026-07-24,fr,3,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0762735,2026-07-24,fr,4,positive,features,,draft_ready
+marc-ja_0193885,2026-07-24,ja,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0056361,2026-07-24,ja,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-en_0635987,2026-07-25,en,4,positive,quality,,draft_ready
+marc-ja_0312166,2026-07-25,ja,4,neutral,features,,draft_ready
+marc-zh_0226386,2026-07-25,zh,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0187967,2026-07-25,en,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0461997,2026-07-25,en,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0852763,2026-07-25,en,5,positive,quality,,draft_ready
+marc-de_0707512,2026-07-25,de,4,neutral,quality,,draft_ready
+marc-es_0236348,2026-07-25,es,4,positive,quality,,draft_ready
+marc-fr_0575680,2026-07-25,fr,3,neutral,shipping,,draft_ready
+marc-fr_0970577,2026-07-25,fr,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0412823,2026-07-25,fr,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0348186,2026-07-25,ja,5,positive,price,,draft_ready
+marc-ja_0202086,2026-07-25,ja,2,neutral,quality,,draft_ready
+marc-zh_0115897,2026-07-25,zh,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0847757,2026-07-25,zh,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0346401,2026-07-25,zh,3,positive,other,,draft_ready
+marc-zh_0765360,2026-07-25,zh,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0767120,2026-07-26,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0217512,2026-07-26,de,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0401527,2026-07-26,de,2,neutral,quality,,draft_ready
+marc-es_0868871,2026-07-26,es,4,positive,features,,draft_ready
+marc-es_0045384,2026-07-26,es,5,positive,price,,draft_ready
+marc-es_0982024,2026-07-26,es,5,positive,quality,,draft_ready
+marc-fr_0604851,2026-07-26,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0055667,2026-07-26,ja,4,positive,quality,,draft_ready
+marc-en_0517659,2026-07-26,en,3,neutral,features,,draft_ready
+marc-de_0439202,2026-07-26,de,4,negative,ux,Wrong item received or non-functional product,pending_human_review
+marc-de_0238815,2026-07-26,de,5,positive,quality,,draft_ready
+marc-fr_0206797,2026-07-26,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0394310,2026-07-26,fr,3,negative,features,Connectivity and performance issues,pending_human_review
+marc-ja_0878879,2026-07-26,ja,4,positive,ux,,draft_ready
+marc-zh_0182878,2026-07-26,zh,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0203445,2026-07-26,zh,4,positive,shipping,,draft_ready
+marc-zh_0056390,2026-07-26,zh,1,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-zh_0450745,2026-07-26,zh,4,positive,quality,,draft_ready
+marc-en_0796629,2026-07-27,en,5,positive,other,,draft_ready
+marc-de_0865133,2026-07-27,de,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-es_0535332,2026-07-27,es,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0272104,2026-07-27,es,4,neutral,shipping,,draft_ready
+marc-es_0914686,2026-07-27,es,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0520585,2026-07-27,fr,5,positive,price,,draft_ready
+marc-fr_0128607,2026-07-27,fr,4,neutral,features,,draft_ready
+marc-fr_0234008,2026-07-27,fr,4,positive,quality,,draft_ready
+marc-ja_0498679,2026-07-27,ja,4,neutral,quality,,draft_ready
+marc-ja_0425564,2026-07-27,ja,5,positive,features,,draft_ready
+marc-ja_0522656,2026-07-27,ja,3,neutral,features,,draft_ready
+marc-ja_0066258,2026-07-27,ja,5,positive,price,,draft_ready
+marc-ja_0251125,2026-07-27,ja,4,neutral,quality,,draft_ready
+marc-ja_0880731,2026-07-27,ja,1,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-en_0000882,2026-07-27,en,5,positive,quality,,draft_ready
+marc-es_0761093,2026-07-27,es,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0485228,2026-07-28,en,4,negative,other,Wrong item received or non-functional product,pending_human_review
+marc-en_0162471,2026-07-28,en,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0438760,2026-07-28,en,4,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0450530,2026-07-28,de,5,positive,ux,,draft_ready
+marc-es_0601879,2026-07-28,es,4,neutral,shipping,,draft_ready
+marc-es_0432147,2026-07-28,es,3,neutral,features,,draft_ready
+marc-es_0129408,2026-07-28,es,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0720696,2026-07-28,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0572327,2026-07-28,fr,3,negative,features,Poor content quality and printing errors,pending_human_review
+marc-fr_0081147,2026-07-28,fr,5,positive,quality,,draft_ready
+marc-ja_0915593,2026-07-28,ja,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0866860,2026-07-28,en,3,neutral,price,,draft_ready
+marc-de_0093598,2026-07-28,de,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-de_0731644,2026-07-28,de,4,positive,quality,,draft_ready
+marc-fr_0220666,2026-07-28,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0453848,2026-07-28,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0583287,2026-07-28,fr,5,positive,quality,,draft_ready
+marc-ja_0991941,2026-07-28,ja,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-zh_0336984,2026-07-28,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0278921,2026-07-29,en,4,positive,ux,,draft_ready
+marc-en_0614327,2026-07-29,en,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0844911,2026-07-29,fr,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0050006,2026-07-29,fr,5,positive,quality,,draft_ready
+marc-ja_0197008,2026-07-29,ja,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0958860,2026-07-29,ja,2,negative,price,Wrong size sent or undersized product,pending_human_review
+marc-zh_0318960,2026-07-29,zh,5,positive,quality,,draft_ready
+marc-zh_0521533,2026-07-29,zh,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0542248,2026-07-29,zh,4,positive,features,,draft_ready
+marc-en_0463339,2026-07-29,en,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-en_0451457,2026-07-29,en,5,positive,other,,draft_ready
+marc-en_0240582,2026-07-29,en,4,positive,quality,,draft_ready
+marc-de_0317642,2026-07-29,de,4,positive,quality,,draft_ready
+marc-de_0170308,2026-07-29,de,4,positive,quality,,draft_ready
+marc-es_0045857,2026-07-29,es,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0199381,2026-07-29,es,3,negative,ux,Wrong item received or non-functional product,pending_human_review
+marc-fr_0510952,2026-07-29,fr,3,neutral,shipping,,draft_ready
+marc-fr_0639107,2026-07-29,fr,4,neutral,shipping,,draft_ready
+marc-ja_0237307,2026-07-29,ja,2,negative,features,Product does not work as advertised,pending_human_review
+marc-zh_0888940,2026-07-29,zh,5,positive,quality,,draft_ready
+marc-zh_0554552,2026-07-29,zh,2,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-zh_0081342,2026-07-29,zh,2,neutral,quality,,draft_ready
+marc-zh_0550713,2026-07-29,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0138190,2026-07-29,zh,3,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0389187,2026-07-30,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0465273,2026-07-30,en,1,negative,other,Wrong item received or non-functional product,pending_human_review
+marc-de_0333710,2026-07-30,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0413973,2026-07-30,de,4,positive,quality,,draft_ready
+marc-es_0037355,2026-07-30,es,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0763511,2026-07-30,fr,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0722875,2026-07-30,fr,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0425563,2026-07-30,ja,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0891020,2026-07-30,ja,1,negative,shipping,Connectivity and performance issues,pending_human_review
+marc-ja_0791060,2026-07-30,ja,5,positive,features,,draft_ready
+marc-zh_0944068,2026-07-30,zh,4,neutral,quality,,draft_ready
+marc-zh_0028546,2026-07-30,zh,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0584733,2026-07-30,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0480446,2026-07-30,en,1,negative,features,Defective or malfunctioning components,pending_human_review
+marc-fr_0514193,2026-07-30,fr,3,positive,quality,,draft_ready
+marc-fr_0686362,2026-07-30,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0725986,2026-07-30,fr,4,positive,features,,draft_ready
+marc-zh_0967678,2026-07-30,zh,5,positive,quality,,draft_ready
+marc-zh_0875622,2026-07-30,zh,1,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0429754,2026-07-31,en,4,positive,quality,,draft_ready
+marc-de_0595054,2026-07-31,de,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0292087,2026-07-31,de,4,positive,other,,draft_ready
+marc-de_0203045,2026-07-31,de,5,positive,quality,,draft_ready
+marc-de_0727296,2026-07-31,de,5,positive,shipping,,draft_ready
+marc-fr_0353298,2026-07-31,fr,4,positive,quality,,draft_ready
+marc-fr_0379672,2026-07-31,fr,3,neutral,ux,,draft_ready
+marc-ja_0752424,2026-07-31,ja,1,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-ja_0505613,2026-07-31,ja,3,positive,support,,draft_ready
+marc-en_0275619,2026-07-31,en,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0827645,2026-07-31,de,3,positive,quality,,draft_ready
+marc-de_0331184,2026-07-31,de,4,negative,ux,Connectivity and performance issues,pending_human_review
+marc-es_0194450,2026-07-31,es,3,negative,features,Connectivity and performance issues,pending_human_review
+marc-es_0780231,2026-07-31,es,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0193182,2026-07-31,fr,1,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0009605,2026-07-31,ja,4,positive,features,,draft_ready
+marc-ja_0545365,2026-07-31,ja,5,positive,other,,draft_ready
+marc-zh_0308486,2026-07-31,zh,4,positive,features,,draft_ready
+marc-zh_0107138,2026-07-31,zh,1,neutral,other,,draft_ready
+marc-en_0107698,2026-08-01,en,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0269197,2026-08-01,en,5,positive,quality,,draft_ready
+marc-en_0133836,2026-08-01,en,2,negative,features,Poor content quality and printing errors,pending_human_review
+marc-fr_0609075,2026-08-01,fr,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-ja_0777269,2026-08-01,ja,5,positive,quality,,draft_ready
+marc-zh_0920380,2026-08-01,zh,4,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-zh_0846880,2026-08-01,zh,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0684489,2026-08-01,en,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0206820,2026-08-01,de,3,neutral,quality,,draft_ready
+marc-es_0695480,2026-08-01,es,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0186404,2026-08-01,fr,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0473822,2026-08-02,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0857804,2026-08-02,es,4,positive,features,,draft_ready
+marc-es_0997505,2026-08-02,es,4,positive,quality,,draft_ready
+marc-es_0958483,2026-08-02,es,4,positive,quality,,draft_ready
+marc-fr_0559646,2026-08-02,fr,5,positive,quality,,draft_ready
+marc-fr_0106711,2026-08-02,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0353347,2026-08-02,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0046884,2026-08-02,zh,2,neutral,features,,draft_ready
+marc-zh_0588767,2026-08-02,zh,5,positive,other,,draft_ready
+marc-zh_0842568,2026-08-02,zh,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0600807,2026-08-02,zh,3,negative,shipping,Overpriced and rapid price drops,pending_human_review
+marc-de_0156692,2026-08-02,de,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-de_0303414,2026-08-02,de,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0095535,2026-08-02,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0625239,2026-08-02,es,4,positive,quality,,draft_ready
+marc-ja_0841363,2026-08-02,ja,2,neutral,shipping,,draft_ready
+marc-zh_0509692,2026-08-02,zh,3,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-en_0346007,2026-08-03,en,2,neutral,quality,,draft_ready
+marc-de_0712963,2026-08-03,de,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0859010,2026-08-03,de,5,positive,shipping,,draft_ready
+marc-de_0221947,2026-08-03,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0058118,2026-08-03,de,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0019246,2026-08-03,es,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0186487,2026-08-03,es,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0786956,2026-08-03,es,5,positive,shipping,,draft_ready
+marc-ja_0993299,2026-08-03,ja,3,negative,features,Connectivity and performance issues,pending_human_review
+marc-ja_0527885,2026-08-03,ja,4,neutral,quality,,draft_ready
+marc-ja_0397212,2026-08-03,ja,5,positive,quality,,draft_ready
+marc-en_0610447,2026-08-03,en,5,positive,other,,draft_ready
+marc-en_0516183,2026-08-03,en,4,positive,other,,draft_ready
+marc-de_0942817,2026-08-03,de,4,positive,quality,,draft_ready
+marc-es_0026006,2026-08-03,es,2,positive,quality,,draft_ready
+marc-fr_0653197,2026-08-03,fr,4,neutral,features,,draft_ready
+marc-fr_0900499,2026-08-03,fr,5,positive,quality,,draft_ready
+marc-fr_0293829,2026-08-03,fr,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0940907,2026-08-03,zh,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0637106,2026-08-04,en,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0697600,2026-08-04,de,4,neutral,quality,,draft_ready
+marc-de_0894150,2026-08-04,de,4,positive,quality,,draft_ready
+marc-de_0549988,2026-08-04,de,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0367079,2026-08-04,de,4,positive,quality,,draft_ready
+marc-es_0449367,2026-08-04,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0489188,2026-08-04,es,3,neutral,features,,draft_ready
+marc-es_0952801,2026-08-04,es,5,positive,quality,,draft_ready
+marc-es_0659892,2026-08-04,es,4,positive,quality,,draft_ready
+marc-es_0748936,2026-08-04,es,3,neutral,features,,draft_ready
+marc-fr_0549940,2026-08-04,fr,4,positive,quality,,draft_ready
+marc-fr_0253485,2026-08-04,fr,2,negative,ux,Missing parts and assembly defects,pending_human_review
+marc-fr_0476176,2026-08-04,fr,5,positive,other,,draft_ready
+marc-fr_0178012,2026-08-04,fr,3,neutral,quality,,draft_ready
+marc-ja_0095004,2026-08-04,ja,2,neutral,quality,,draft_ready
+marc-ja_0669188,2026-08-04,ja,4,positive,quality,,draft_ready
+marc-zh_0896048,2026-08-04,zh,3,neutral,other,,draft_ready
+marc-en_0048503,2026-08-04,en,5,positive,other,,draft_ready
+marc-de_0897328,2026-08-04,de,5,positive,quality,,draft_ready
+marc-de_0755551,2026-08-04,de,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0521113,2026-08-04,fr,4,positive,quality,,draft_ready
+marc-ja_0530990,2026-08-04,ja,4,positive,features,,draft_ready
+marc-zh_0296698,2026-08-04,zh,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0102689,2026-08-04,zh,4,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0512367,2026-08-04,zh,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0859319,2026-08-05,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0822606,2026-08-05,de,1,negative,shipping,Connectivity and performance issues,pending_human_review
+marc-fr_0051458,2026-08-05,fr,3,positive,quality,,draft_ready
+marc-fr_0099784,2026-08-05,fr,5,positive,quality,,draft_ready
+marc-fr_0175987,2026-08-05,fr,4,positive,shipping,,draft_ready
+marc-fr_0246737,2026-08-05,fr,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0759944,2026-08-05,fr,5,positive,quality,,draft_ready
+marc-ja_0865540,2026-08-05,ja,5,positive,quality,,draft_ready
+marc-ja_0763933,2026-08-05,ja,5,positive,quality,,draft_ready
+marc-ja_0790235,2026-08-05,ja,1,negative,support,Wrong item received or non-functional product,pending_human_review
+marc-zh_0778100,2026-08-05,zh,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0869655,2026-08-05,zh,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0793369,2026-08-05,zh,2,negative,features,Poor content quality and printing errors,pending_human_review
+marc-zh_0679945,2026-08-05,zh,4,positive,features,,draft_ready
+marc-en_0177842,2026-08-05,en,4,positive,quality,,draft_ready
+marc-fr_0373293,2026-08-05,fr,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0728316,2026-08-05,fr,3,positive,shipping,,draft_ready
+marc-fr_0246605,2026-08-05,fr,3,neutral,features,,draft_ready
+marc-ja_0466191,2026-08-05,ja,3,positive,quality,,draft_ready
+marc-ja_0306114,2026-08-05,ja,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0175597,2026-08-05,zh,4,neutral,features,,draft_ready
+marc-en_0885179,2026-08-06,en,3,positive,features,,draft_ready
+marc-de_0683266,2026-08-06,de,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0324783,2026-08-06,de,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-fr_0516610,2026-08-06,fr,5,positive,support,,draft_ready
+marc-fr_0283196,2026-08-06,fr,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0388215,2026-08-06,de,4,positive,quality,,draft_ready
+marc-fr_0643937,2026-08-06,fr,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0039566,2026-08-06,ja,4,neutral,shipping,,draft_ready
+marc-en_0713087,2026-08-07,en,5,positive,quality,,draft_ready
+marc-en_0320754,2026-08-07,en,3,negative,other,Overpriced and rapid price drops,pending_human_review
+marc-es_0141345,2026-08-07,es,3,neutral,features,,draft_ready
+marc-es_0218522,2026-08-07,es,3,neutral,quality,,draft_ready
+marc-fr_0021793,2026-08-07,fr,4,positive,price,,draft_ready
+marc-de_0488259,2026-08-07,de,1,negative,other,Poor content quality and printing errors,pending_human_review
+marc-es_0896880,2026-08-07,es,5,positive,quality,,draft_ready
+marc-es_0907782,2026-08-07,es,4,positive,ux,,draft_ready
+marc-es_0182126,2026-08-07,es,4,positive,quality,,draft_ready
+marc-es_0027166,2026-08-07,es,4,positive,features,,draft_ready
+marc-ja_0214759,2026-08-07,ja,5,positive,features,,draft_ready
+marc-en_0935784,2026-08-08,en,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0923112,2026-08-08,es,5,positive,features,,draft_ready
+marc-es_0298173,2026-08-08,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0606353,2026-08-08,fr,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-fr_0842003,2026-08-08,fr,5,positive,quality,,draft_ready
+marc-fr_0794304,2026-08-08,fr,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0427356,2026-08-08,ja,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-zh_0780812,2026-08-08,zh,4,neutral,features,,draft_ready
+marc-zh_0925724,2026-08-08,zh,3,neutral,price,,draft_ready
+marc-zh_0319113,2026-08-08,zh,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0144881,2026-08-08,zh,2,positive,price,,draft_ready
+marc-en_0473625,2026-08-08,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0073580,2026-08-08,en,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0924714,2026-08-08,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0393341,2026-08-08,de,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0924450,2026-08-08,es,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0606015,2026-08-08,es,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0484692,2026-08-08,fr,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0943304,2026-08-08,fr,5,positive,price,,draft_ready
+marc-ja_0189976,2026-08-08,ja,4,positive,features,,draft_ready
+marc-ja_0569550,2026-08-08,ja,2,neutral,other,,draft_ready
+marc-ja_0826609,2026-08-08,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0433281,2026-08-08,zh,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0019735,2026-08-08,zh,4,neutral,features,,draft_ready
+marc-zh_0196797,2026-08-08,zh,5,positive,quality,,draft_ready
+marc-en_0735689,2026-08-09,en,3,neutral,quality,,draft_ready
+marc-en_0846841,2026-08-09,en,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-en_0656187,2026-08-09,en,3,negative,price,Poor overall quality and durability,pending_human_review
+marc-de_0557860,2026-08-09,de,2,negative,features,Defective or malfunctioning components,pending_human_review
+marc-de_0673391,2026-08-09,de,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0895942,2026-08-09,de,1,negative,shipping,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0616175,2026-08-09,fr,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-en_0615825,2026-08-09,en,3,neutral,other,,draft_ready
+marc-de_0047100,2026-08-09,de,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0604657,2026-08-09,es,4,positive,other,,draft_ready
+marc-fr_0699071,2026-08-09,fr,3,neutral,quality,,draft_ready
+marc-fr_0388953,2026-08-09,fr,4,neutral,quality,,draft_ready
+marc-ja_0455317,2026-08-09,ja,2,negative,features,Defective or malfunctioning components,pending_human_review
+marc-zh_0501033,2026-08-09,zh,4,negative,other,Overpriced and rapid price drops,pending_human_review
+marc-de_0287019,2026-08-10,de,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-es_0795433,2026-08-10,es,5,positive,other,,draft_ready
+marc-fr_0665492,2026-08-10,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0067867,2026-08-10,fr,4,positive,quality,,draft_ready
+marc-ja_0720600,2026-08-10,ja,4,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0514230,2026-08-10,ja,2,neutral,quality,,draft_ready
+marc-zh_0251860,2026-08-10,zh,5,neutral,quality,,draft_ready
+marc-zh_0825261,2026-08-10,zh,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0616398,2026-08-10,zh,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0756155,2026-08-10,en,4,positive,quality,,draft_ready
+marc-de_0983233,2026-08-10,de,5,positive,quality,,draft_ready
+marc-de_0880701,2026-08-10,de,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0063871,2026-08-10,es,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0626455,2026-08-10,es,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-zh_0758671,2026-08-10,zh,2,neutral,shipping,,draft_ready
+marc-en_0339533,2026-08-11,en,5,positive,quality,,draft_ready
+marc-en_0903143,2026-08-11,en,1,negative,shipping,Wrong size sent or undersized product,pending_human_review
+marc-en_0729296,2026-08-11,en,4,positive,quality,,draft_ready
+marc-en_0498067,2026-08-11,en,5,positive,quality,,draft_ready
+marc-de_0091981,2026-08-11,de,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0099404,2026-08-11,de,4,neutral,shipping,,draft_ready
+marc-de_0566363,2026-08-11,de,3,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-de_0192440,2026-08-11,de,3,negative,shipping,Wrong size sent or undersized product,pending_human_review
+marc-es_0961430,2026-08-11,es,3,positive,price,,draft_ready
+marc-ja_0967738,2026-08-11,ja,5,positive,quality,,draft_ready
+marc-ja_0647271,2026-08-11,ja,3,neutral,price,,draft_ready
+marc-zh_0401912,2026-08-11,zh,4,positive,support,,draft_ready
+marc-zh_0069461,2026-08-11,zh,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0120263,2026-08-11,es,5,positive,shipping,,draft_ready
+marc-fr_0237022,2026-08-11,fr,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0309163,2026-08-11,ja,3,negative,ux,Poor content quality and printing errors,pending_human_review
+marc-ja_0757565,2026-08-11,ja,4,positive,features,,draft_ready
+marc-zh_0988016,2026-08-11,zh,1,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-en_0513789,2026-08-12,en,4,positive,features,,draft_ready
+marc-en_0390860,2026-08-12,en,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0526884,2026-08-12,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0054002,2026-08-12,de,4,positive,quality,,draft_ready
+marc-de_0318524,2026-08-12,de,5,positive,quality,,draft_ready
+marc-de_0102152,2026-08-12,de,2,negative,price,Poor content quality and printing errors,pending_human_review
+marc-de_0261779,2026-08-12,de,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0081113,2026-08-12,es,2,neutral,quality,,draft_ready
+marc-ja_0119554,2026-08-12,ja,3,neutral,features,,draft_ready
+marc-ja_0796870,2026-08-12,ja,3,neutral,quality,,draft_ready
+marc-ja_0225336,2026-08-12,ja,4,neutral,features,,draft_ready
+marc-en_0168017,2026-08-12,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0861392,2026-08-12,en,4,positive,features,,draft_ready
+marc-en_0088069,2026-08-12,en,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-de_0246318,2026-08-12,de,5,positive,quality,,draft_ready
+marc-de_0610007,2026-08-12,de,3,positive,quality,,draft_ready
+marc-es_0323309,2026-08-12,es,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0305926,2026-08-12,ja,5,positive,ux,,draft_ready
+marc-de_0972627,2026-08-13,de,4,neutral,quality,,draft_ready
+marc-de_0278734,2026-08-13,de,2,negative,features,Defective or malfunctioning components,pending_human_review
+marc-es_0231359,2026-08-13,es,3,negative,other,Poor content quality and printing errors,pending_human_review
+marc-es_0068286,2026-08-13,es,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0648719,2026-08-13,fr,5,positive,shipping,,draft_ready
+marc-zh_0819421,2026-08-13,zh,4,positive,other,,draft_ready
+marc-zh_0854608,2026-08-13,zh,4,neutral,shipping,,draft_ready
+marc-zh_0499259,2026-08-13,zh,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-zh_0483258,2026-08-13,zh,5,positive,quality,,draft_ready
+marc-en_0029242,2026-08-13,en,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0531051,2026-08-13,de,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0713903,2026-08-13,de,4,positive,quality,,draft_ready
+marc-es_0831674,2026-08-13,es,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0575152,2026-08-13,es,3,negative,features,Missing parts and assembly defects,pending_human_review
+marc-en_0180309,2026-08-14,en,5,positive,other,,draft_ready
+marc-en_0547922,2026-08-14,en,5,positive,quality,,draft_ready
+marc-de_0803393,2026-08-14,de,3,neutral,quality,,draft_ready
+marc-fr_0200766,2026-08-14,fr,3,positive,quality,,draft_ready
+marc-fr_0455176,2026-08-14,fr,4,positive,features,,draft_ready
+marc-ja_0599808,2026-08-14,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0481120,2026-08-14,ja,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0853246,2026-08-14,ja,4,neutral,features,,draft_ready
+marc-en_0786965,2026-08-14,en,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-de_0195985,2026-08-14,de,5,positive,quality,,draft_ready
+marc-es_0327271,2026-08-14,es,5,positive,quality,,draft_ready
+marc-zh_0777786,2026-08-14,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0100142,2026-08-14,zh,1,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-de_0402814,2026-08-15,de,5,positive,quality,,draft_ready
+marc-es_0032665,2026-08-15,es,1,negative,features,Poor overall quality and durability,pending_human_review
+marc-fr_0407578,2026-08-15,fr,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0108749,2026-08-15,ja,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0055974,2026-08-15,zh,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0131624,2026-08-15,en,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0644524,2026-08-15,es,5,neutral,other,,draft_ready
+marc-fr_0502729,2026-08-15,fr,1,negative,ux,Missing parts and assembly defects,pending_human_review
+marc-fr_0231775,2026-08-15,fr,5,positive,quality,,draft_ready
+marc-zh_0577132,2026-08-15,zh,2,negative,quality,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0695864,2026-08-15,zh,5,positive,quality,,draft_ready
+marc-en_0070282,2026-08-16,en,4,negative,features,Defective or malfunctioning components,pending_human_review
+marc-en_0815449,2026-08-16,en,4,positive,quality,,draft_ready
+marc-en_0334901,2026-08-16,en,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0969583,2026-08-16,en,2,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-de_0047803,2026-08-16,de,4,positive,other,,draft_ready
+marc-de_0118765,2026-08-16,de,3,neutral,quality,,draft_ready
+marc-es_0755195,2026-08-16,es,4,neutral,features,,draft_ready
+marc-es_0492427,2026-08-16,es,3,positive,quality,,draft_ready
+marc-es_0808325,2026-08-16,es,4,neutral,quality,,draft_ready
+marc-es_0451074,2026-08-16,es,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0597037,2026-08-16,es,3,neutral,features,,draft_ready
+marc-fr_0222472,2026-08-16,fr,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0769814,2026-08-16,fr,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0728840,2026-08-16,ja,5,positive,quality,,draft_ready
+marc-zh_0764200,2026-08-16,zh,5,positive,quality,,draft_ready
+marc-en_0795699,2026-08-16,en,5,positive,quality,,draft_ready
+marc-de_0182070,2026-08-16,de,1,negative,features,Product does not work as advertised,pending_human_review
+marc-de_0545409,2026-08-16,de,2,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-de_0827962,2026-08-16,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0358916,2026-08-16,es,5,positive,price,,draft_ready
+marc-es_0264312,2026-08-17,es,3,neutral,quality,,draft_ready
+marc-es_0801764,2026-08-17,es,2,negative,features,Defective or malfunctioning components,pending_human_review
+marc-fr_0587002,2026-08-17,fr,5,positive,quality,,draft_ready
+marc-fr_0366951,2026-08-17,fr,1,negative,shipping,Connectivity and performance issues,pending_human_review
+marc-zh_0257768,2026-08-17,zh,3,neutral,features,,draft_ready
+marc-en_0132853,2026-08-17,en,2,negative,shipping,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0283084,2026-08-17,de,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0634727,2026-08-17,de,4,positive,quality,,draft_ready
+marc-de_0861719,2026-08-17,de,4,positive,ux,,draft_ready
+marc-es_0279103,2026-08-17,es,3,positive,quality,,draft_ready
+marc-es_0115337,2026-08-17,es,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0709424,2026-08-17,fr,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-zh_0283900,2026-08-17,zh,4,neutral,features,,draft_ready
+marc-en_0697182,2026-08-18,en,2,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-de_0547823,2026-08-18,de,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-es_0396151,2026-08-18,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0475322,2026-08-18,es,5,positive,features,,draft_ready
+marc-es_0222120,2026-08-18,es,4,positive,quality,,draft_ready
+marc-fr_0612590,2026-08-18,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0720886,2026-08-18,zh,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0546787,2026-08-18,zh,3,neutral,price,,draft_ready
+marc-zh_0991902,2026-08-18,zh,2,negative,features,Poor content quality and printing errors,pending_human_review
+marc-zh_0641922,2026-08-18,zh,5,positive,shipping,,draft_ready
+marc-en_0090383,2026-08-18,en,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0575122,2026-08-18,de,5,positive,quality,,draft_ready
+marc-de_0525879,2026-08-18,de,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0447510,2026-08-18,es,5,positive,other,,draft_ready
+marc-fr_0941135,2026-08-18,fr,5,positive,quality,,draft_ready
+marc-ja_0415265,2026-08-18,ja,4,positive,features,,draft_ready
+marc-en_0624491,2026-08-19,en,3,neutral,features,,draft_ready
+marc-de_0637592,2026-08-19,de,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0002655,2026-08-19,fr,4,positive,quality,,draft_ready
+marc-fr_0412593,2026-08-19,fr,4,positive,price,,draft_ready
+marc-fr_0929387,2026-08-19,fr,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0913807,2026-08-19,ja,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0744967,2026-08-19,zh,2,negative,ux,Poor content quality and printing errors,pending_human_review
+marc-de_0259703,2026-08-19,de,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0186387,2026-08-19,es,5,positive,quality,,draft_ready
+marc-es_0609002,2026-08-19,es,1,negative,features,Poor overall quality and durability,pending_human_review
+marc-fr_0384089,2026-08-19,fr,4,positive,price,,draft_ready
+marc-fr_0421182,2026-08-19,fr,4,positive,quality,,draft_ready
+marc-zh_0865349,2026-08-19,zh,3,negative,shipping,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0815088,2026-08-20,en,5,positive,quality,,draft_ready
+marc-en_0146806,2026-08-20,en,1,negative,ux,Missing parts and assembly defects,pending_human_review
+marc-en_0877754,2026-08-20,en,5,positive,features,,draft_ready
+marc-en_0257200,2026-08-20,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0326847,2026-08-20,es,4,positive,shipping,,draft_ready
+marc-es_0705094,2026-08-20,es,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0654531,2026-08-20,fr,4,positive,features,,draft_ready
+marc-ja_0039168,2026-08-20,ja,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0471819,2026-08-20,ja,3,positive,quality,,draft_ready
+marc-ja_0379913,2026-08-20,ja,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0392674,2026-08-20,ja,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0629909,2026-08-20,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0330354,2026-08-20,zh,4,positive,shipping,,draft_ready
+marc-zh_0547949,2026-08-20,zh,1,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-zh_0871708,2026-08-20,zh,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-de_0072375,2026-08-20,de,5,positive,other,,draft_ready
+marc-de_0952881,2026-08-20,de,3,positive,shipping,,draft_ready
+marc-es_0227293,2026-08-20,es,2,negative,quality,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0021974,2026-08-20,fr,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0955855,2026-08-20,zh,3,neutral,quality,,draft_ready
+marc-en_0384781,2026-08-21,en,3,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0262988,2026-08-21,es,3,neutral,quality,,draft_ready
+marc-es_0639013,2026-08-21,es,5,positive,features,,draft_ready
+marc-es_0554075,2026-08-21,es,4,positive,quality,,draft_ready
+marc-es_0473227,2026-08-21,es,4,neutral,features,,draft_ready
+marc-fr_0160953,2026-08-21,fr,5,positive,quality,,draft_ready
+marc-ja_0301866,2026-08-21,ja,4,positive,price,,draft_ready
+marc-ja_0988758,2026-08-21,ja,5,positive,quality,,draft_ready
+marc-ja_0327627,2026-08-21,ja,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0579375,2026-08-21,ja,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0373805,2026-08-21,ja,4,positive,features,,draft_ready
+marc-ja_0231874,2026-08-21,ja,3,neutral,features,,draft_ready
+marc-zh_0386154,2026-08-21,zh,3,positive,quality,,draft_ready
+marc-zh_0455602,2026-08-21,zh,1,negative,support,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0562505,2026-08-21,zh,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-zh_0223342,2026-08-21,zh,4,neutral,quality,,draft_ready
+marc-en_0395866,2026-08-21,en,1,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-en_0186451,2026-08-21,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0477246,2026-08-21,de,5,positive,price,,draft_ready
+marc-de_0449785,2026-08-21,de,5,positive,price,,draft_ready
+marc-fr_0037951,2026-08-21,fr,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0672883,2026-08-21,ja,3,neutral,ux,,draft_ready
+marc-zh_0197556,2026-08-21,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0421881,2026-08-22,en,4,negative,features,Defective or malfunctioning components,pending_human_review
+marc-en_0309806,2026-08-22,en,5,positive,features,,draft_ready
+marc-en_0470857,2026-08-22,en,3,positive,quality,,draft_ready
+marc-en_0362001,2026-08-22,en,5,positive,quality,,draft_ready
+marc-en_0897237,2026-08-22,en,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0142992,2026-08-22,en,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0223970,2026-08-22,de,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0285645,2026-08-22,de,5,positive,quality,,draft_ready
+marc-de_0775386,2026-08-22,de,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0937063,2026-08-22,es,2,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-fr_0777465,2026-08-22,fr,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0189087,2026-08-22,fr,3,neutral,features,,draft_ready
+marc-ja_0221266,2026-08-22,ja,1,negative,other,Poor content quality and printing errors,pending_human_review
+marc-ja_0307700,2026-08-22,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0065229,2026-08-22,ja,2,neutral,features,,draft_ready
+marc-ja_0954733,2026-08-22,ja,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0147389,2026-08-22,zh,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-en_0512506,2026-08-22,en,4,neutral,features,,draft_ready
+marc-de_0197957,2026-08-22,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0903424,2026-08-22,es,4,positive,quality,,draft_ready
+marc-es_0047146,2026-08-22,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0286106,2026-08-22,fr,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0326818,2026-08-22,fr,5,positive,quality,,draft_ready
+marc-ja_0017930,2026-08-22,ja,1,negative,support,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0630212,2026-08-22,ja,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0411240,2026-08-23,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0636375,2026-08-23,de,4,positive,quality,,draft_ready
+marc-fr_0337284,2026-08-23,fr,3,negative,features,Connectivity and performance issues,pending_human_review
+marc-fr_0055874,2026-08-23,fr,5,positive,quality,,draft_ready
+marc-ja_0775396,2026-08-23,ja,5,positive,quality,,draft_ready
+marc-ja_0632941,2026-08-23,ja,2,neutral,features,,draft_ready
+marc-zh_0211248,2026-08-23,zh,3,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-en_0135056,2026-08-23,en,1,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-en_0858827,2026-08-23,en,5,positive,quality,,draft_ready
+marc-en_0720763,2026-08-23,en,5,positive,features,,draft_ready
+marc-de_0998877,2026-08-23,de,5,positive,quality,,draft_ready
+marc-es_0490313,2026-08-23,es,4,positive,price,,draft_ready
+marc-ja_0668999,2026-08-23,ja,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0237250,2026-08-23,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0268803,2026-08-24,en,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0543595,2026-08-24,de,5,positive,quality,,draft_ready
+marc-es_0448766,2026-08-24,es,3,neutral,price,,draft_ready
+marc-es_0839082,2026-08-24,es,5,positive,quality,,draft_ready
+marc-es_0771475,2026-08-24,es,3,positive,quality,,draft_ready
+marc-fr_0109308,2026-08-24,fr,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-ja_0551942,2026-08-24,ja,3,neutral,features,,draft_ready
+marc-ja_0711944,2026-08-24,ja,5,positive,features,,draft_ready
+marc-ja_0927859,2026-08-24,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0452248,2026-08-24,zh,5,positive,quality,,draft_ready
+marc-zh_0839871,2026-08-24,zh,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0836983,2026-08-24,en,3,neutral,quality,,draft_ready
+marc-en_0401008,2026-08-24,en,1,negative,quality,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0289152,2026-08-24,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0598471,2026-08-24,en,5,positive,features,,draft_ready
+marc-de_0952076,2026-08-24,de,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0205935,2026-08-24,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0094996,2026-08-24,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0883343,2026-08-24,fr,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0495577,2026-08-24,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0026936,2026-08-24,ja,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0766353,2026-08-24,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0864758,2026-08-24,zh,5,positive,price,,draft_ready
+marc-en_0412285,2026-08-25,en,5,positive,quality,,draft_ready
+marc-en_0881506,2026-08-25,en,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0620556,2026-08-25,en,4,positive,other,,draft_ready
+marc-en_0285561,2026-08-25,en,5,positive,quality,,draft_ready
+marc-fr_0321225,2026-08-25,fr,4,positive,quality,,draft_ready
+marc-ja_0063443,2026-08-25,ja,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0357208,2026-08-25,ja,4,positive,quality,,draft_ready
+marc-ja_0464148,2026-08-25,ja,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0761014,2026-08-25,zh,5,positive,quality,,draft_ready
+marc-en_0808250,2026-08-25,en,2,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-es_0629153,2026-08-25,es,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0916527,2026-08-25,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0578538,2026-08-25,fr,5,positive,quality,,draft_ready
+marc-fr_0570578,2026-08-25,fr,1,negative,shipping,Defective or malfunctioning components,pending_human_review
+marc-ja_0716854,2026-08-25,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0092533,2026-08-25,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0538630,2026-08-25,ja,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0017575,2026-08-25,ja,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0470083,2026-08-25,ja,5,positive,quality,,draft_ready
+marc-en_0830385,2026-08-26,en,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0208099,2026-08-26,en,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-de_0771895,2026-08-26,de,4,positive,ux,,draft_ready
+marc-es_0338577,2026-08-26,es,2,negative,other,Poor content quality and printing errors,pending_human_review
+marc-es_0584400,2026-08-26,es,5,positive,quality,,draft_ready
+marc-fr_0615040,2026-08-26,fr,4,positive,features,,draft_ready
+marc-fr_0964988,2026-08-26,fr,5,positive,quality,,draft_ready
+marc-fr_0531776,2026-08-26,fr,2,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-ja_0966500,2026-08-26,ja,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0841205,2026-08-26,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0590315,2026-08-26,zh,1,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0807647,2026-08-26,es,3,neutral,support,,draft_ready
+marc-es_0727173,2026-08-26,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0476009,2026-08-26,es,2,positive,features,,draft_ready
+marc-es_0983456,2026-08-26,es,4,positive,features,,draft_ready
+marc-fr_0736251,2026-08-26,fr,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0565551,2026-08-26,ja,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0672497,2026-08-26,ja,4,neutral,features,,draft_ready
+marc-zh_0919944,2026-08-26,zh,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0031671,2026-08-26,zh,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0478693,2026-08-27,en,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0968905,2026-08-27,en,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0471052,2026-08-27,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0676170,2026-08-27,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0450749,2026-08-27,es,4,neutral,quality,,draft_ready
+marc-es_0999063,2026-08-27,es,4,positive,quality,,draft_ready
+marc-es_0742335,2026-08-27,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0721867,2026-08-27,fr,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-fr_0620303,2026-08-27,fr,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0030707,2026-08-27,zh,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-zh_0674194,2026-08-27,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0497295,2026-08-27,en,4,positive,features,,draft_ready
+marc-de_0271336,2026-08-27,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0108077,2026-08-27,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0974807,2026-08-27,de,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0519033,2026-08-27,es,1,negative,shipping,Overpriced and rapid price drops,pending_human_review
+marc-es_0639031,2026-08-27,es,1,neutral,other,,draft_ready
+marc-ja_0315038,2026-08-27,ja,5,positive,quality,,draft_ready
+marc-zh_0359535,2026-08-27,zh,4,positive,other,,draft_ready
+marc-en_0078578,2026-08-28,en,3,neutral,quality,,draft_ready
+marc-de_0311619,2026-08-28,de,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0350234,2026-08-28,de,5,positive,quality,,draft_ready
+marc-de_0541796,2026-08-28,de,3,negative,features,Poor overall quality and durability,pending_human_review
+marc-de_0463126,2026-08-28,de,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0145226,2026-08-28,fr,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-fr_0786375,2026-08-28,fr,4,neutral,other,,draft_ready
+marc-fr_0597377,2026-08-28,fr,1,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-fr_0802917,2026-08-28,fr,3,positive,features,,draft_ready
+marc-ja_0402043,2026-08-28,ja,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0137949,2026-08-28,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0268719,2026-08-28,en,3,neutral,features,,draft_ready
+marc-de_0607674,2026-08-28,de,5,positive,quality,,draft_ready
+marc-es_0903204,2026-08-28,es,5,positive,price,,draft_ready
+marc-fr_0317930,2026-08-28,fr,4,neutral,features,,draft_ready
+marc-zh_0256810,2026-08-28,zh,5,positive,price,,draft_ready
+marc-zh_0754194,2026-08-28,zh,1,positive,quality,,draft_ready
+marc-zh_0188091,2026-08-28,zh,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0689027,2026-08-28,zh,4,neutral,quality,,draft_ready
+marc-zh_0225528,2026-08-28,zh,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-en_0073602,2026-08-29,en,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0757375,2026-08-29,en,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-de_0893086,2026-08-29,de,2,negative,features,Poor content quality and printing errors,pending_human_review
+marc-es_0776174,2026-08-29,es,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0623351,2026-08-29,fr,5,positive,quality,,draft_ready
+marc-fr_0245855,2026-08-29,fr,3,positive,other,,draft_ready
+marc-fr_0921723,2026-08-29,fr,3,neutral,price,,draft_ready
+marc-fr_0645892,2026-08-29,fr,4,positive,quality,,draft_ready
+marc-fr_0935869,2026-08-29,fr,5,positive,quality,,draft_ready
+marc-fr_0025502,2026-08-29,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0621055,2026-08-29,ja,5,positive,quality,,draft_ready
+marc-ja_0116680,2026-08-29,ja,5,positive,price,,draft_ready
+marc-zh_0276394,2026-08-29,zh,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0628720,2026-08-29,de,5,positive,quality,,draft_ready
+marc-es_0002026,2026-08-29,es,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0503614,2026-08-29,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0810594,2026-08-29,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0965974,2026-08-29,fr,2,negative,ux,Wrong item received or non-functional product,pending_human_review
+marc-fr_0065386,2026-08-29,fr,4,positive,quality,,draft_ready
+marc-ja_0164266,2026-08-29,ja,3,negative,other,Overpriced and rapid price drops,pending_human_review
+marc-ja_0992384,2026-08-29,ja,4,neutral,quality,,draft_ready
+marc-zh_0013544,2026-08-29,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0207438,2026-08-30,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0936306,2026-08-30,en,4,positive,other,,draft_ready
+marc-en_0940539,2026-08-30,en,4,positive,features,,draft_ready
+marc-en_0694954,2026-08-30,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0510070,2026-08-30,de,5,positive,quality,,draft_ready
+marc-de_0359486,2026-08-30,de,1,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0139233,2026-08-30,de,5,positive,quality,,draft_ready
+marc-de_0675987,2026-08-30,de,5,positive,features,,draft_ready
+marc-de_0523336,2026-08-30,de,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0231515,2026-08-30,es,5,positive,quality,,draft_ready
+marc-es_0039502,2026-08-30,es,1,negative,support,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0215265,2026-08-30,ja,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0289893,2026-08-30,ja,5,positive,support,,draft_ready
+marc-ja_0478679,2026-08-30,ja,3,positive,features,,draft_ready
+marc-en_0938383,2026-08-30,en,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0275416,2026-08-30,es,4,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-es_0657874,2026-08-30,es,3,neutral,features,,draft_ready
+marc-fr_0246245,2026-08-30,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-fr_0546048,2026-08-30,fr,5,positive,other,,draft_ready
+marc-zh_0326728,2026-08-30,zh,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0343650,2026-08-31,de,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0692355,2026-08-31,de,5,positive,quality,,draft_ready
+marc-fr_0385086,2026-08-31,fr,4,positive,quality,,draft_ready
+marc-ja_0068823,2026-08-31,ja,4,positive,quality,,draft_ready
+marc-ja_0987145,2026-08-31,ja,5,positive,quality,,draft_ready
+marc-ja_0375097,2026-08-31,ja,4,positive,quality,,draft_ready
+marc-ja_0984168,2026-08-31,ja,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0892582,2026-08-31,zh,1,negative,features,Poor content quality and printing errors,pending_human_review
+marc-zh_0092156,2026-08-31,zh,5,neutral,price,,draft_ready
+marc-en_0142469,2026-08-31,en,2,neutral,features,,draft_ready
+marc-de_0765434,2026-08-31,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0213013,2026-08-31,fr,3,neutral,quality,,draft_ready
+marc-ja_0462401,2026-08-31,ja,4,positive,other,,draft_ready
+marc-ja_0490965,2026-08-31,ja,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0603027,2026-08-31,ja,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-ja_0023441,2026-08-31,ja,4,positive,other,,draft_ready
+marc-ja_0404879,2026-08-31,ja,1,negative,features,Poor overall quality and durability,pending_human_review
+marc-zh_0422914,2026-08-31,zh,4,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-en_0364771,2026-09-01,en,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0778395,2026-09-01,de,3,positive,quality,,draft_ready
+marc-de_0089112,2026-09-01,de,4,positive,features,,draft_ready
+marc-de_0103838,2026-09-01,de,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0166847,2026-09-01,es,5,positive,quality,,draft_ready
+marc-es_0231219,2026-09-01,es,4,positive,shipping,,draft_ready
+marc-es_0257846,2026-09-01,es,1,negative,shipping,Defective or malfunctioning components,pending_human_review
+marc-fr_0161838,2026-09-01,fr,4,positive,price,,draft_ready
+marc-fr_0935439,2026-09-01,fr,2,neutral,shipping,,draft_ready
+marc-ja_0796142,2026-09-01,ja,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0148233,2026-09-01,ja,4,positive,quality,,draft_ready
+marc-ja_0962253,2026-09-01,ja,4,neutral,quality,,draft_ready
+marc-ja_0361973,2026-09-01,ja,4,positive,quality,,draft_ready
+marc-ja_0780428,2026-09-01,ja,4,positive,features,,draft_ready
+marc-ja_0689662,2026-09-01,ja,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-en_0301486,2026-09-01,en,5,neutral,quality,,draft_ready
+marc-de_0974123,2026-09-01,de,4,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-ja_0416062,2026-09-01,ja,5,neutral,quality,,draft_ready
+marc-ja_0799118,2026-09-01,ja,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-en_0061690,2026-09-02,en,4,positive,quality,,draft_ready
+marc-en_0457033,2026-09-02,en,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0117795,2026-09-02,en,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0069752,2026-09-02,de,4,neutral,features,,draft_ready
+marc-de_0681892,2026-09-02,de,3,neutral,quality,,draft_ready
+marc-es_0612015,2026-09-02,es,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-es_0111801,2026-09-02,es,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0285016,2026-09-02,ja,5,positive,features,,draft_ready
+marc-ja_0460554,2026-09-02,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0021017,2026-09-02,zh,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-zh_0499891,2026-09-02,zh,5,positive,price,,draft_ready
+marc-zh_0801739,2026-09-02,zh,1,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-zh_0916045,2026-09-02,zh,5,positive,quality,,draft_ready
+marc-de_0788335,2026-09-02,de,5,positive,quality,,draft_ready
+marc-de_0721385,2026-09-02,de,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0384047,2026-09-02,fr,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-ja_0782394,2026-09-02,ja,5,positive,quality,,draft_ready
+marc-ja_0866047,2026-09-02,ja,5,positive,quality,,draft_ready
+marc-en_0667466,2026-09-03,en,4,positive,quality,,draft_ready
+marc-en_0161375,2026-09-03,en,4,positive,ux,,draft_ready
+marc-en_0735836,2026-09-03,en,3,negative,features,Poor overall quality and durability,pending_human_review
+marc-de_0521657,2026-09-03,de,5,positive,quality,,draft_ready
+marc-de_0569138,2026-09-03,de,3,neutral,features,,draft_ready
+marc-es_0904043,2026-09-03,es,3,negative,features,Product does not work as advertised,pending_human_review
+marc-es_0112100,2026-09-03,es,4,neutral,quality,,draft_ready
+marc-fr_0787589,2026-09-03,fr,5,positive,quality,,draft_ready
+marc-fr_0888499,2026-09-03,fr,4,positive,features,,draft_ready
+marc-ja_0036301,2026-09-03,ja,3,neutral,features,,draft_ready
+marc-ja_0138280,2026-09-03,ja,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-zh_0616753,2026-09-03,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0847734,2026-09-03,zh,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0824065,2026-09-03,en,4,positive,quality,,draft_ready
+marc-de_0090216,2026-09-03,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0661563,2026-09-03,de,4,positive,shipping,,draft_ready
+marc-de_0755212,2026-09-03,de,5,positive,quality,,draft_ready
+marc-de_0641480,2026-09-03,de,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0584414,2026-09-03,es,3,negative,features,Missing parts and assembly defects,pending_human_review
+marc-fr_0300683,2026-09-03,fr,2,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-zh_0867488,2026-09-03,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0767555,2026-09-03,zh,5,positive,quality,,draft_ready
+marc-en_0317754,2026-09-04,en,3,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-de_0398472,2026-09-04,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0494157,2026-09-04,de,5,positive,quality,,draft_ready
+marc-es_0874002,2026-09-04,es,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0949809,2026-09-04,fr,4,positive,quality,,draft_ready
+marc-fr_0149307,2026-09-04,fr,5,positive,features,,draft_ready
+marc-ja_0609464,2026-09-04,ja,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0674875,2026-09-04,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0182523,2026-09-04,zh,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0637266,2026-09-04,zh,5,positive,features,,draft_ready
+marc-zh_0104932,2026-09-04,zh,5,positive,price,,draft_ready
+marc-zh_0634521,2026-09-04,zh,4,positive,features,,draft_ready
+marc-zh_0312138,2026-09-04,zh,3,negative,other,Poor content quality and printing errors,pending_human_review
+marc-en_0951436,2026-09-04,en,5,positive,price,,draft_ready
+marc-en_0765264,2026-09-04,en,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0079497,2026-09-04,en,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0872167,2026-09-04,es,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0484663,2026-09-04,es,4,positive,price,,draft_ready
+marc-fr_0631207,2026-09-04,fr,5,positive,quality,,draft_ready
+marc-fr_0496384,2026-09-04,fr,5,positive,price,,draft_ready
+marc-ja_0792553,2026-09-04,ja,4,positive,ux,,draft_ready
+marc-ja_0208838,2026-09-04,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0791032,2026-09-04,zh,4,neutral,features,,draft_ready
+marc-zh_0709817,2026-09-04,zh,2,positive,quality,,draft_ready
+marc-en_0938093,2026-09-05,en,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0223932,2026-09-05,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0633835,2026-09-05,en,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0879645,2026-09-05,en,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-de_0149817,2026-09-05,de,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0707571,2026-09-05,de,4,neutral,quality,,draft_ready
+marc-es_0655388,2026-09-05,es,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0177604,2026-09-05,es,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0348432,2026-09-05,es,3,neutral,features,,draft_ready
+marc-fr_0114755,2026-09-05,fr,4,positive,features,,draft_ready
+marc-ja_0115615,2026-09-05,ja,5,positive,quality,,draft_ready
+marc-zh_0645610,2026-09-05,zh,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-zh_0743607,2026-09-05,zh,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-de_0958484,2026-09-05,de,5,positive,shipping,,draft_ready
+marc-es_0484215,2026-09-05,es,3,neutral,quality,,draft_ready
+marc-fr_0593754,2026-09-05,fr,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0131725,2026-09-05,zh,4,positive,quality,,draft_ready
+marc-en_0879921,2026-09-06,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0052472,2026-09-06,en,3,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-en_0941497,2026-09-06,en,5,positive,other,,draft_ready
+marc-de_0377323,2026-09-06,de,3,neutral,features,,draft_ready
+marc-fr_0602369,2026-09-06,fr,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0492208,2026-09-06,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0400053,2026-09-06,ja,5,positive,quality,,draft_ready
+marc-ja_0872060,2026-09-06,ja,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0130878,2026-09-06,zh,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0196308,2026-09-06,zh,5,positive,quality,,draft_ready
+marc-zh_0886196,2026-09-06,zh,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-en_0474922,2026-09-06,en,1,negative,shipping,Missing parts and assembly defects,pending_human_review
+marc-de_0389288,2026-09-06,de,1,neutral,shipping,,draft_ready
+marc-es_0432489,2026-09-06,es,2,negative,features,Product does not work as advertised,pending_human_review
+marc-es_0707498,2026-09-06,es,5,positive,quality,,draft_ready
+marc-fr_0156327,2026-09-06,fr,5,positive,quality,,draft_ready
+marc-ja_0003471,2026-09-06,ja,4,positive,price,,draft_ready
+marc-ja_0978286,2026-09-06,ja,4,positive,features,,draft_ready
+marc-ja_0988445,2026-09-06,ja,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0354320,2026-09-06,zh,3,positive,quality,,draft_ready
+marc-en_0942094,2026-09-07,en,5,positive,other,,draft_ready
+marc-de_0750727,2026-09-07,de,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0246776,2026-09-07,es,5,positive,quality,,draft_ready
+marc-ja_0466163,2026-09-07,ja,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0335990,2026-09-07,ja,5,positive,ux,,draft_ready
+marc-ja_0042999,2026-09-07,ja,3,positive,quality,,draft_ready
+marc-zh_0504310,2026-09-07,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0241171,2026-09-07,zh,4,neutral,other,,draft_ready
+marc-en_0075291,2026-09-07,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0709660,2026-09-07,en,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-en_0042411,2026-09-07,en,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0304971,2026-09-07,fr,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-fr_0314915,2026-09-07,fr,4,neutral,features,,draft_ready
+marc-zh_0856285,2026-09-07,zh,3,positive,quality,,draft_ready
+marc-en_0277779,2026-09-08,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0188831,2026-09-08,en,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-en_0488250,2026-09-08,en,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0049013,2026-09-08,de,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0590332,2026-09-08,de,3,negative,price,Poor overall quality and durability,pending_human_review
+marc-es_0021659,2026-09-08,es,4,positive,quality,,draft_ready
+marc-fr_0799433,2026-09-08,fr,3,neutral,features,,draft_ready
+marc-ja_0504221,2026-09-08,ja,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0911140,2026-09-08,ja,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-ja_0777401,2026-09-08,ja,3,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0213166,2026-09-08,zh,3,neutral,other,,draft_ready
+marc-zh_0031090,2026-09-08,zh,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0562340,2026-09-08,zh,4,neutral,features,,draft_ready
+marc-en_0327148,2026-09-08,en,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0228487,2026-09-08,de,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0895381,2026-09-08,es,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0301957,2026-09-08,es,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0638272,2026-09-08,es,5,positive,other,,draft_ready
+marc-fr_0000579,2026-09-08,fr,2,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0780244,2026-09-08,fr,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0008259,2026-09-08,fr,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0642206,2026-09-08,ja,1,negative,ux,Missing parts and assembly defects,pending_human_review
+marc-zh_0817803,2026-09-08,zh,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0688893,2026-09-08,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0815411,2026-09-09,en,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0678784,2026-09-09,en,5,positive,quality,,draft_ready
+marc-en_0564569,2026-09-09,en,5,positive,quality,,draft_ready
+marc-en_0261533,2026-09-09,en,3,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-de_0710379,2026-09-09,de,4,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0247436,2026-09-09,es,2,positive,shipping,,draft_ready
+marc-es_0621777,2026-09-09,es,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0649814,2026-09-09,fr,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0288282,2026-09-09,fr,4,positive,quality,,draft_ready
+marc-fr_0774548,2026-09-09,fr,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0643982,2026-09-09,fr,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0847334,2026-09-09,ja,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-ja_0936387,2026-09-09,ja,3,neutral,ux,,draft_ready
+marc-en_0662264,2026-09-09,en,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0696683,2026-09-09,es,4,positive,features,,draft_ready
+marc-fr_0795306,2026-09-09,fr,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0642390,2026-09-09,fr,5,positive,quality,,draft_ready
+marc-fr_0121887,2026-09-09,fr,4,positive,quality,,draft_ready
+marc-ja_0569132,2026-09-09,ja,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0947419,2026-09-09,ja,5,positive,features,,draft_ready
+marc-zh_0070900,2026-09-09,zh,5,positive,quality,,draft_ready
+marc-zh_0759832,2026-09-09,zh,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0192323,2026-09-10,en,1,positive,support,,draft_ready
+marc-en_0668716,2026-09-10,en,3,neutral,quality,,draft_ready
+marc-de_0722506,2026-09-10,de,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0726687,2026-09-10,de,5,positive,price,,draft_ready
+marc-es_0105127,2026-09-10,es,3,negative,shipping,Defective or malfunctioning components,pending_human_review
+marc-fr_0043110,2026-09-10,fr,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-fr_0710014,2026-09-10,fr,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0698555,2026-09-10,fr,3,negative,features,Missing parts and assembly defects,pending_human_review
+marc-fr_0597889,2026-09-10,fr,4,neutral,features,,draft_ready
+marc-ja_0481034,2026-09-10,ja,4,positive,price,,draft_ready
+marc-ja_0383565,2026-09-10,ja,3,positive,quality,,draft_ready
+marc-ja_0402602,2026-09-10,ja,2,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-en_0501356,2026-09-10,en,1,negative,ux,Missing parts and assembly defects,pending_human_review
+marc-de_0550939,2026-09-10,de,2,negative,features,Missing parts and assembly defects,pending_human_review
+marc-es_0807394,2026-09-10,es,4,positive,price,,draft_ready
+marc-es_0428014,2026-09-10,es,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0522903,2026-09-11,en,5,positive,quality,,draft_ready
+marc-en_0523157,2026-09-11,en,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0548970,2026-09-11,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-de_0557479,2026-09-11,de,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0896590,2026-09-11,es,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-es_0083892,2026-09-11,es,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-es_0123815,2026-09-11,es,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-es_0995055,2026-09-11,es,4,positive,quality,,draft_ready
+marc-fr_0468759,2026-09-11,fr,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0283413,2026-09-11,fr,4,positive,features,,draft_ready
+marc-fr_0077633,2026-09-11,fr,5,positive,shipping,,draft_ready
+marc-fr_0366875,2026-09-11,fr,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-ja_0354974,2026-09-11,ja,4,positive,quality,,draft_ready
+marc-ja_0904416,2026-09-11,ja,5,positive,quality,,draft_ready
+marc-ja_0979836,2026-09-11,ja,4,positive,other,,draft_ready
+marc-zh_0480094,2026-09-11,zh,2,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0445675,2026-09-11,zh,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-zh_0995395,2026-09-11,zh,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0775410,2026-09-11,zh,2,neutral,other,,draft_ready
+marc-zh_0549762,2026-09-11,zh,4,positive,features,,draft_ready
+marc-en_0390743,2026-09-11,en,5,positive,quality,,draft_ready
+marc-es_0248616,2026-09-11,es,5,positive,features,,draft_ready
+marc-es_0348826,2026-09-11,es,5,positive,features,,draft_ready
+marc-ja_0225962,2026-09-11,ja,1,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0793251,2026-09-11,zh,5,positive,quality,,draft_ready
+marc-en_0555859,2026-09-12,en,3,negative,features,Poor content quality and printing errors,pending_human_review
+marc-de_0681329,2026-09-12,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0773296,2026-09-12,de,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-de_0718787,2026-09-12,de,1,negative,other,Overpriced and rapid price drops,pending_human_review
+marc-es_0037046,2026-09-12,es,3,neutral,features,,draft_ready
+marc-fr_0156554,2026-09-12,fr,1,negative,features,Poor overall quality and durability,pending_human_review
+marc-fr_0198181,2026-09-12,fr,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0433202,2026-09-12,fr,5,positive,price,,draft_ready
+marc-fr_0741295,2026-09-12,fr,4,positive,quality,,draft_ready
+marc-ja_0679090,2026-09-12,ja,4,positive,features,,draft_ready
+marc-ja_0294893,2026-09-12,ja,5,positive,ux,,draft_ready
+marc-en_0989399,2026-09-12,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-de_0774807,2026-09-12,de,3,positive,features,,draft_ready
+marc-de_0631217,2026-09-12,de,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0064037,2026-09-12,es,3,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0537874,2026-09-12,fr,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0441188,2026-09-12,fr,4,positive,price,,draft_ready
+marc-fr_0531661,2026-09-12,fr,4,positive,price,,draft_ready
+marc-fr_0090245,2026-09-12,fr,3,positive,quality,,draft_ready
+marc-ja_0520338,2026-09-12,ja,3,neutral,features,,draft_ready
+marc-zh_0751390,2026-09-12,zh,2,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-zh_0709651,2026-09-12,zh,4,neutral,quality,,draft_ready
+marc-en_0815071,2026-09-13,en,4,neutral,features,,draft_ready
+marc-de_0788355,2026-09-13,de,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-de_0183976,2026-09-13,de,4,neutral,ux,,draft_ready
+marc-de_0331298,2026-09-13,de,4,positive,shipping,,draft_ready
+marc-es_0959598,2026-09-13,es,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-fr_0611706,2026-09-13,fr,3,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-fr_0180313,2026-09-13,fr,4,positive,quality,,draft_ready
+marc-fr_0722258,2026-09-13,fr,4,positive,quality,,draft_ready
+marc-fr_0507406,2026-09-13,fr,5,positive,quality,,draft_ready
+marc-fr_0589385,2026-09-13,fr,4,positive,features,,draft_ready
+marc-fr_0862182,2026-09-13,fr,1,negative,ux,Connectivity and performance issues,pending_human_review
+marc-zh_0460139,2026-09-13,zh,5,neutral,other,,draft_ready
+marc-zh_0688335,2026-09-13,zh,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0296416,2026-09-13,en,4,positive,other,,draft_ready
+marc-de_0935906,2026-09-13,de,3,negative,features,Connectivity and performance issues,pending_human_review
+marc-de_0345416,2026-09-13,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0121996,2026-09-13,es,5,positive,quality,,draft_ready
+marc-es_0545389,2026-09-13,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0713942,2026-09-13,ja,1,negative,quality,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0049551,2026-09-13,ja,3,neutral,features,,draft_ready
+marc-zh_0788451,2026-09-13,zh,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-zh_0634157,2026-09-13,zh,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0891854,2026-09-13,zh,3,neutral,features,,draft_ready
+marc-en_0480003,2026-09-14,en,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-de_0799457,2026-09-14,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-de_0238593,2026-09-14,de,4,positive,shipping,,draft_ready
+marc-de_0282359,2026-09-14,de,2,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-es_0519168,2026-09-14,es,4,positive,features,,draft_ready
+marc-es_0734626,2026-09-14,es,3,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-es_0871336,2026-09-14,es,5,positive,support,,draft_ready
+marc-es_0981356,2026-09-14,es,4,neutral,quality,,draft_ready
+marc-fr_0927607,2026-09-14,fr,1,negative,features,Product does not work as advertised,pending_human_review
+marc-fr_0932934,2026-09-14,fr,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-ja_0750536,2026-09-14,ja,5,positive,price,,draft_ready
+marc-ja_0939696,2026-09-14,ja,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0597039,2026-09-14,ja,4,positive,quality,,draft_ready
+marc-zh_0654754,2026-09-14,zh,4,positive,quality,,draft_ready
+marc-zh_0967038,2026-09-14,zh,5,positive,quality,,draft_ready
+marc-en_0268928,2026-09-14,en,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0896038,2026-09-14,en,3,neutral,quality,,draft_ready
+marc-de_0480018,2026-09-14,de,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-es_0904923,2026-09-14,es,5,positive,support,,draft_ready
+marc-fr_0136123,2026-09-14,fr,4,neutral,features,,draft_ready
+marc-ja_0118113,2026-09-14,ja,5,positive,quality,,draft_ready
+marc-ja_0590538,2026-09-14,ja,3,negative,features,Defective or malfunctioning components,pending_human_review
+marc-zh_0509903,2026-09-14,zh,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-de_0260632,2026-09-15,de,4,positive,quality,,draft_ready
+marc-fr_0261646,2026-09-15,fr,4,positive,price,,draft_ready
+marc-fr_0019172,2026-09-15,fr,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0679944,2026-09-15,ja,3,negative,other,Poor content quality and printing errors,pending_human_review
+marc-ja_0554537,2026-09-15,ja,5,positive,support,,draft_ready
+marc-en_0837704,2026-09-15,en,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-de_0118008,2026-09-15,de,3,neutral,features,,draft_ready
+marc-de_0745474,2026-09-15,de,3,neutral,quality,,draft_ready
+marc-es_0353654,2026-09-15,es,3,neutral,features,,draft_ready
+marc-fr_0010235,2026-09-15,fr,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-zh_0612239,2026-09-15,zh,4,neutral,features,,draft_ready
+marc-en_0664167,2026-09-16,en,1,negative,features,Wrong item received or non-functional product,pending_human_review
+marc-en_0322199,2026-09-16,en,3,neutral,quality,,draft_ready
+marc-en_0671284,2026-09-16,en,3,neutral,shipping,,draft_ready
+marc-de_0520890,2026-09-16,de,5,positive,quality,,draft_ready
+marc-fr_0833745,2026-09-16,fr,1,neutral,quality,,draft_ready
+marc-fr_0220384,2026-09-16,fr,2,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0556815,2026-09-16,zh,5,positive,quality,,draft_ready
+marc-zh_0228888,2026-09-16,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0082167,2026-09-16,zh,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0450658,2026-09-16,zh,4,neutral,quality,,draft_ready
+marc-en_0822781,2026-09-16,en,2,negative,features,Poor overall quality and durability,pending_human_review
+marc-en_0859299,2026-09-16,en,3,neutral,features,,draft_ready
+marc-en_0247089,2026-09-16,en,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0108456,2026-09-16,de,5,positive,quality,,draft_ready
+marc-es_0049779,2026-09-16,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0781906,2026-09-16,fr,5,positive,shipping,,draft_ready
+marc-fr_0609453,2026-09-16,fr,4,positive,shipping,,draft_ready
+marc-fr_0952989,2026-09-16,fr,3,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-en_0043616,2026-09-17,en,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0917602,2026-09-17,en,1,negative,other,Poor overall quality and durability,pending_human_review
+marc-en_0975660,2026-09-17,en,4,positive,shipping,,draft_ready
+marc-en_0050065,2026-09-17,en,5,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-de_0571212,2026-09-17,de,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-de_0292334,2026-09-17,de,5,positive,features,,draft_ready
+marc-es_0191084,2026-09-17,es,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0949147,2026-09-17,es,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-es_0482917,2026-09-17,es,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-fr_0680634,2026-09-17,fr,1,negative,ux,Wrong item received or non-functional product,pending_human_review
+marc-fr_0245592,2026-09-17,fr,5,positive,quality,,draft_ready
+marc-fr_0439869,2026-09-17,fr,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-ja_0055695,2026-09-17,ja,3,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-ja_0061425,2026-09-17,ja,3,neutral,ux,,draft_ready
+marc-ja_0323659,2026-09-17,ja,1,neutral,quality,,draft_ready
+marc-ja_0654158,2026-09-17,ja,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0370194,2026-09-17,en,2,negative,features,Missing parts and assembly defects,pending_human_review
+marc-en_0983478,2026-09-17,en,4,positive,quality,,draft_ready
+marc-de_0901577,2026-09-17,de,1,negative,support,Overpriced and rapid price drops,pending_human_review
+marc-fr_0605855,2026-09-17,fr,2,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0047905,2026-09-17,zh,1,negative,shipping,Product does not work as advertised,pending_human_review
+marc-zh_0543800,2026-09-17,zh,5,positive,quality,,draft_ready
+marc-en_0771180,2026-09-18,en,5,positive,features,,draft_ready
+marc-de_0903937,2026-09-18,de,5,positive,quality,,draft_ready
+marc-de_0018828,2026-09-18,de,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0501574,2026-09-18,es,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0820401,2026-09-18,es,3,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-fr_0375340,2026-09-18,fr,5,positive,quality,,draft_ready
+marc-ja_0792295,2026-09-18,ja,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-zh_0312254,2026-09-18,zh,3,neutral,quality,,draft_ready
+marc-zh_0286834,2026-09-18,zh,4,positive,features,,draft_ready
+marc-en_0772439,2026-09-18,en,3,neutral,quality,,draft_ready
+marc-en_0711251,2026-09-18,en,5,positive,ux,,draft_ready
+marc-de_0539421,2026-09-18,de,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-es_0435022,2026-09-18,es,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-fr_0992420,2026-09-18,fr,3,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-ja_0419013,2026-09-18,ja,3,neutral,features,,draft_ready
+marc-zh_0005316,2026-09-18,zh,1,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0873070,2026-09-18,zh,3,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-zh_0486643,2026-09-18,zh,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0372447,2026-09-19,en,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-en_0193996,2026-09-19,en,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-en_0603983,2026-09-19,en,1,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0760810,2026-09-19,en,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-en_0012940,2026-09-19,en,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-de_0218028,2026-09-19,de,4,positive,quality,,draft_ready
+marc-de_0313342,2026-09-19,de,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0956650,2026-09-19,de,3,neutral,features,,draft_ready
+marc-es_0435173,2026-09-19,es,2,neutral,quality,,draft_ready
+marc-es_0726702,2026-09-19,es,4,positive,quality,,draft_ready
+marc-fr_0567062,2026-09-19,fr,3,neutral,price,,draft_ready
+marc-ja_0545640,2026-09-19,ja,2,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-ja_0942288,2026-09-19,ja,4,positive,features,,draft_ready
+marc-ja_0013667,2026-09-19,ja,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0375547,2026-09-19,ja,5,positive,features,,draft_ready
+marc-ja_0171645,2026-09-19,ja,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-zh_0269919,2026-09-19,zh,4,positive,other,,draft_ready
+marc-zh_0053472,2026-09-19,zh,2,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-en_0931880,2026-09-19,en,4,neutral,quality,,draft_ready
+marc-de_0105427,2026-09-19,de,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-es_0310248,2026-09-19,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-fr_0024577,2026-09-19,fr,5,positive,features,,draft_ready
+marc-ja_0803237,2026-09-19,ja,3,neutral,quality,,draft_ready
+marc-zh_0659223,2026-09-19,zh,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-zh_0704468,2026-09-19,zh,5,positive,quality,,draft_ready
+marc-en_0667216,2026-09-20,en,5,positive,other,,draft_ready
+marc-en_0326422,2026-09-20,en,3,neutral,features,,draft_ready
+marc-en_0713439,2026-09-20,en,5,positive,quality,,draft_ready
+marc-de_0348157,2026-09-20,de,3,negative,features,Poor content quality and printing errors,pending_human_review
+marc-de_0553567,2026-09-20,de,5,positive,quality,,draft_ready
+marc-de_0750326,2026-09-20,de,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0799601,2026-09-20,es,4,positive,quality,,draft_ready
+marc-es_0561311,2026-09-20,es,4,positive,quality,,draft_ready
+marc-es_0950564,2026-09-20,es,2,neutral,features,,draft_ready
+marc-fr_0278870,2026-09-20,fr,1,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-ja_0175833,2026-09-20,ja,3,positive,features,,draft_ready
+marc-ja_0031944,2026-09-20,ja,3,neutral,other,,draft_ready
+marc-zh_0004259,2026-09-20,zh,3,neutral,features,,draft_ready
+marc-zh_0905306,2026-09-20,zh,2,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0185911,2026-09-20,zh,4,positive,price,,draft_ready
+marc-en_0297206,2026-09-20,en,4,positive,quality,,draft_ready
+marc-en_0005545,2026-09-20,en,4,positive,quality,,draft_ready
+marc-es_0984716,2026-09-20,es,4,neutral,features,,draft_ready
+marc-zh_0671005,2026-09-20,zh,4,positive,features,,draft_ready
+marc-en_0900759,2026-09-21,en,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0286915,2026-09-21,en,4,positive,features,,draft_ready
+marc-en_0841578,2026-09-21,en,5,positive,other,,draft_ready
+marc-en_0887062,2026-09-21,en,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-en_0740833,2026-09-21,en,4,positive,price,,draft_ready
+marc-de_0804927,2026-09-21,de,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-es_0643172,2026-09-21,es,5,positive,quality,,draft_ready
+marc-es_0976276,2026-09-21,es,2,negative,features,Defective or malfunctioning components,pending_human_review
+marc-es_0173414,2026-09-21,es,5,negative,shipping,Wrong size sent or undersized product,pending_human_review
+marc-es_0373441,2026-09-21,es,5,positive,features,,draft_ready
+marc-fr_0301022,2026-09-21,fr,4,positive,quality,,draft_ready
+marc-fr_0209919,2026-09-21,fr,1,negative,quality,Product does not work as advertised,pending_human_review
+marc-ja_0460051,2026-09-21,ja,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-ja_0608343,2026-09-21,ja,2,neutral,quality,,draft_ready
+marc-zh_0370465,2026-09-21,zh,5,positive,quality,,draft_ready
+marc-zh_0110451,2026-09-21,zh,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-en_0980876,2026-09-21,en,3,negative,features,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0654601,2026-09-21,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-de_0310981,2026-09-21,de,3,neutral,features,,draft_ready
+marc-fr_0558654,2026-09-21,fr,1,negative,shipping,Missing parts and assembly defects,pending_human_review
+marc-fr_0406681,2026-09-21,fr,5,positive,quality,,draft_ready
+marc-zh_0918845,2026-09-21,zh,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0198294,2026-09-21,zh,2,negative,price,Poor content quality and printing errors,pending_human_review
+marc-en_0011750,2026-09-22,en,4,positive,quality,,draft_ready
+marc-en_0778402,2026-09-22,en,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0413260,2026-09-22,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0591337,2026-09-22,es,5,positive,quality,,draft_ready
+marc-es_0769978,2026-09-22,es,3,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-es_0168036,2026-09-22,es,4,positive,features,,draft_ready
+marc-es_0032107,2026-09-22,es,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-fr_0033192,2026-09-22,fr,3,positive,price,,draft_ready
+marc-fr_0429966,2026-09-22,fr,1,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-ja_0511735,2026-09-22,ja,4,neutral,features,,draft_ready
+marc-zh_0517850,2026-09-22,zh,4,positive,features,,draft_ready
+marc-zh_0651665,2026-09-22,zh,3,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-zh_0859752,2026-09-22,zh,5,positive,quality,,draft_ready
+marc-en_0653558,2026-09-22,en,4,positive,quality,,draft_ready
+marc-de_0322885,2026-09-22,de,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-es_0619603,2026-09-22,es,4,positive,shipping,,draft_ready
+marc-fr_0639873,2026-09-22,fr,3,negative,quality,Product does not work as advertised,pending_human_review
+marc-fr_0181684,2026-09-22,fr,4,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0412483,2026-09-22,ja,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0603709,2026-09-23,en,3,positive,features,,draft_ready
+marc-en_0458846,2026-09-23,en,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-en_0619688,2026-09-23,en,4,positive,quality,,draft_ready
+marc-de_0792159,2026-09-23,de,4,positive,features,,draft_ready
+marc-de_0060084,2026-09-23,de,5,positive,features,,draft_ready
+marc-de_0739549,2026-09-23,de,1,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-de_0126949,2026-09-23,de,5,positive,quality,,draft_ready
+marc-es_0231496,2026-09-23,es,2,neutral,features,,draft_ready
+marc-es_0352622,2026-09-23,es,3,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0657341,2026-09-23,fr,1,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0279032,2026-09-23,zh,5,positive,quality,,draft_ready
+marc-en_0377878,2026-09-23,en,4,positive,quality,,draft_ready
+marc-de_0057727,2026-09-23,de,4,neutral,shipping,,draft_ready
+marc-es_0080492,2026-09-23,es,4,positive,features,,draft_ready
+marc-zh_0135518,2026-09-23,zh,5,positive,quality,,draft_ready
+marc-en_0925956,2026-09-24,en,5,positive,quality,,draft_ready
+marc-en_0653972,2026-09-24,en,2,neutral,features,,draft_ready
+marc-de_0926992,2026-09-24,de,2,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-es_0074587,2026-09-24,es,5,positive,quality,,draft_ready
+marc-ja_0781523,2026-09-24,ja,1,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-ja_0755153,2026-09-24,ja,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-ja_0600984,2026-09-24,ja,3,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-zh_0400690,2026-09-24,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0296873,2026-09-24,zh,2,negative,features,Poor content quality and printing errors,pending_human_review
+marc-en_0131135,2026-09-24,en,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0194609,2026-09-24,de,3,neutral,quality,,draft_ready
+marc-es_0328352,2026-09-24,es,5,positive,quality,,draft_ready
+marc-fr_0468400,2026-09-24,fr,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0567135,2026-09-24,fr,5,positive,shipping,,draft_ready
+marc-fr_0864829,2026-09-24,fr,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-en_0616820,2026-09-25,en,4,positive,features,,draft_ready
+marc-en_0412789,2026-09-25,en,3,negative,features,Poor overall quality and durability,pending_human_review
+marc-en_0805210,2026-09-25,en,5,positive,quality,,draft_ready
+marc-de_0635921,2026-09-25,de,4,positive,quality,,draft_ready
+marc-es_0213888,2026-09-25,es,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0345412,2026-09-25,es,1,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-es_0448149,2026-09-25,es,2,negative,quality,Wrong item received or non-functional product,pending_human_review
+marc-fr_0496884,2026-09-25,fr,4,positive,features,,draft_ready
+marc-fr_0497550,2026-09-25,fr,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-zh_0931506,2026-09-25,zh,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-zh_0160234,2026-09-25,zh,3,negative,shipping,Delayed or missing shipments and poor support,pending_human_review
+marc-zh_0712514,2026-09-25,zh,5,positive,quality,,draft_ready
+marc-zh_0020090,2026-09-25,zh,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-zh_0885097,2026-09-25,zh,4,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0244493,2026-09-25,en,3,negative,quality,Product fails or breaks shortly after purchase,pending_human_review
+marc-de_0619764,2026-09-25,de,1,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-de_0257987,2026-09-25,de,4,negative,shipping,Wrong item received or non-functional product,pending_human_review
+marc-es_0236614,2026-09-25,es,1,negative,features,Connectivity and performance issues,pending_human_review
+marc-fr_0552242,2026-09-25,fr,5,positive,quality,,draft_ready
+marc-ja_0750781,2026-09-25,ja,4,positive,price,,draft_ready
+marc-ja_0256549,2026-09-25,ja,5,positive,quality,,draft_ready
+marc-zh_0707074,2026-09-25,zh,4,neutral,features,,draft_ready
+marc-de_0353090,2026-09-26,de,2,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-es_0104824,2026-09-26,es,1,negative,quality,Overpriced and rapid price drops,pending_human_review
+marc-es_0548251,2026-09-26,es,4,positive,price,,draft_ready
+marc-es_0174841,2026-09-26,es,2,negative,quality,Poor overall quality and durability,pending_human_review
+marc-es_0099794,2026-09-26,es,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0091692,2026-09-26,ja,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0512151,2026-09-26,ja,3,negative,quality,Design flaws and uncomfortable fit,pending_human_review
+marc-ja_0458149,2026-09-26,ja,2,negative,quality,Missing parts and assembly defects,pending_human_review
+marc-ja_0939158,2026-09-26,ja,1,negative,price,Overpriced and rapid price drops,pending_human_review
+marc-zh_0690031,2026-09-26,zh,4,negative,shipping,Damaged packaging and product during shipping,pending_human_review
+marc-en_0939658,2026-09-26,en,3,neutral,features,,draft_ready
+marc-en_0310449,2026-09-26,en,3,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-de_0542635,2026-09-26,de,2,negative,quality,Product does not work as advertised,pending_human_review
+marc-de_0041991,2026-09-26,de,2,positive,features,,draft_ready
+marc-fr_0731030,2026-09-26,fr,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0353323,2026-09-27,en,5,positive,features,,draft_ready
+marc-en_0931946,2026-09-27,en,2,negative,features,Wrong size sent or undersized product,pending_human_review
+marc-de_0521200,2026-09-27,de,4,positive,quality,,draft_ready
+marc-de_0111542,2026-09-27,de,1,negative,quality,Connectivity and performance issues,pending_human_review
+marc-de_0412881,2026-09-27,de,3,negative,features,Poor content quality and printing errors,pending_human_review
+marc-de_0798078,2026-09-27,de,5,positive,other,,draft_ready
+marc-es_0272296,2026-09-27,es,5,positive,ux,,draft_ready
+marc-es_0137422,2026-09-27,es,2,negative,quality,Poor content quality and printing errors,pending_human_review
+marc-es_0622076,2026-09-27,es,2,negative,quality,Connectivity and performance issues,pending_human_review
+marc-es_0856580,2026-09-27,es,5,positive,features,,draft_ready
+marc-fr_0764275,2026-09-27,fr,2,negative,quality,Defective or malfunctioning components,pending_human_review
+marc-en_0661107,2026-09-27,en,1,negative,quality,Poor overall quality and durability,pending_human_review
+marc-en_0488065,2026-09-27,en,4,positive,shipping,,draft_ready
+marc-es_0094408,2026-09-27,es,4,positive,quality,,draft_ready
+marc-es_0146775,2026-09-27,es,2,negative,quality,Wrong size sent or undersized product,pending_human_review
+marc-ja_0287744,2026-09-27,ja,2,neutral,quality,,draft_ready
+marc-ja_0928108,2026-09-27,ja,4,positive,features,,draft_ready
+marc-ja_0120474,2026-09-27,ja,3,negative,quality,Connectivity and performance issues,pending_human_review
+marc-ja_0513769,2026-09-27,ja,1,negative,quality,Missing parts and assembly defects,pending_human_review
