@@ -53,6 +53,8 @@ python scripts/check_keys.py             # tests the Claude key
 | `03_full_pipeline.json` | The full pipeline: 02 plus sentiment/topic, issue category, reply drafts, status and a summary with accuracy, cost and timing. Needs the Claude credential on 4 HTTP nodes (Claude translate / classify / issue category / draft reply). Default about $0.30; `perStar` in `Config` scales it (40 = about $3). |
 | `04_trend_detection_slack_alert.json` | Reads the dashboard sheet's Reviews tab (sheet shared as "anyone with the link can view"), finds negative-review spikes per issue category (z >= 3.5, >= 8 reviews, trailing 4 weeks) and posts a summary to Slack. Paste your Slack Incoming Webhook URL into the **Post to Slack** node. No Claude cost. |
 
+Product categories: workflows 01 to 03 fill `product_category` from `data/samples/marc_test_categories.csv`, fetched from this repo's public GitHub raw URL (the Hugging Face copy has none). If that file is not on GitHub yet, or the fetch fails, the run still works and the category is null.
+
 Import: n8n > Workflows > Create workflow > `...` menu > **Import from file**, then **Execute workflow**.
 
 Claude credential (workflow 02 only): n8n > Credentials > Create > **Header Auth**, Name `x-api-key`,
@@ -83,4 +85,26 @@ Endpoints: `GET /health`, `POST /analyze`, `POST /draft-response`, `POST /trends
 
 `docs/final/` holds the Final Project Report (`.docx` and `.pdf`) and the final presentation (`.pptx`). The experiment log behind every number is `docs/experiment_log.md`.
 
-_Demo app and deployment steps to be added._
+## Demo app (Gradio) and deployment (Hugging Face Space)
+
+`app.py` is a three-tab Gradio app that reuses the code in `src/`: saved examples (13 real reviews with their stored output, no Claude call), your own review (live Claude: classify, issue, drafted reply, optional Sonnet 5 judge, spend-capped) and spike detection (the workflow 04 detector on the dashboard data, no Claude call).
+
+Run it locally (needs `pip install gradio`; the live tab needs `ANTHROPIC_API_KEY` in `.env`):
+
+```bash
+python app.py        # http://127.0.0.1:7860
+pytest tests -q      # 16 tests, none call Claude
+```
+
+Live-tab limits: `MAX_SPEND_USD` (default 0.5 in the app), `DEMO_MAX_CALLS` per browser session (default 10), optional `DEMO_ACCESS_CODE`. The spend total is kept in a log file on the server, so it restarts from zero when a Space restarts; also set a spend limit in the Anthropic Console.
+
+Live demo: https://huggingface.co/spaces/SrinivasanHF/review-insights-demo (direct app: https://srinivasanhf-review-insights-demo.hf.space). It runs on the free ZeroGPU tier; `app.py` contains a placeholder `@spaces.GPU` function because ZeroGPU Spaces refuse to start without one (the app itself uses no GPU).
+
+Deploy to a Hugging Face Space (free CPU):
+
+1. `python scripts/build_space.py` builds `space_build/` with only the files the demo needs (about 200 KB, no keys).
+2. On huggingface.co create a new Space: SDK **Gradio**, hardware **CPU basic (free)**.
+3. Space settings, Variables and secrets: add the secret `ANTHROPIC_API_KEY` (type it yourself; never commit it). Optional: `DEMO_ACCESS_CODE`, `MAX_SPEND_USD`.
+4. Upload the contents of `space_build/`: either `python scripts/deploy_space.py` (needs `HF_TOKEN` with write access in `.env`; it uploads the folder with its structure) or, in a browser, Files, Add file, Upload files (one folder at a time).
+5. Wait for the build, open the Space link, and try all three tabs.
+

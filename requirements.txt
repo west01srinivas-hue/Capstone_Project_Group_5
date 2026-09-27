@@ -15,7 +15,7 @@ scikit-learn
 # torch
 fastapi
 uvicorn
-# gradio
+gradio
 # streamlit
 # mlflow
 # langfuse

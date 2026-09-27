@@ -24,3 +24,6 @@ mlruns/
 Thumbs.db
 .vscode/
 .idea/
+
+# demo Space bundle
+space_build/
