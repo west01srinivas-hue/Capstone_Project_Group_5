@@ -57,11 +57,23 @@ Product categories: workflows 01 to 03 fill `product_category` from `data/sample
 
 Import: n8n > Workflows > Create workflow > `...` menu > **Import from file**, then **Execute workflow**.
 
-Claude credential (workflow 02 only): n8n > Credentials > Create > **Header Auth**, Name `x-api-key`,
-Value = your Anthropic API key. Then open the **Claude translate** node and pick that credential.
+Claude credential (workflows 02 and 03): n8n > Credentials > Create > **Header Auth**, Name `x-api-key`,
+Value = your Anthropic API key. Then open each **Claude ...** node (1 in workflow 02, 4 in workflow 03) and pick that credential.
 
 Cost control: the `Config` node sets `perStar` (default 4, about 100 translations, roughly $0.06).
 Set it to 40 for the full 1,200-review sample (roughly $0.55).
+
+### n8n Cloud deployment (current account)
+
+The workflows run on the team's n8n Cloud account `https://capstoneproject-group5.app.n8n.cloud/` (free trial, valid to about 16 Oct 2026; an earlier account was retired on 2 Oct). To set up a fresh account:
+
+1. Import the four JSON files above (a new workflow each, **Import from file** or **Import from URL** with the GitHub raw link). Importing into an already-open workflow pastes the nodes next to the old ones, so import into an empty workflow.
+2. Create the **Header Auth** credential (above) and select it on the 5 Claude nodes in workflows 02 and 03. Imported workflows never carry credentials.
+3. Workflow 04: paste your Slack Incoming Webhook URL into **Post to Slack**, press Ctrl+S, and make the dashboard Google Sheet readable by "anyone with the link".
+4. Run **03** (about $0.30; expect 120 reviews, all with a `product_category`) and **04** (expect 4 spikes and `slack_status: sent`).
+
+Last verified on the current account on 2 Oct 2026: workflow 03 finished in 83 s for $0.30 with 78.3% 3-way and 88.5% positive-vs-negative accuracy; workflow 04 posted the 4 spikes to `#all-capstone-project`. No keys or webhook URLs are stored in this repository.
+
 
 Stage 4 (issue clustering and trend detection): `python scripts/run_stage4.py issues`, then `cluster issue`, `label issue`, `trends issue`.
 
