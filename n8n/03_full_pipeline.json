@@ -473,15 +473,229 @@
       ]
     },
     {
-      "parameters": {},
-      "id": "c3000000-0000-4000-8000-000000000023",
-      "name": "Reviews + insights + drafts (swap for Google Sheets later)",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
+      "parameters": {
+        "resource": "sheet",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "1OF-8A70aY5uX-vLbbayVuJ4Tn7AATgmiiSUedpBpMsQ",
+          "cachedResultName": "Review Insights Dashboard"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "id",
+          "value": "317581559",
+          "cachedResultName": "Pipeline output"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "review_id": "={{ $json.review_id }}",
+            "source": "={{ $json.source }}",
+            "product_category": "={{ $json.product_category }}",
+            "rating": "={{ $json.rating }}",
+            "review_text": "={{ $json.review_text }}",
+            "detected_language": "={{ $json.detected_language }}",
+            "translated_text": "={{ $json.translated_text }}",
+            "review_date": "={{ $json.review_date }}",
+            "sentiment": "={{ $json.sentiment }}",
+            "stars_estimate": "={{ $json.stars_estimate }}",
+            "topic": "={{ $json.topic }}",
+            "confidence": "={{ $json.confidence }}",
+            "issue": "={{ $json.issue }}",
+            "cluster_label": "={{ $json.cluster_label }}",
+            "customer_name": "={{ $json.customer_name }}",
+            "reply": "={{ $json.reply }}",
+            "reply_status": "={{ $json.reply_status }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "review_id",
+              "displayName": "review_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "product_category",
+              "displayName": "product_category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "rating",
+              "displayName": "rating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "review_text",
+              "displayName": "review_text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "detected_language",
+              "displayName": "detected_language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "translated_text",
+              "displayName": "translated_text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "review_date",
+              "displayName": "review_date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "sentiment",
+              "displayName": "sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars_estimate",
+              "displayName": "stars_estimate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "topic",
+              "displayName": "topic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "confidence",
+              "displayName": "confidence",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "issue",
+              "displayName": "issue",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "cluster_label",
+              "displayName": "cluster_label",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "customer_name",
+              "displayName": "customer_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reply",
+              "displayName": "reply",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reply_status",
+              "displayName": "reply_status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "id": "2b6d9f29-59a8-4f93-a0f1-9641fac2ed98",
+      "name": "Save reviews to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
       "position": [
-        4200,
+        4432,
         400
-      ]
+      ],
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -750,7 +964,7 @@
             "index": 0
           },
           {
-            "node": "Reviews + insights + drafts (swap for Google Sheets later)",
+            "node": "Save reviews to Google Sheets",
             "type": "main",
             "index": 0
           }
