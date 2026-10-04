@@ -134,36 +134,31 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
+        "resource": "text",
+        "operation": "message",
+        "modelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json.request.model }}"
+        },
+        "messages": {
+          "values": [
             {
-              "name": "anthropic-version",
-              "value": "2023-06-01"
+              "content": "={{ $json.request.messages[0].content }}",
+              "role": "user"
             }
           ]
         },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify($json.request) }}",
+        "simplify": false,
         "options": {
-          "timeout": 120000,
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 1000
-            }
-          }
+          "system": "={{ $json.request.system }}",
+          "maxTokens": "={{ $json.request.max_tokens }}"
         }
       },
       "id": "c3000000-0000-4000-8000-000000000009",
       "name": "Claude translate",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
       "position": [
         1400,
         440
@@ -172,7 +167,7 @@
       "maxTries": 3,
       "waitBetweenTries": 3000,
       "onError": "continueRegularOutput",
-      "notes": "Needs a Header Auth credential: Name = x-api-key, Value = your Anthropic API key."
+      "notes": "Uses n8n's Anthropic node (Message a model). Needs an Anthropic API credential (Credentials > Create > Anthropic, paste your API key). 'Simplify output' is off so the response keeps the usage counts that the summary node adds up."
     },
     {
       "parameters": {

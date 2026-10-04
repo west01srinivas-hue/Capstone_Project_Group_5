@@ -57,8 +57,7 @@ Product categories: workflows 01 to 03 fill `product_category` from `data/sample
 
 Import: n8n > Workflows > Create workflow > `...` menu > **Import from file**, then **Execute workflow**.
 
-Claude credential (workflows 02 and 03): n8n > Credentials > Create > **Header Auth**, Name `x-api-key`,
-Value = your Anthropic API key. Then open each **Claude ...** node (1 in workflow 02, 4 in workflow 03) and pick that credential.
+Claude credentials: the translation step (**Claude translate**, workflows 02 and 03) uses n8n's built-in **Anthropic** node: n8n > Credentials > Create > **Anthropic**, paste your Anthropic API key, then pick it in that node. The other three Claude nodes in workflow 03 (classify, issue category, draft reply) are still HTTP Request nodes that use a **Header Auth** credential: Name `x-api-key`, Value = your Anthropic API key.
 
 Cost control: the `Config` node sets `perStar` (default 4, about 100 translations, roughly $0.06).
 Set it to 40 for the full 1,200-review sample (roughly $0.55).
@@ -68,7 +67,7 @@ Set it to 40 for the full 1,200-review sample (roughly $0.55).
 The workflows run on the team's n8n Cloud account `https://capstoneproject-group5.app.n8n.cloud/` (free trial, valid to about 16 Oct 2026; an earlier account was retired on 2 Oct). To set up a fresh account:
 
 1. Import the four JSON files above (a new workflow each, **Import from file** or **Import from URL** with the GitHub raw link). Importing into an already-open workflow pastes the nodes next to the old ones, so import into an empty workflow.
-2. Create the **Header Auth** credential (above) and select it on the 5 Claude nodes in workflows 02 and 03 (keep their authentication on *Generic Credential Type, Header Auth*; switching them to n8n's built-in Anthropic type leaves them without a credential and every call fails with "Credentials not found" while the run still turns green). Imported workflows never carry credentials.
+2. Create the **Anthropic** credential and select it on **Claude translate** in workflows 02 and 03, and the **Header Auth** credential (above) on the 3 HTTP Claude nodes in workflow 03 (keep their authentication on *Generic Credential Type, Header Auth*; switching them to n8n's built-in Anthropic type leaves them without a credential and every call fails with "Credentials not found" while the run still turns green). Imported workflows never carry credentials.
    For workflow 03 also connect a Google Sheets credential (Sign in with Google), then in **Save reviews to Google Sheets** pick your spreadsheet and a tab whose first row holds these headers: `review_id, source, product_category, rating, review_text, detected_language, translated_text, review_date, sentiment, stars_estimate, topic, confidence, issue, cluster_label, customer_name, reply, reply_status`.
 3. Workflow 04: paste your Slack Incoming Webhook URL into **Post to Slack**, press Ctrl+S, and make the dashboard Google Sheet readable by "anyone with the link".
 4. Run **03** (about $0.30; expect 120 reviews, all with a `product_category`) and **04** (expect 4 spikes and `slack_status: sent`).
